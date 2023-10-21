@@ -11,6 +11,6 @@ class Conta:
         Conta.id_controle = Conta.id_controle + 1
         
     
-    def criarConta(agencia, cliente):
+    def criar_conta(cls, agencia, cliente):
         conta = Conta(agencia, cliente)
         return conta
