@@ -21,6 +21,8 @@ class Cliente:
         return cliente
     
     
-    def criar_conta_cliente(self, agencia):
-        conta = conta_ent.Conta.criar_conta(agencia, self)
+    def criar_conta(self, agencia):
+        conta = conta_ent.Conta.gerar_conta(agencia, self)
         self.contas.append(conta)
+        
+        return conta

@@ -1,3 +1,5 @@
+import cartao_credito as cartao_ent
+
 class Conta:
     
     id_controle = 1
@@ -11,6 +13,10 @@ class Conta:
         Conta.id_controle = Conta.id_controle + 1
         
     
-    def criar_conta(cls, agencia, cliente):
+    def gerar_conta(cls, agencia, cliente):
         conta = Conta(agencia, cliente)
         return conta
+    
+    def adicionar_cartao_credito(self):
+        cartao = cartao_ent.CartaoCredito.gerar_cartao_credito(self)
+        self.cartoes.append(cartao)
