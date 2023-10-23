@@ -6,7 +6,7 @@ class Conta:
     
     def __init__(self, agencia, cliente):
         self.agencia = agencia
-        self.cliente = cliente
+        self._cliente = cliente
         self.cartoes = []
         
         self.numero = Conta.id_controle

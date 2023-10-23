@@ -7,7 +7,7 @@ class CartaoCredito:
     
     def __init__(self, conta):
         # valores args
-        self.conta = conta
+        self._conta = conta
         self.transacoes = []
         
         # valores default
@@ -17,7 +17,7 @@ class CartaoCredito:
         
         # valores que se utilizam de metodos
         self.validade = CartaoCredito.__gerar_data_validade()
-        self.cvv = CartaoCredito.__gerar_cvv()
+        self._cvv = CartaoCredito.__gerar_cvv()
         
         # valores que se utilizam de static
         self.numero = CartaoCredito.id_controle
