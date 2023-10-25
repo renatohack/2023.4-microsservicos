@@ -11,22 +11,22 @@ class Usuario:
         self.playlists = []
         self.bandas_favoritas = []
     
-    
     def criar_usuario(cls, nome, sobrenome, cartao_credito):
         usuario = Usuario.criar_usuario(nome, sobrenome, cartao_credito)
         return usuario
     
-    def buscar_musicas(self):
-        pass
-    
-    def buscar_bandas(self):
-        pass
     
     def assinar_plano(self, plano):
         assinatura = assinatura_ent.Assinatura.criar_assinatura(self, plano)
         self.assinaturas.append(assinatura)
         return assinatura
     
+    
     def criar_playlist(self, nome):
         playlist = playlist_ent.Playlist.criar_playlist(nome, self)
         self.playlists.append(playlist)
+    
+    
+    def favoritar_banda(self, banda):
+        self.bandas_favoritas.append(banda)
+        banda.usuarios.append(self)

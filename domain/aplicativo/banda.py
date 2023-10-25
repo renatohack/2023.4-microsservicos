@@ -1,5 +1,10 @@
 class Banda:
     
-    def __init__(self, nome):
+    def __init__(self, nome, musicas):
         self.nome = nome
-        self.musicas = []
+        self.musicas = musicas
+        self.usuarios = []
+        
+        
+    def buscar_musicas(self):
+        pass

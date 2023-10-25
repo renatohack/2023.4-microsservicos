@@ -11,3 +11,7 @@ class Playlist:
     
     def adicionar_musica(self, musica):
         self.musicas.append(musica)
+        musica.playlists.append(self)
+        
+    def buscar_musicas(self):
+        pass
