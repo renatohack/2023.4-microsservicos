@@ -8,6 +8,7 @@ class Usuario:
         self.sobrenome = sobrenome
         self.cartao_credito = cartao_credito
         self.assinaturas = []
+        self.musicas_favoritas = playlist_ent.Playlist.criar_playlist('Favoritas', self)
         self.playlists = []
         self.bandas_favoritas = []
     
