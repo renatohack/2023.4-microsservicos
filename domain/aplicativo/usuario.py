@@ -1,16 +1,22 @@
 import assinatura as assinatura_ent
 import playlist as playlist_ent
 import bandas_favoritas as bandas_favs_ent
+import playlists as playlists_ent
 
 class Usuario:
     
     def __init__(self, nome, sobrenome, cartao_credito):
+        
+        # dados usuario
         self.nome = nome
         self.sobrenome = sobrenome
         self.cartao_credito = cartao_credito
+        
+        # assinatura
         self.assinaturas = []
-        self.musicas_favoritas = playlist_ent.Playlist.criar_playlist('Favoritas', self)
-        self.playlists = []
+        
+        # playlists e bandas
+        self.playlists = playlists_ent.Playlists(self)
         self.bandas_favoritas = bandas_favs_ent.BandasFavoritas(self)
     
     def criar_usuario(cls, nome, sobrenome, cartao_credito):
@@ -24,11 +30,5 @@ class Usuario:
         return assinatura
     
     
-    def criar_playlist(self, nome):
-        playlist = playlist_ent.Playlist.criar_playlist(nome, self)
-        self.playlists.append(playlist)
-
-    
-    def favoritar_musica(self, musica):
-        self.musicas_favoritas.append(musica)
-        musica.playlists.append(self.musicas_favoritas)
+    def buscar_bandas(self, nome):
+        return [banda.nome for banda in self.bandas_favoritas.bandas_favoritas if nome in banda.nome]

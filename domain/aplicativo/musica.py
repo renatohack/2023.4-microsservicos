@@ -4,3 +4,7 @@ class Musica:
         self.nome = nome
         self.banda = banda
         self.playlists = []
+        
+    
+    def registrar_playlist(self, playlist):
+        self.playlists.append(playlist)
