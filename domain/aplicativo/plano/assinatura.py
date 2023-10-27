@@ -9,3 +9,7 @@ class Assinatura:
         assinatura = Assinatura(usuario, plano)
         plano.incluir_assinatura(assinatura)
         return assinatura
+    
+    
+    def cancelar_assinatura(self):
+        self.assinatura_ativa = False
