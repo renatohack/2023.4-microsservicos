@@ -1,5 +1,6 @@
 import assinatura as assinatura_ent
 import playlist as playlist_ent
+import bandas_favoritas as bandas_favs_ent
 
 class Usuario:
     
@@ -10,7 +11,7 @@ class Usuario:
         self.assinaturas = []
         self.musicas_favoritas = playlist_ent.Playlist.criar_playlist('Favoritas', self)
         self.playlists = []
-        self.bandas_favoritas = []
+        self.bandas_favoritas = bandas_favs_ent.BandasFavoritas(self)
     
     def criar_usuario(cls, nome, sobrenome, cartao_credito):
         usuario = Usuario.criar_usuario(nome, sobrenome, cartao_credito)
@@ -26,8 +27,3 @@ class Usuario:
     def criar_playlist(self, nome):
         playlist = playlist_ent.Playlist.criar_playlist(nome, self)
         self.playlists.append(playlist)
-    
-    
-    def favoritar_banda(self, banda):
-        self.bandas_favoritas.append(banda)
-        banda.usuarios.append(self)
