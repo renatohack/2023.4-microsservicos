@@ -14,7 +14,7 @@ class Playlists:
     
     
     def favoritar_musica(self, musica):
-        playlist = self.playlists[0]
+        playlist = self.lista_playlists[0]
         playlist.adicionar_musica(musica)
     
     
