@@ -27,3 +27,8 @@ class Usuario:
     def criar_playlist(self, nome):
         playlist = playlist_ent.Playlist.criar_playlist(nome, self)
         self.playlists.append(playlist)
+
+    
+    def favoritar_musica(self, musica):
+        self.musicas_favoritas.append(musica)
+        musica.playlists.append(self.musicas_favoritas)
