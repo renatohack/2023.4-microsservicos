@@ -19,6 +19,7 @@ class Usuario:
         self.playlists = playlists_ent.Playlists(self)
         self.bandas_favoritas = bandas_favs_ent.BandasFavoritas(self)
     
+    
     def criar_usuario(cls, nome, sobrenome, cartao_credito):
         usuario = Usuario.criar_usuario(nome, sobrenome, cartao_credito)
         return usuario
@@ -28,7 +29,3 @@ class Usuario:
         assinatura = assinatura_ent.Assinatura.criar_assinatura(self, plano)
         self.assinaturas.append(assinatura)
         return assinatura
-    
-    
-    def buscar_bandas(self, nome):
-        return [banda.nome for banda in self.bandas_favoritas.bandas_favoritas if nome in banda.nome]
