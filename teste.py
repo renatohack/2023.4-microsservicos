@@ -1,6 +1,17 @@
-import datetime
+input_list = ["apple", "banana", "cherry", "date", "kiwi"]
+substring = "na"
 
-today = datetime.date.today()
-date = today + datetime.timedelta(days = 5 * 365)
+result = [s for s in input_list if substring in s]
+print(result)
 
-print(date)
+
+
+
+input_list = ["apple", "banana", "cherry", "date", "kiwi"]
+substring = "na"
+
+result = []
+for s in input_list:
+    if substring in s:
+        result.append(s)
+print(result)
