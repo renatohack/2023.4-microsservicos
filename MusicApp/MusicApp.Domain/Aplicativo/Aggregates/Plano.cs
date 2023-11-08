@@ -8,5 +8,9 @@ namespace MusicApp.Domain.Aplicativo.Aggregates
 {
     public class Plano
     {
+        public Guid Id { get; set; }
+        public string Nome { get; set; }
+        public decimal Valor { get; set; }
+
     }
 }
