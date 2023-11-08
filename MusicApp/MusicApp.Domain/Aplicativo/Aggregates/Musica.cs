@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MusicApp.Domain.Musicas.Aggregates
+namespace MusicApp.Domain.Aplicativo.Aggregates
 {
-    internal class Musica
+    public class Musica
     {
     }
 }

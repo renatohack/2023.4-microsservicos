@@ -5,6 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MusicApp.Domain.Pagamento.Aggregates {
-    internal class Transacao {
+    public class Transacao {
     }
 }

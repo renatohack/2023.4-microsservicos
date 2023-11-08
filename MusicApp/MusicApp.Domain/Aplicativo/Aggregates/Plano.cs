@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MusicApp.Domain.Aplicativo.Aggregates
 {
-    internal class Plano
+    public class Plano
     {
     }
 }

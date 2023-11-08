@@ -7,14 +7,13 @@ using System.Threading.Tasks;
 
 namespace MusicApp.Domain.Usuario.Aggregates
 {
-    internal class CartaoCredito
+    public class CartaoCredito
     {
 
         public Guid Id { get; set; }
         public List<Pagamento.Aggregates.Transacao> Transacoes { get; set; }
         public bool CartaoAtivo { get; set; }
         public decimal LimiteDisponivel { get; set; }
-
         public CartaoCredito() {
             this.Transacoes = new List<Pagamento.Aggregates.Transacao>();
         }

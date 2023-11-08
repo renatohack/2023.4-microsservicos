@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MusicApp.Domain.Usuario.Aggregates
 {
-    internal class Assinatura
+    public class Assinatura
     {
     }
 }
