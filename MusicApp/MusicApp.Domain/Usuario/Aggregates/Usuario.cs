@@ -17,7 +17,7 @@ namespace MusicApp.Domain.Usuario.Aggregates
 
         // Pagamento
         public List<Assinatura> Assinaturas { get; set; }
-        public List<CartaoCredito> Cartoes { get; set; }
+        public CartaoCredito Cartao { get; set; }
 
         // App
         public List<Playlist> Playlists { get; set; }
@@ -28,7 +28,6 @@ namespace MusicApp.Domain.Usuario.Aggregates
             this.Playlists = new List<Playlist>();
             this.BandasFavoritas = new List<Banda>();
             this.Assinaturas = new List<Assinatura>();
-            this.Cartoes = new List<CartaoCredito>();
         }
 
     }
