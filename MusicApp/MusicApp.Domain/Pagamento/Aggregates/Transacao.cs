@@ -1,10 +1,21 @@
-﻿using System;
+﻿using MusicApp.Domain.Pagamento.ValueObjects;
+using MusicApp.Domain.Usuario.Aggregates;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MusicApp.Domain.Pagamento.Aggregates {
-    public class Transacao {
+    public class Transacao 
+    {
+
+        public Guid Id { get; set; }
+        public CartaoCredito CartaoCredito { get; set;}
+        public Comerciante Comerciante { get; set;}
+        public decimal Valor { get; set;}
+        public DateTime DataTransacao { get; set; }
+
+
     }
 }
