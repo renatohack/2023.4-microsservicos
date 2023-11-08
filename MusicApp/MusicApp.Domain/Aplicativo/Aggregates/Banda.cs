@@ -13,7 +13,7 @@ namespace MusicApp.Domain.Aplicativo.Aggregates {
 
         public Banda() 
         {
-            Musicas = new List<Musica>();
+            this.Musicas = new List<Musica>();
         }
     }
 }
