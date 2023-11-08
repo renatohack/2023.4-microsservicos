@@ -10,10 +10,16 @@ namespace MusicApp.Domain.Usuario.Aggregates
     public class CartaoCredito
     {
 
+        // Info
         public Guid Id { get; set; }
-        public List<Pagamento.Aggregates.Transacao> Transacoes { get; set; }
         public bool CartaoAtivo { get; set; }
         public decimal LimiteDisponivel { get; set; }
+
+        // Transacoes
+        public List<Pagamento.Aggregates.Transacao> Transacoes { get; set; }
+
+
+        // Construtor
         public CartaoCredito() {
             this.Transacoes = new List<Pagamento.Aggregates.Transacao>();
         }
