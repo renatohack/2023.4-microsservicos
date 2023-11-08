@@ -7,6 +7,13 @@ using System.Threading.Tasks;
 namespace MusicApp.Domain.Aplicativo.Aggregates {
     public class Banda 
     {
+        public Guid Id { get; set; }
+        public string Nome { get; set; }
+        public List<Musica> Musicas { get; set; }
 
+        public Banda() 
+        {
+            Musicas = new List<Musica>();
+        }
     }
 }
