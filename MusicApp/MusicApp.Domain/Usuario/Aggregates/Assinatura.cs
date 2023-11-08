@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MusicApp.Domain.Banco.Aggregates
+namespace MusicApp.Domain.Usuario.Aggregates
 {
-    internal class Conta
+    internal class Assinatura
     {
     }
 }

@@ -4,9 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MusicApp.Domain.App.Admin.Aggregates
-{
-    internal class Musica
-    {
+namespace MusicApp.Domain.Musicas.Aggregates {
+    internal class Banda {
     }
 }

@@ -8,7 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Pagamento\ValueObjects\" />
+    <Folder Include="Aplicativo\ValueObjects\" />
+    <Folder Include="Usuario\ValueObjects\" />
   </ItemGroup>
 
 </Project>

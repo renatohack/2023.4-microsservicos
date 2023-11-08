@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MusicApp.Domain.App.Usuario.Aggregates
+namespace MusicApp.Domain.Usuario.Aggregates
 {
-    internal class BandasFavoritas
+    internal class CartaoCredito
     {
     }
 }
