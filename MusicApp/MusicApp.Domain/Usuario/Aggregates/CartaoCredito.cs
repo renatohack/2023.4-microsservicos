@@ -14,6 +14,7 @@ namespace MusicApp.Domain.Usuario.Aggregates
         public Guid Id { get; set; }
         public bool CartaoAtivo { get; set; }
         public decimal LimiteDisponivel { get; set; }
+        public string Numero { get; set; }
 
         // Transacoes
         public List<Pagamento.Aggregates.Transacao> Transacoes { get; set; }
