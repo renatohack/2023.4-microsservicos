@@ -24,7 +24,8 @@ namespace MusicApp.Domain.Usuario.Aggregates
         public List<Banda> BandasFavoritas { get; set; }
 
         // Construtor
-        public Usuario() {
+        public Usuario() 
+        {
             this.Playlists = new List<Playlist>();
             this.BandasFavoritas = new List<Banda>();
             this.Assinaturas = new List<Assinatura>();

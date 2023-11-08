@@ -20,7 +20,8 @@ namespace MusicApp.Domain.Usuario.Aggregates
 
 
         // Construtor
-        public CartaoCredito() {
+        public CartaoCredito() 
+        {
             this.Transacoes = new List<Pagamento.Aggregates.Transacao>();
         }
 
