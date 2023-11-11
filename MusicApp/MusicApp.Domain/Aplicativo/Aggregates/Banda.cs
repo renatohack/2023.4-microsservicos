@@ -13,6 +13,8 @@ namespace MusicApp.Domain.Aplicativo.Aggregates {
 
         public Banda() 
         {
+            this.Id = Guid.NewGuid();
+
             this.Musicas = new List<Musica>();
         }
 

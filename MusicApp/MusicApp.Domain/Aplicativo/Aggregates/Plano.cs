@@ -12,5 +12,10 @@ namespace MusicApp.Domain.Aplicativo.Aggregates
         public string Nome { get; set; }
         public decimal Valor { get; set; }
 
+
+        public Plano() 
+        { 
+            this.Id = Guid.NewGuid();
+        }
     }
 }

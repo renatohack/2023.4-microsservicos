@@ -26,6 +26,8 @@ namespace MusicApp.Domain.Usuario.Aggregates
         // Construtor
         public Usuario() 
         {
+            this.Id = Guid.NewGuid();
+
             this.Playlists = new List<Playlist>();
             this.Playlists.Add(new Playlist() { Nome = "Favoritas" });
 
@@ -40,6 +42,11 @@ namespace MusicApp.Domain.Usuario.Aggregates
         public void AdicionarCartaoCredito(CartaoCredito cartao)
         {
             this.Cartoes.Add(cartao);
+        }
+
+        public bool CartaoCreditoValido(CartaoCredito cartao) 
+        {
+            return true;
         }
 
         public void AssinarPlano(Plano plano, CartaoCredito cartao) { }

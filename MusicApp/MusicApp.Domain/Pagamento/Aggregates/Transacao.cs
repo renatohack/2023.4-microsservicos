@@ -17,5 +17,11 @@ namespace MusicApp.Domain.Pagamento.Aggregates {
         public DateTime DataTransacao { get; set; }
 
 
+
+        public Transacao() 
+        {
+            this.Id = Guid.NewGuid();
+        }
+
     }
 }

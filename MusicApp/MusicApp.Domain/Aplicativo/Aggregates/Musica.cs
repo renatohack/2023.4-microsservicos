@@ -15,6 +15,8 @@ namespace MusicApp.Domain.Aplicativo.Aggregates
 
         public Musica() 
         {
+            this.Id = Guid.NewGuid();
+
             this.Playlists = new List<Playlist>();
         }
     }

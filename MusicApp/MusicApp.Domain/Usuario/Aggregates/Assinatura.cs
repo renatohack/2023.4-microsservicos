@@ -13,5 +13,11 @@ namespace MusicApp.Domain.Usuario.Aggregates
         public Plano Plano { get; set; }
         public bool AssinaturaAtiva { get; set; }
 
+
+        public Assinatura() {
+            this.Id = Guid.NewGuid();
+        }
     }
+
+
 }

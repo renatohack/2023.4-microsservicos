@@ -24,6 +24,8 @@ namespace MusicApp.Domain.Usuario.Aggregates
         // Construtor
         public CartaoCredito() 
         {
+            this.Id = Guid.NewGuid();
+
             this.Transacoes = new List<Pagamento.Aggregates.Transacao>();
         }
 
