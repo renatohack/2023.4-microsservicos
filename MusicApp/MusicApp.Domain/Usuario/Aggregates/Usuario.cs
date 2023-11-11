@@ -35,7 +35,7 @@ namespace MusicApp.Domain.Usuario.Aggregates
         }
 
 
-        public static Usuario CriarUsuario() { return new Usuario(); }
+        public static Usuario CriarUsuario() { return null; }
 
         public void AdicionarCartaoCredito(CartaoCredito cartao)
         {
@@ -47,6 +47,10 @@ namespace MusicApp.Domain.Usuario.Aggregates
         public void CriarPlaylist(string nome) { }
 
         public void FavoritarBanda(string nome) { }
+
+        public List<Playlist> BuscarPlaylist(string nome) { return null; }
+
+        public List<Playlist> BuscarBanda(string nome) { return null; }
 
     }
 }

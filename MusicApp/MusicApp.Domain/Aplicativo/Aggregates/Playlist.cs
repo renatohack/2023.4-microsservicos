@@ -17,5 +17,10 @@ namespace MusicApp.Domain.Aplicativo.Aggregates {
             this.Musicas = new List<Musica>();
         }
 
+        
+        public void AdicionarMusica(Musica musica) { }
+
+        public List <Musica> BuscarMusicas() { return null; }
+
     }
 }

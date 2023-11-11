@@ -9,7 +9,6 @@ namespace MusicApp.Domain.Usuario.Aggregates
 {
     public class Assinatura
     {
-
         public Guid Id { get; set; }
         public Plano Plano { get; set; }
         public bool AssinaturaAtiva { get; set; }
