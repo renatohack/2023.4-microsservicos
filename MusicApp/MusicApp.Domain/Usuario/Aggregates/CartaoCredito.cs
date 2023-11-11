@@ -44,15 +44,14 @@ namespace MusicApp.Domain.Usuario.Aggregates
             return true;
         }
 
-        public void CriarTransacao(CartaoCredito cartao, Comerciante comerciante, decimal valor) 
+        public void ValidarTransacao(CartaoCredito cartao, Comerciante comerciante, decimal valor)
         {
 
         }
 
+        public void CriarTransacao(CartaoCredito cartao, Comerciante comerciante, decimal valor) 
+        {
 
-        public void ValidarTransacao(CartaoCredito cartao, Comerciante comerciante, decimal valor) 
-        { 
-            
         }
 
         public void RealizarTransacao(CartaoCredito cartao, Comerciante comerciante, decimal valor) 

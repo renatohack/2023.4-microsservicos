@@ -26,38 +26,57 @@ namespace MusicApp.Domain.Usuario.Aggregates
         // Construtor
         public Usuario() 
         {
+
             this.Id = Guid.NewGuid();
 
-            this.Playlists = new List<Playlist>();
-            this.Playlists.Add(new Playlist() { Nome = "Favoritas" });
+            this.Cartoes = new List<CartaoCredito>();
+            this.Assinaturas = new List<Assinatura>();
+
+            this.Playlists = new List<Playlist> {
+                new Playlist() { Nome = "Favoritas" }
+            };
 
             this.BandasFavoritas = new List<Banda>();
-            this.Assinaturas = new List<Assinatura>();
-            this.Cartoes = new List<CartaoCredito>();
         }
 
 
-        public static Usuario CriarUsuario() { return null; }
+        public void AdicionarCartaoCredito(CartaoCredito cartao) => this.Cartoes.Add(cartao);
 
-        public void AdicionarCartaoCredito(CartaoCredito cartao)
-        {
-            this.Cartoes.Add(cartao);
+        public bool CartaoCreditoValido(CartaoCredito cartao) => cartao.CartaoAtivo && cartao.LimiteDisponivel > 0;
+
+
+        public void AssinarPlano(Plano plano, CartaoCredito cartao) 
+        { 
+
+            // Verifica limite disponivel e se cartao esta ativo
+            if (cartao.LimiteDisponivel > plano.Valor && cartao.CartaoAtivo) {
+                
+                // Cancela ultima assinatura
+                if (Assinaturas.Any()) Assinaturas.Last().AssinaturaAtiva = false;
+
+                // Gera ultima assinatura
+                Assinatura assinatura = new Assinatura() {
+                    Plano = plano,
+                    AssinaturaAtiva = true
+                };
+
+                // Adiciona assinatura ao usuario
+                this.Assinaturas.Add(assinatura);
+
+            }
+            else
+            {
+                // TODO
+            }
         }
 
-        public bool CartaoCreditoValido(CartaoCredito cartao) 
-        {
-            return true;
-        }
+        public void CriarPlaylist(string nome) => this.Playlists.Add(new Playlist() { Nome = nome });
 
-        public void AssinarPlano(Plano plano, CartaoCredito cartao) { }
+        public void FavoritarBanda(Banda banda) => this.BandasFavoritas.Add(banda);
 
-        public void CriarPlaylist(string nome) { }
+        public List<Playlist> BuscarPlaylist(string nome) => this.Playlists.Where(playlist => playlist.Nome.ToUpper().Contains(nome.ToUpper())).ToList();
 
-        public void FavoritarBanda(string nome) { }
-
-        public List<Playlist> BuscarPlaylist(string nome) { return null; }
-
-        public List<Playlist> BuscarBanda(string nome) { return null; }
+        public List<Banda> BuscarBanda(string nome) => this.BandasFavoritas.Where(banda => banda.Nome.ToUpper().Contains(nome.ToUpper())).ToList();
 
     }
 }
