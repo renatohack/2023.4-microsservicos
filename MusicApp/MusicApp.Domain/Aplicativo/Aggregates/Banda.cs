@@ -19,7 +19,7 @@ namespace MusicApp.Domain.Aplicativo.Aggregates {
         }
 
 
-        public List<Musica> BuscarMusicas() { return null; }
+        public List<Musica> BuscarMusicas(string nome) => this.Musicas.Where(musica => musica.Nome.ToUpper().Contains(nome.ToUpper())).ToList();
 
     }
 }

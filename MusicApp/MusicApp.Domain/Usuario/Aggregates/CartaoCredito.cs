@@ -1,5 +1,7 @@
-﻿using MusicApp.Domain.Pagamento.Aggregates;
+﻿using MusicApp.Domain.Aplicativo.Exception;
+using MusicApp.Domain.Pagamento.Aggregates;
 using MusicApp.Domain.Pagamento.ValueObjects;
+using SpotifyLike.Core.Exception;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +24,7 @@ namespace MusicApp.Domain.Usuario.Aggregates
         public string Numero { get; set; }
 
         // Transacoes
-        public List<Pagamento.Aggregates.Transacao> Transacoes { get; set; }
+        public List<Transacao> Transacoes { get; set; }
 
 
         // Construtor
@@ -44,7 +46,7 @@ namespace MusicApp.Domain.Usuario.Aggregates
             DateTime horarioAntepenultimaTransacao = this.Transacoes[-3].DataTransacao;
             DateTime horarioAtual = DateTime.Now;
 
-            if (horarioAtual.Subtract(horarioAntepenultimaTransacao).TotalMinutes < 2)
+            if (horarioAtual.Subtract(horarioAntepenultimaTransacao).TotalMinutes < MIN_INTERVALO_MINUTOS)
             {
                 return true;
             }
@@ -65,7 +67,7 @@ namespace MusicApp.Domain.Usuario.Aggregates
 
             if (ultimoValor == valor && 
                 ultimoCnpj == comerciante.Cnpj && 
-                horarioAtual.Subtract(ultimoHorario).TotalMinutes < 2) return true;
+                horarioAtual.Subtract(ultimoHorario).TotalMinutes < MIN_INTERVALO_MINUTOS) return true;
 
             return false;
 
@@ -73,12 +75,57 @@ namespace MusicApp.Domain.Usuario.Aggregates
 
         private void ValidarTransacao(Comerciante comerciante, decimal valor)
         {
-            if (!this.CartaoAtivo) ;                        // ADD EXCEÇAO NA LISTA
-            if (!PossuiLimiteDisponivel(valor)) ;           // ADD EXCEÇAO NA LISTA
-            if (AltaFrequenciaPequenoIntervalo()) ;         // ADD EXCEÇAO NA LISTA
-            if (TransacaoDuplicada(comerciante, valor)) ;   // ADD EXCEÇAO NA LISTA
 
-            // SE HOUVER EXCEÇÃO NA LISTA, THROW
+            CartaoCreditoException cartaoException = new CartaoCreditoException(); 
+
+
+            // Verificar se cartao esta ativo
+            if (!this.CartaoAtivo)
+            {
+                ErroNegocio erroNegocio = new ErroNegocio() {
+                    NomeErro = nameof(CartaoCreditoException),
+                    MensagemErro = "Cartao de credito nao esta ativo."
+                };
+
+                cartaoException.AdicionarErro(erroNegocio);
+            }
+
+            // Verificar se possui limite disponivel
+            if (!PossuiLimiteDisponivel(valor))
+            {
+                ErroNegocio erroNegocio = new ErroNegocio() {
+                    NomeErro = nameof(CartaoCreditoException),
+                    MensagemErro = "Cartao de credito nao possui limite."
+                };
+
+                cartaoException.AdicionarErro(erroNegocio);
+            }
+
+            // Verificar se ha 3 transacoes em um intervalo de 2 minutos
+            if (AltaFrequenciaPequenoIntervalo())
+            {
+                ErroNegocio erroNegocio = new ErroNegocio() {
+                    NomeErro = nameof(CartaoCreditoException),
+                    MensagemErro = "Cartao de credito utilizado muitas vezes em um periodo curto."
+                };
+
+                cartaoException.AdicionarErro(erroNegocio);
+            }
+
+            // Verificar se eh transacao duplicada
+            if (TransacaoDuplicada(comerciante, valor))
+            {
+                ErroNegocio erroNegocio = new ErroNegocio() {
+                    NomeErro = nameof(CartaoCreditoException),
+                    MensagemErro = "Transacao duplicada."
+                };
+
+                cartaoException.AdicionarErro(erroNegocio);
+            }
+
+
+            // Lancar excecao caso haja alguma
+            cartaoException.LancarExcecoes();
         }
 
         private Transacao CriarTransacao(Comerciante comerciante, decimal valor) => new Transacao {

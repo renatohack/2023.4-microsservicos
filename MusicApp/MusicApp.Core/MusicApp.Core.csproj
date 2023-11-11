@@ -7,13 +7,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Aplicativo\ValueObjects\" />
-    <Folder Include="Usuario\ValueObjects\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\MusicApp.Core\MusicApp.Core.csproj" />
-  </ItemGroup>
-
 </Project>

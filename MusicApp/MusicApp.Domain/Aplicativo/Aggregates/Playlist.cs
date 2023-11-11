@@ -22,7 +22,7 @@ namespace MusicApp.Domain.Aplicativo.Aggregates {
         
         public void AdicionarMusica(Musica musica) { }
 
-        public List <Musica> BuscarMusicas() { return null; }
+        public List <Musica> BuscarMusicas(string nome) => this.Musicas.Where(musica => musica.Nome.ToUpper().Contains(nome.ToUpper())).ToList();
 
     }
 }

@@ -1,30 +1,11 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {
-      "MusicApp.Core/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/MusicApp.Core.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/MusicApp.Core.dll": {}
-        }
-      }
-    }
+    "net6.0": {}
   },
-  "libraries": {
-    "MusicApp.Core/1.0.0": {
-      "type": "project",
-      "path": "../MusicApp.Core/MusicApp.Core.csproj",
-      "msbuildProject": "../MusicApp.Core/MusicApp.Core.csproj"
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    "net6.0": [
-      "MusicApp.Core >= 1.0.0"
-    ]
+    "net6.0": []
   },
   "packageFolders": {
     "C:\\Users\\Renat\\.nuget\\packages\\": {},
@@ -33,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Renat\\OneDrive\\Área de Trabalho\\FACULDADE INFNET\\2023.4\\DR1 - MICROSSERVIÇOS\\2023.4-microsservicos\\MusicApp\\MusicApp.Domain\\MusicApp.Domain.csproj",
-      "projectName": "MusicApp.Domain",
-      "projectPath": "C:\\Users\\Renat\\OneDrive\\Área de Trabalho\\FACULDADE INFNET\\2023.4\\DR1 - MICROSSERVIÇOS\\2023.4-microsservicos\\MusicApp\\MusicApp.Domain\\MusicApp.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\Renat\\OneDrive\\Área de Trabalho\\FACULDADE INFNET\\2023.4\\DR1 - MICROSSERVIÇOS\\2023.4-microsservicos\\MusicApp\\MusicApp.Core\\MusicApp.Core.csproj",
+      "projectName": "MusicApp.Core",
+      "projectPath": "C:\\Users\\Renat\\OneDrive\\Área de Trabalho\\FACULDADE INFNET\\2023.4\\DR1 - MICROSSERVIÇOS\\2023.4-microsservicos\\MusicApp\\MusicApp.Core\\MusicApp.Core.csproj",
       "packagesPath": "C:\\Users\\Renat\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Renat\\OneDrive\\Área de Trabalho\\FACULDADE INFNET\\2023.4\\DR1 - MICROSSERVIÇOS\\2023.4-microsservicos\\MusicApp\\MusicApp.Domain\\obj\\",
+      "outputPath": "C:\\Users\\Renat\\OneDrive\\Área de Trabalho\\FACULDADE INFNET\\2023.4\\DR1 - MICROSSERVIÇOS\\2023.4-microsservicos\\MusicApp\\MusicApp.Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -57,11 +38,7 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {
-            "C:\\Users\\Renat\\OneDrive\\Área de Trabalho\\FACULDADE INFNET\\2023.4\\DR1 - MICROSSERVIÇOS\\2023.4-microsservicos\\MusicApp\\MusicApp.Core\\MusicApp.Core.csproj": {
-              "projectPath": "C:\\Users\\Renat\\OneDrive\\Área de Trabalho\\FACULDADE INFNET\\2023.4\\DR1 - MICROSSERVIÇOS\\2023.4-microsservicos\\MusicApp\\MusicApp.Core\\MusicApp.Core.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
