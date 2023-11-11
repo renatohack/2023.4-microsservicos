@@ -11,6 +11,10 @@ namespace MusicApp.Domain.Usuario.Aggregates
     public class CartaoCredito
     {
 
+        private const int MAX_FREQUENCIA = 3;
+        private const int MIN_INTERVALO_MINUTOS = 2;
+
+
         // Info
         public Guid Id { get; set; }
         public bool CartaoAtivo { get; set; }
@@ -29,33 +33,67 @@ namespace MusicApp.Domain.Usuario.Aggregates
             this.Transacoes = new List<Pagamento.Aggregates.Transacao>();
         }
 
-        private bool PossuiLimiteDisponivel(CartaoCredito cartao, decimal valor) 
+
+        // METODOS
+        private bool PossuiLimiteDisponivel(decimal valor) => this.LimiteDisponivel >= valor;
+
+        private bool AltaFrequenciaPequenoIntervalo() 
         {
-            return true;
+            if (this.Transacoes.Count >= MAX_FREQUENCIA) return false;
+            
+            DateTime horarioAntepenultimaTransacao = this.Transacoes[-3].DataTransacao;
+            DateTime horarioAtual = DateTime.Now;
+
+            if (horarioAtual.Subtract(horarioAntepenultimaTransacao).TotalMinutes < 2)
+            {
+                return true;
+            }
+
+            return false;
         }
 
-        private bool AltaFrequenciaPequenoIntervalo(CartaoCredito cartao, Comerciante comerciante, decimal valor) 
+        private bool TransacaoDuplicada(Comerciante comerciante, decimal valor) 
         {
-            return true;
+            if (!this.Transacoes.Any()) return false;
+
+            DateTime horarioAtual = DateTime.Now;
+
+            Transacao ultimaTransacao = this.Transacoes[-1];
+            decimal ultimoValor = ultimaTransacao.Valor;
+            string ultimoCnpj = ultimaTransacao.Comerciante.Cnpj;
+            DateTime ultimoHorario = ultimaTransacao.DataTransacao;
+
+            if (ultimoValor == valor && 
+                ultimoCnpj == comerciante.Cnpj && 
+                horarioAtual.Subtract(ultimoHorario).TotalMinutes < 2) return true;
+
+            return false;
+
         }
 
-        private bool TransacaoDuplicada(CartaoCredito cartao, Comerciante comerciante, decimal valor) 
+        private void ValidarTransacao(Comerciante comerciante, decimal valor)
         {
-            return true;
+            if (!this.CartaoAtivo) ;                        // ADD EXCEÇAO NA LISTA
+            if (!PossuiLimiteDisponivel(valor)) ;           // ADD EXCEÇAO NA LISTA
+            if (AltaFrequenciaPequenoIntervalo()) ;         // ADD EXCEÇAO NA LISTA
+            if (TransacaoDuplicada(comerciante, valor)) ;   // ADD EXCEÇAO NA LISTA
+
+            // SE HOUVER EXCEÇÃO NA LISTA, THROW
         }
 
-        public void ValidarTransacao(CartaoCredito cartao, Comerciante comerciante, decimal valor)
+        private Transacao CriarTransacao(Comerciante comerciante, decimal valor) => new Transacao {
+                                                                                                    CartaoCredito = this,
+                                                                                                    Comerciante = comerciante,
+                                                                                                    Valor = valor
+                                                                                                  };
+
+        public void RealizarTransacao(string cnpj, decimal valor) 
         {
+            Comerciante comerciante = new Comerciante() { Cnpj = cnpj };
 
-        }
-
-        public void CriarTransacao(CartaoCredito cartao, Comerciante comerciante, decimal valor) 
-        {
-
-        }
-
-        public void RealizarTransacao(CartaoCredito cartao, Comerciante comerciante, decimal valor) 
-        {
+            ValidarTransacao(comerciante, valor);
+            Transacao transacao = CriarTransacao(comerciante, valor);
+            this.Transacoes.Add(transacao);
 
         }
 

@@ -40,34 +40,37 @@ namespace MusicApp.Domain.Usuario.Aggregates
         }
 
 
+        public static Usuario CriarUsuario(string nome, CartaoCredito cartao, Plano plano)
+        {
+            Usuario usuario = new Usuario() {
+                Nome = nome,
+            };
+
+            usuario.AdicionarCartaoCredito(cartao);
+            usuario.AssinarPlano(new Empresa().Cnpj, plano, cartao);
+
+            return usuario;
+        }
+
         public void AdicionarCartaoCredito(CartaoCredito cartao) => this.Cartoes.Add(cartao);
 
-        public bool CartaoCreditoValido(CartaoCredito cartao) => cartao.CartaoAtivo && cartao.LimiteDisponivel > 0;
+        public void AssinarPlano(string cnpj, Plano plano, CartaoCredito cartao) 
+        {
 
+            cartao.RealizarTransacao(cnpj, plano.Valor);
 
-        public void AssinarPlano(Plano plano, CartaoCredito cartao) 
-        { 
+            // Cancela ultima assinatura
+            if (Assinaturas.Any()) Assinaturas.Last().AssinaturaAtiva = false;
 
-            // Verifica limite disponivel e se cartao esta ativo
-            if (cartao.LimiteDisponivel > plano.Valor && cartao.CartaoAtivo) {
-                
-                // Cancela ultima assinatura
-                if (Assinaturas.Any()) Assinaturas.Last().AssinaturaAtiva = false;
+            // Gera nova assinatura
+            Assinatura assinatura = new Assinatura() {
+                Plano = plano,
+                AssinaturaAtiva = true
+            };
 
-                // Gera ultima assinatura
-                Assinatura assinatura = new Assinatura() {
-                    Plano = plano,
-                    AssinaturaAtiva = true
-                };
+            // Adiciona assinatura ao usuario
+            this.Assinaturas.Add(assinatura);
 
-                // Adiciona assinatura ao usuario
-                this.Assinaturas.Add(assinatura);
-
-            }
-            else
-            {
-                // TODO
-            }
         }
 
         public void CriarPlaylist(string nome) => this.Playlists.Add(new Playlist() { Nome = nome });
