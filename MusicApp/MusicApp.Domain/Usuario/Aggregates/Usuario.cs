@@ -16,8 +16,8 @@ namespace MusicApp.Domain.Usuario.Aggregates
         public String Nome { get; set; }
 
         // Pagamento
-        public List<Assinatura> Assinaturas { get; set; }
         public CartaoCredito Cartao { get; set; }
+        public List<Assinatura> Assinaturas { get; set; }
 
         // App
         public List<Playlist> Playlists { get; set; }
@@ -29,7 +29,22 @@ namespace MusicApp.Domain.Usuario.Aggregates
             this.Playlists = new List<Playlist>();
             this.BandasFavoritas = new List<Banda>();
             this.Assinaturas = new List<Assinatura>();
+            this.Playlists.Add(new Playlist() { Nome = "Favoritas" });
         }
+
+
+        public static Usuario CriarUsuario() { return new Usuario(); }
+
+        public void AdicionarCartaoCredito(CartaoCredito cartao)
+        {
+            this.Cartao = cartao;
+        }
+
+        public void AssinarPlano(Plano plano, CartaoCredito cartao) { }
+
+        public void CriarPlaylist(string nome) { }
+
+        public void FavoritarBanda(string nome) { }
 
     }
 }
