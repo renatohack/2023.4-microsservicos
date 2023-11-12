@@ -13,8 +13,8 @@ namespace MusicApp.Domain.Conta.Aggregates
     public class CartaoCredito
     {
 
-        private const int MAX_FREQUENCIA = 3;
-        private const int MIN_INTERVALO_MINUTOS = 2;
+        private readonly int MAX_FREQUENCIA = 3;
+        private readonly int MIN_INTERVALO_MINUTOS = 2;
 
 
         // Info
@@ -41,9 +41,9 @@ namespace MusicApp.Domain.Conta.Aggregates
 
         private bool AltaFrequenciaPequenoIntervalo() 
         {
-            if (this.Transacoes.Count <= MAX_FREQUENCIA) return false;
+            if (this.Transacoes.Count < MAX_FREQUENCIA) return false;
             
-            DateTime horarioAntepenultimaTransacao = this.Transacoes[-3].DataTransacao;
+            DateTime horarioAntepenultimaTransacao = this.Transacoes[^3].DataTransacao;
             DateTime horarioAtual = DateTime.Now;
 
             if (horarioAtual.Subtract(horarioAntepenultimaTransacao).TotalMinutes < MIN_INTERVALO_MINUTOS)
@@ -60,7 +60,7 @@ namespace MusicApp.Domain.Conta.Aggregates
 
             DateTime horarioAtual = DateTime.Now;
 
-            Transacao ultimaTransacao = this.Transacoes[-1];
+            Transacao ultimaTransacao = this.Transacoes[^1];
             decimal ultimoValor = ultimaTransacao.Valor;
             string ultimoCnpj = ultimaTransacao.Comerciante.Cnpj;
             DateTime ultimoHorario = ultimaTransacao.DataTransacao;
