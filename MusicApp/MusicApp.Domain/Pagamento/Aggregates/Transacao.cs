@@ -1,5 +1,5 @@
 ﻿using MusicApp.Domain.Pagamento.ValueObjects;
-using MusicApp.Domain.Usuario.Aggregates;
+using MusicApp.Domain.Conta.Aggregates;
 using System;
 using System.Collections.Generic;
 using System.Linq;
