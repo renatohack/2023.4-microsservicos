@@ -10,6 +10,12 @@ namespace SpotifyLike.Core.Exception
     {
         public List<ErroNegocio> ListErros { get; set; } = new List<ErroNegocio>();
 
+        public BusinessException() { }
+        public BusinessException(ErroNegocio erroNegocio)
+        {
+            this.AdicionarErro(erroNegocio);
+        }
+
         public void AdicionarErro(ErroNegocio erroNegocio)
         {
             this.ListErros.Add(erroNegocio);
