@@ -69,13 +69,20 @@ namespace MusicApp.Test.Application.Conta
             CriarContaDto contaDto = new CriarContaDto() {
                 Nome = "Dummy",
                 PlanoId = new Guid("8D044595-D4A6-4E1A-9F09-DAB92205C71C"),
+<<<<<<< HEAD
                 CartaoCredito = new CriarContaDto.CartaoCreditoDto() 
                 {
+=======
+                CartaoCredito = new CriarContaDto.CartaoCreditoDto() {
+>>>>>>> 5e4c7a832a518debdfcf62a1b5d62778ca4e49ed
                     Numero = "123",
                     CartaoAtivo = false,
                     LimiteDisponivel = 50M
                 }
+<<<<<<< HEAD
                 
+=======
+>>>>>>> 5e4c7a832a518debdfcf62a1b5d62778ca4e49ed
             };
 
 
