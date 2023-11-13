@@ -1,0 +1,64 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "MusicApp.Application/1.0.0": {
+        "dependencies": {
+          "MusicApp.Core": "1.0.0",
+          "MusicApp.Domain": "1.0.0",
+          "MusicApp.Repository": "1.0.0"
+        },
+        "runtime": {
+          "MusicApp.Application.dll": {}
+        }
+      },
+      "MusicApp.Core/1.0.0": {
+        "runtime": {
+          "MusicApp.Core.dll": {}
+        }
+      },
+      "MusicApp.Domain/1.0.0": {
+        "dependencies": {
+          "MusicApp.Core": "1.0.0"
+        },
+        "runtime": {
+          "MusicApp.Domain.dll": {}
+        }
+      },
+      "MusicApp.Repository/1.0.0": {
+        "dependencies": {
+          "MusicApp.Domain": "1.0.0"
+        },
+        "runtime": {
+          "MusicApp.Repository.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MusicApp.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MusicApp.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MusicApp.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MusicApp.Repository/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

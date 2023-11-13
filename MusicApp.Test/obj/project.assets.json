@@ -1809,6 +1809,21 @@
           "build/netcoreapp3.1/xunit.runner.visualstudio.props": {}
         }
       },
+      "MusicApp.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "MusicApp.Core": "1.0.0",
+          "MusicApp.Domain": "1.0.0",
+          "MusicApp.Repository": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MusicApp.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MusicApp.Application.dll": {}
+        }
+      },
       "MusicApp.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -1830,6 +1845,19 @@
         },
         "runtime": {
           "bin/placeholder/MusicApp.Domain.dll": {}
+        }
+      },
+      "MusicApp.Repository/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "MusicApp.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MusicApp.Repository.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MusicApp.Repository.dll": {}
         }
       }
     }
@@ -6127,6 +6155,11 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
+    "MusicApp.Application/1.0.0": {
+      "type": "project",
+      "path": "../MusicApp.Application/MusicApp.Application.csproj",
+      "msbuildProject": "../MusicApp.Application/MusicApp.Application.csproj"
+    },
     "MusicApp.Core/1.0.0": {
       "type": "project",
       "path": "../MusicApp.Core/MusicApp.Core.csproj",
@@ -6136,11 +6169,17 @@
       "type": "project",
       "path": "../MusicApp.Domain/MusicApp.Domain.csproj",
       "msbuildProject": "../MusicApp.Domain/MusicApp.Domain.csproj"
+    },
+    "MusicApp.Repository/1.0.0": {
+      "type": "project",
+      "path": "../MusicApp.Repository/MusicApp.Repository.csproj",
+      "msbuildProject": "../MusicApp.Repository/MusicApp.Repository.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "Microsoft.NET.Test.Sdk >= 17.3.2",
+      "MusicApp.Application >= 1.0.0",
       "MusicApp.Domain >= 1.0.0",
       "coverlet.collector >= 3.1.2",
       "xunit >= 2.4.2",
@@ -6177,6 +6216,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "D:\\Users\\Renat\\OneDrive\\Área de Trabalho\\FACULDADE INFNET\\AULAS\\2023.4 - Microsserviços\\DR1 - MICROSSERVIÇOS\\2023.4-microsservicos\\MusicApp.Application\\MusicApp.Application.csproj": {
+              "projectPath": "D:\\Users\\Renat\\OneDrive\\Área de Trabalho\\FACULDADE INFNET\\AULAS\\2023.4 - Microsserviços\\DR1 - MICROSSERVIÇOS\\2023.4-microsservicos\\MusicApp.Application\\MusicApp.Application.csproj"
+            },
             "D:\\Users\\Renat\\OneDrive\\Área de Trabalho\\FACULDADE INFNET\\AULAS\\2023.4 - Microsserviços\\DR1 - MICROSSERVIÇOS\\2023.4-microsservicos\\MusicApp.Domain\\MusicApp.Domain.csproj": {
               "projectPath": "D:\\Users\\Renat\\OneDrive\\Área de Trabalho\\FACULDADE INFNET\\AULAS\\2023.4 - Microsserviços\\DR1 - MICROSSERVIÇOS\\2023.4-microsservicos\\MusicApp.Domain\\MusicApp.Domain.csproj"
             }

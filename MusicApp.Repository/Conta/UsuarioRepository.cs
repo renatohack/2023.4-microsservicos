@@ -12,10 +12,13 @@ namespace MusicApp.Repository.Conta
 
         private static List<Usuario> usuarios = new List<Usuario>();
 
+
         public void SalvarUsuarioNaBase(Usuario usuario)
         {
             UsuarioRepository.usuarios.Add(usuario);
         }
+
+        public int RetornarNumeroUsuarioNaBase() => usuarios.Count;
 
     }
 }

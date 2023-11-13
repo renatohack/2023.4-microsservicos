@@ -13,16 +13,39 @@ using MusicApp.Domain.Conta.Aggregates;
 
 namespace MusicApp.Application.Conta
 {
-    internal class UsuarioService
+    public class UsuarioService
     {
 
         private PlanoRepository planoRepository = new PlanoRepository();
         private UsuarioRepository usuarioRepository = new UsuarioRepository();
 
-        public CriarContaDto CriarConta(CriarContaDto conta)
+        public CriarContaDto CriarConta(CriarContaDto contaDto)
         {
+
             // Pega plano no banco a partir do ID passado dentro da classe DTO
-            Plano plano = this.planoRepository.ObterPlanoPorId(conta.PlanoId);
+            Plano plano = ObterPlanoPorId(contaDto.PlanoId);
+
+            // Gera um objeto cartão a partir da classe DTO, para ser usado na criação do usuário
+            CartaoCredito cartao = GerarObjetoCartaoCredito(contaDto);
+
+            // Cria usuario, passando cartao criado e plano retornado
+            Usuario usuarioCriado = Usuario.CriarUsuario(contaDto.Nome, cartao, plano);
+
+            // Gravar novo usuarioCriado na base
+            this.usuarioRepository.SalvarUsuarioNaBase(usuarioCriado);
+            contaDto.Id = usuarioCriado.Id;
+
+            // Retornar Conta DTO, com o ID atualizado
+            return contaDto;
+            
+        }
+
+
+
+        // AUX
+        public Plano ObterPlanoPorId(Guid id)
+        {
+            Plano plano = this.planoRepository.ObterPlanoPorId(id);
 
             if (plano == null)
             {
@@ -33,25 +56,18 @@ namespace MusicApp.Application.Conta
                 throw new BusinessException(erroNegocio);
             }
 
+            return plano;
+        }
 
-            // Gera um objeto cartão a partir da classe DTO
-            CartaoCredito cartao = new CartaoCredito() {
-                CartaoAtivo = conta.CartaoCredito.CartaoAtivo,
-                LimiteDisponivel = conta.CartaoCredito.LimiteDisponivel,
-                Numero = conta.CartaoCredito.Numero
+        public CartaoCredito GerarObjetoCartaoCredito(CriarContaDto contaDto)
+        {
+            CartaoCredito cartao =  new CartaoCredito() {
+                CartaoAtivo = contaDto.CartaoCredito.CartaoAtivo,
+                LimiteDisponivel = contaDto.CartaoCredito.LimiteDisponivel,
+                Numero = contaDto.CartaoCredito.Numero
             };
 
-
-            // Cria usuario, passando cartao criado e plano retornado
-            Usuario usuario = Usuario.CriarUsuario(conta.Nome, cartao, plano);
-
-            // Gravar novo usuario na base
-            this.usuarioRepository.SalvarUsuarioNaBase(usuario);
-            conta.Id = usuario.Id;
-
-            // Retornar Conta DTO, com o ID atualizado
-            return conta;
-            
+            return cartao;
         }
 
     }
