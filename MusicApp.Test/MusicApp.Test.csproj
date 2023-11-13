@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MusicApp.Application\MusicApp.Application.csproj" />
     <ProjectReference Include="..\MusicApp.Domain\MusicApp.Domain.csproj" />
   </ItemGroup>
 

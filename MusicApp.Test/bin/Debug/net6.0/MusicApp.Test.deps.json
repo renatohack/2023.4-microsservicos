@@ -9,6 +9,7 @@
       "MusicApp.Test/1.0.0": {
         "dependencies": {
           "Microsoft.NET.Test.Sdk": "17.3.2",
+          "MusicApp.Application": "1.0.0",
           "MusicApp.Domain": "1.0.0",
           "coverlet.collector": "3.1.2",
           "xunit": "2.4.2",
@@ -1090,6 +1091,16 @@
         }
       },
       "xunit.runner.visualstudio/2.4.5": {},
+      "MusicApp.Application/1.0.0": {
+        "dependencies": {
+          "MusicApp.Core": "1.0.0",
+          "MusicApp.Domain": "1.0.0",
+          "MusicApp.Repository": "1.0.0"
+        },
+        "runtime": {
+          "MusicApp.Application.dll": {}
+        }
+      },
       "MusicApp.Core/1.0.0": {
         "runtime": {
           "MusicApp.Core.dll": {}
@@ -1101,6 +1112,14 @@
         },
         "runtime": {
           "MusicApp.Domain.dll": {}
+        }
+      },
+      "MusicApp.Repository/1.0.0": {
+        "dependencies": {
+          "MusicApp.Domain": "1.0.0"
+        },
+        "runtime": {
+          "MusicApp.Repository.dll": {}
         }
       }
     }
@@ -1755,12 +1774,22 @@
       "path": "xunit.runner.visualstudio/2.4.5",
       "hashPath": "xunit.runner.visualstudio.2.4.5.nupkg.sha512"
     },
+    "MusicApp.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "MusicApp.Core/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
     "MusicApp.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MusicApp.Repository/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

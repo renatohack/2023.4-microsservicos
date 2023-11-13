@@ -11,6 +11,7 @@ namespace MusicApp.Application.Conta.Dto
     {
 
         public String Nome { get; set; }
+
         public Guid Id { get; set; }
 
         public Guid PlanoId { get; set; }
