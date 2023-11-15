@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MusicApp.Repository.Conta;
-using SpotifyLike.Core.Exception;
+using MusicApp.Core.Exception;
 using MusicApp.Domain.Aplicativo.Exception;
 
 namespace MusicApp.Test.Application.Conta

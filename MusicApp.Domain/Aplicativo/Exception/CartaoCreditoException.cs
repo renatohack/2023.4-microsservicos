@@ -1,4 +1,4 @@
-﻿using SpotifyLike.Core.Exception;
+﻿using MusicApp.Core.Exception;
 using System;
 using System.Collections.Generic;
 using System.Linq;

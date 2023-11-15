@@ -1,7 +1,7 @@
 ﻿using MusicApp.Domain.Aplicativo.Exception;
 using MusicApp.Domain.Pagamento.Aggregates;
 using MusicApp.Domain.Pagamento.ValueObjects;
-using SpotifyLike.Core.Exception;
+using MusicApp.Core.Exception;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SpotifyLike.Core.Exception
+namespace MusicApp.Core.Exception
 {
     public class BusinessException : System.Exception
     {

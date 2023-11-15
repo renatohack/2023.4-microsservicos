@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.XPath;
-using SpotifyLike.Core.Exception;
+using MusicApp.Core.Exception;
 using MusicApp.Domain.Conta.Aggregates;
 
 namespace MusicApp.Application.Conta

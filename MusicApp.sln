@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusicApp.Core", "MusicApp.C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusicApp.Test", "MusicApp.Test\MusicApp.Test.csproj", "{C81F3E89-3D6E-4CDD-9CA7-A9D906FD3978}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicApp.Application", "MusicApp.Application\MusicApp.Application.csproj", "{398965BC-AB31-4B18-B56F-FFA951FB2D8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusicApp.Application", "MusicApp.Application\MusicApp.Application.csproj", "{398965BC-AB31-4B18-B56F-FFA951FB2D8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicApp.Repository", "MusicApp.Repository\MusicApp.Repository.csproj", "{74743E1A-CF15-4BAD-B066-CCC39E2D3421}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusicApp.Repository", "MusicApp.Repository\MusicApp.Repository.csproj", "{74743E1A-CF15-4BAD-B066-CCC39E2D3421}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicApp.API", "MusicApp.API\MusicApp.API.csproj", "{2CBC1DDD-6FE3-4E90-AB6F-1B5CD77CAE9B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{74743E1A-CF15-4BAD-B066-CCC39E2D3421}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74743E1A-CF15-4BAD-B066-CCC39E2D3421}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74743E1A-CF15-4BAD-B066-CCC39E2D3421}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CBC1DDD-6FE3-4E90-AB6F-1B5CD77CAE9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CBC1DDD-6FE3-4E90-AB6F-1B5CD77CAE9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CBC1DDD-6FE3-4E90-AB6F-1B5CD77CAE9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CBC1DDD-6FE3-4E90-AB6F-1B5CD77CAE9B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
