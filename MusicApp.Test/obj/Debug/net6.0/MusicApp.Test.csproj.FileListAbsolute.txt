@@ -210,3 +210,14 @@ D:\Users\Renat\OneDrive\Área de Trabalho\FACULDADE INFNET\AULAS\2023.4 - Micros
 D:\Users\Renat\OneDrive\Área de Trabalho\FACULDADE INFNET\AULAS\2023.4 - Microsserviços\DR1 - MICROSSERVIÇOS\2023.4-microsservicos\MusicApp.Test\obj\Debug\net6.0\MusicApp.Test.pdb
 D:\Users\Renat\OneDrive\Área de Trabalho\FACULDADE INFNET\AULAS\2023.4 - Microsserviços\DR1 - MICROSSERVIÇOS\2023.4-microsservicos\MusicApp.Test\obj\Debug\net6.0\MusicApp.Test.genruntimeconfig.cache
 D:\Users\Renat\OneDrive\Área de Trabalho\FACULDADE INFNET\AULAS\2023.4 - Microsserviços\DR1 - MICROSSERVIÇOS\2023.4-microsservicos\MusicApp.Test\obj\Debug\net6.0\ref\MusicApp.Test.dll
+D:\Users\Renat\OneDrive\Área de Trabalho\FACULDADE INFNET\AULAS\2023.4 - Microsserviços\DR1 - MICROSSERVIÇOS\2023.4-microsservicos\MusicApp.Test\bin\Debug\net6.0\MusicApp.API.deps.json
+D:\Users\Renat\OneDrive\Área de Trabalho\FACULDADE INFNET\AULAS\2023.4 - Microsserviços\DR1 - MICROSSERVIÇOS\2023.4-microsservicos\MusicApp.Test\bin\Debug\net6.0\MusicApp.API.runtimeconfig.json
+D:\Users\Renat\OneDrive\Área de Trabalho\FACULDADE INFNET\AULAS\2023.4 - Microsserviços\DR1 - MICROSSERVIÇOS\2023.4-microsservicos\MusicApp.Test\bin\Debug\net6.0\appsettings.Development.json
+D:\Users\Renat\OneDrive\Área de Trabalho\FACULDADE INFNET\AULAS\2023.4 - Microsserviços\DR1 - MICROSSERVIÇOS\2023.4-microsservicos\MusicApp.Test\bin\Debug\net6.0\appsettings.json
+D:\Users\Renat\OneDrive\Área de Trabalho\FACULDADE INFNET\AULAS\2023.4 - Microsserviços\DR1 - MICROSSERVIÇOS\2023.4-microsservicos\MusicApp.Test\bin\Debug\net6.0\MusicApp.API.exe
+D:\Users\Renat\OneDrive\Área de Trabalho\FACULDADE INFNET\AULAS\2023.4 - Microsserviços\DR1 - MICROSSERVIÇOS\2023.4-microsservicos\MusicApp.Test\bin\Debug\net6.0\Microsoft.OpenApi.dll
+D:\Users\Renat\OneDrive\Área de Trabalho\FACULDADE INFNET\AULAS\2023.4 - Microsserviços\DR1 - MICROSSERVIÇOS\2023.4-microsservicos\MusicApp.Test\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Users\Renat\OneDrive\Área de Trabalho\FACULDADE INFNET\AULAS\2023.4 - Microsserviços\DR1 - MICROSSERVIÇOS\2023.4-microsservicos\MusicApp.Test\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Users\Renat\OneDrive\Área de Trabalho\FACULDADE INFNET\AULAS\2023.4 - Microsserviços\DR1 - MICROSSERVIÇOS\2023.4-microsservicos\MusicApp.Test\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Users\Renat\OneDrive\Área de Trabalho\FACULDADE INFNET\AULAS\2023.4 - Microsserviços\DR1 - MICROSSERVIÇOS\2023.4-microsservicos\MusicApp.Test\bin\Debug\net6.0\MusicApp.API.dll
+D:\Users\Renat\OneDrive\Área de Trabalho\FACULDADE INFNET\AULAS\2023.4 - Microsserviços\DR1 - MICROSSERVIÇOS\2023.4-microsservicos\MusicApp.Test\bin\Debug\net6.0\MusicApp.API.pdb

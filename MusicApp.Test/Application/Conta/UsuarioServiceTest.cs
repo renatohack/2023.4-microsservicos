@@ -8,11 +8,14 @@ using System.Threading.Tasks;
 using MusicApp.Repository.Conta;
 using MusicApp.Core.Exception;
 using MusicApp.Domain.Aplicativo.Exception;
+using MusicApp.Domain.Conta.Aggregates;
 
 namespace MusicApp.Test.Application.Conta
 {
     public class UsuarioServiceTest
     {
+
+        // CRIAR USUARIO
 
         [Fact]
         public void CriarUsuarioComSucesso()
@@ -102,6 +105,37 @@ namespace MusicApp.Test.Application.Conta
             Assert.Throws<CartaoCreditoException>(() => usuarioService.CriarConta(contaDto));
 
         }
+
+
+
+        // PLAYLIST
+
+        [Fact]
+        public void CriarPlaylistComSucesso()
+        {
+            UsuarioRepository usuarioRepository = new UsuarioRepository();
+            Usuario usuario = new Usuario();
+            usuarioRepository.SalvarUsuarioNaBase(usuario);
+
+            CriarPlaylistDto playlistDto = new CriarPlaylistDto()
+            {
+                IdUsuario = usuario.Id,
+                Nome = "TESTE"
+            };
+
+
+            Assert.True(playlistDto.IdPlaylist.ToString() == Guid.Empty.ToString());
+
+            UsuarioService usuarioService = new UsuarioService();
+            playlistDto = usuarioService.CriarPlaylist(playlistDto);
+
+
+            Assert.True(playlistDto.IdPlaylist.ToString() != Guid.Empty.ToString());
+            Assert.True(usuario.Playlists.Select(pl => pl.Nome).Where(nome => nome == "TESTE").Count() == 1);
+        }
+
+
+
 
 
     }

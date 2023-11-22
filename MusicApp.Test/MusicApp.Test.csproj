@@ -22,12 +22,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MusicApp.API\MusicApp.API.csproj" />
     <ProjectReference Include="..\MusicApp.Application\MusicApp.Application.csproj" />
     <ProjectReference Include="..\MusicApp.Domain\MusicApp.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="API\" />
   </ItemGroup>
 
 </Project>
