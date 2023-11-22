@@ -73,7 +73,17 @@ namespace MusicApp.Domain.Conta.Aggregates
 
         }
 
-        public void CriarPlaylist(string nome) => this.Playlists.Add(new Playlist() { Nome = nome });
+        public Playlist CriarPlaylist(string nome) 
+        {
+            Playlist playlist = new Playlist()
+            {
+                Nome = nome
+            };
+
+            this.Playlists.Add(playlist);
+
+            return playlist;
+        }
 
         public void FavoritarBanda(Banda banda) => this.BandasFavoritas.Add(banda);
 

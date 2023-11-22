@@ -19,6 +19,10 @@ namespace MusicApp.Application.Conta
         private PlanoRepository planoRepository = new PlanoRepository();
         private UsuarioRepository usuarioRepository = new UsuarioRepository();
 
+
+
+
+        // FUNCIONALIDADES
         public CriarContaDto CriarConta(CriarContaDto contaDto)
         {
 
@@ -41,8 +45,21 @@ namespace MusicApp.Application.Conta
         }
 
 
+        public CriarPlaylistDto CriarPlaylist(CriarPlaylistDto playlistDto)
+        {
+            Usuario usuario = ObterUsuarioPorId(playlistDto.IdUsuario);
 
-        // AUX
+            Playlist playlist = usuario.CriarPlaylist(playlistDto.Nome);
+            playlistDto.IdPlaylist = playlist.Id;
+
+            return playlistDto;
+        }
+
+
+
+
+
+        // RECUPERAR DO BANCO
         public Plano ObterPlanoPorId(Guid id)
         {
             Plano plano = this.planoRepository.ObterPlanoPorId(id);
@@ -59,6 +76,28 @@ namespace MusicApp.Application.Conta
             return plano;
         }
 
+        public Usuario ObterUsuarioPorId(Guid idUsuario)
+        {
+            Usuario usuario = usuarioRepository.ObterUsuarioPorId(idUsuario);
+
+            if (usuario == null)
+            {
+                ErroNegocio erroNegocio = new ErroNegocio()
+                {
+                    MensagemErro = "Usuário não encontrado.",
+                    NomeErro = nameof(CriarPlaylist),
+                };
+                throw new BusinessException(erroNegocio);
+            }
+
+            return usuario;
+        }
+
+
+
+
+
+        // AUX
         public CartaoCredito GerarObjetoCartaoCredito(CriarContaDto contaDto)
         {
             CartaoCredito cartao =  new CartaoCredito() {
@@ -70,5 +109,14 @@ namespace MusicApp.Application.Conta
             return cartao;
         }
 
+        public Playlist GerarObjetoPlaylist(String nome)
+        {
+            Playlist playlist = new Playlist()
+            {
+                Nome = nome
+            };
+
+            return playlist;
+        }
     }
 }

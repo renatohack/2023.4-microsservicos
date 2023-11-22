@@ -9,7 +9,6 @@ namespace MusicApp.API.Controllers
     [ApiController]
     public class UsuarioController : ControllerBase
     {
-
         private readonly ILogger<UsuarioController> _logger;
         private readonly UsuarioService _service = new UsuarioService();
 
@@ -18,6 +17,9 @@ namespace MusicApp.API.Controllers
             _logger = logger;
         }
 
+
+
+        // POST
 
         [HttpPost]
         public IActionResult CriarConta(CriarContaDto contaDto)
@@ -30,6 +32,20 @@ namespace MusicApp.API.Controllers
             contaDto = this._service.CriarConta(contaDto);
 
             return Created($"/usuario/{contaDto.Id}", contaDto);
+        }
+
+
+        [HttpPost("playlist")]
+        public IActionResult CriarPlaylist(CriarPlaylistDto playlistDto)
+        {
+            if (ModelState.IsValid == false)
+            {
+                return BadRequest(ModelState);
+            }
+
+            playlistDto = this._service.CriarPlaylist(playlistDto);
+
+            return Created($"/playlist/{playlistDto.IdPlaylist}", playlistDto);
         }
 
     }
