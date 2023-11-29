@@ -23,7 +23,7 @@ namespace MusicApp.Application.Conta
 
 
         // FUNCIONALIDADES
-        public CriarContaDto CriarConta(CriarContaDto contaDto)
+        public UsuarioDto CriarConta(UsuarioDto contaDto)
         {
 
             // Pega plano no banco a partir do ID passado dentro da classe DTO
@@ -98,7 +98,7 @@ namespace MusicApp.Application.Conta
 
 
         // AUX
-        public CartaoCredito GerarObjetoCartaoCredito(CriarContaDto contaDto)
+        public CartaoCredito GerarObjetoCartaoCredito(UsuarioDto contaDto)
         {
             CartaoCredito cartao =  new CartaoCredito() {
                 CartaoAtivo = contaDto.CartaoCredito.CartaoAtivo,

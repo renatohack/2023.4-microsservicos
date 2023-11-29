@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static MusicApp.Application.Conta.Dto.CriarContaDto;
+using static MusicApp.Application.Conta.Dto.UsuarioDto;
 using MusicApp.Domain.Conta.Aggregates;
 using MusicApp.Repository.Conta;
 
@@ -19,7 +19,7 @@ namespace SpotifyLike.Tests.Controller
         [Fact]
         public void DeveChamarPostCriarUsuarioComSucesso()
         {
-            CriarContaDto dto = new CriarContaDto()
+            UsuarioDto dto = new UsuarioDto()
             {
                 Nome = "Lorem Ipsum do teste",
                 CartaoCredito = new CartaoCreditoDto()
@@ -41,8 +41,8 @@ namespace SpotifyLike.Tests.Controller
             Assert.True(response is CreatedResult);
 
             var responseContent = (response as CreatedResult).Value;
-            Assert.True(responseContent is CriarContaDto);
-            Assert.True((responseContent as CriarContaDto).Id != Guid.Empty);
+            Assert.True(responseContent is UsuarioDto);
+            Assert.True((responseContent as UsuarioDto).Id != Guid.Empty);
         }
 
 

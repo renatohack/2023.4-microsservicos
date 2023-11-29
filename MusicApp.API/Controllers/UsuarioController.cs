@@ -22,7 +22,7 @@ namespace MusicApp.API.Controllers
         // POST
 
         [HttpPost]
-        public IActionResult CriarConta(CriarContaDto contaDto)
+        public IActionResult CriarConta(UsuarioDto contaDto)
         {
             if (ModelState.IsValid == false)
             {
@@ -46,6 +46,31 @@ namespace MusicApp.API.Controllers
             playlistDto = this._service.CriarPlaylist(playlistDto);
 
             return Created($"/playlist/{playlistDto.IdPlaylist}", playlistDto);
+        }
+
+
+        [HttpGet("{idUsuario}")]
+        public IActionResult ObterUsuario(Guid idUsuario)
+        {
+            var usuario = this._service.ObterUsuarioPorId(idUsuario);
+
+            if (usuario == null) 
+                return null;
+
+            UsuarioDto result = new UsuarioDto()
+            {
+                Id = usuario.Id,
+                CartaoCredito = new CartaoCreditoDto()
+                {
+                    CartaoAtivo = usuario.Cartoes.FirstOrDefault().CartaoAtivo,
+                    LimiteDisponivel = usuario.Cartoes.FirstOrDefault().LimiteDisponivel,
+                    Numero = "xxxx-xxxx-xxxx-xxxx"
+                },
+                Nome = usuario.Nome
+            };
+
+            return Ok(result);
+
         }
 
     }

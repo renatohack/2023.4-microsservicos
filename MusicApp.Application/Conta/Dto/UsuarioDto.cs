@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MusicApp.Application.Conta.Dto
 {
-    public class CriarContaDto
+    public class UsuarioDto
     {
 
         public Guid Id { get; set; }
@@ -22,18 +22,18 @@ namespace MusicApp.Application.Conta.Dto
 
         public CartaoCreditoDto CartaoCredito { get; set; }
 
+    }
 
-        public class CartaoCreditoDto
-        {
-            [Required]
-            public string Numero { get; set; }
-            
-            [Required]
-            public bool CartaoAtivo { get; set; }
-            
-            [Required]
-            public decimal LimiteDisponivel { get; set; }
+    public class CartaoCreditoDto
+    {
+        [Required]
+        public string Numero { get; set; }
 
-        }
+        [Required]
+        public bool CartaoAtivo { get; set; }
+
+        [Required]
+        public decimal LimiteDisponivel { get; set; }
+
     }
 }

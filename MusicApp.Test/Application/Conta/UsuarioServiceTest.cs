@@ -23,10 +23,10 @@ namespace MusicApp.Test.Application.Conta
 
             UsuarioRepository usuarioRepository = new UsuarioRepository();
 
-            CriarContaDto contaDto = new CriarContaDto() {
+            UsuarioDto contaDto = new UsuarioDto() {
                 Nome = "Dummy",
                 PlanoId = new Guid("8D044595-D4A6-4E1A-9F09-DAB92205C71C"),
-                CartaoCredito = new CriarContaDto.CartaoCreditoDto() {
+                CartaoCredito = new CartaoCreditoDto() {
                     Numero = "123",
                     CartaoAtivo = true,
                     LimiteDisponivel = 50M
@@ -48,10 +48,10 @@ namespace MusicApp.Test.Application.Conta
         public void NaoDeveCriarUsuarioPlanoInexistente()
         {
 
-            CriarContaDto contaDto = new CriarContaDto() {
+            UsuarioDto contaDto = new UsuarioDto() {
                 Nome = "Dummy",
                 PlanoId = new Guid("8D044595-D4A6-4E1A-9F09-DAB92205C711"),
-                CartaoCredito = new CriarContaDto.CartaoCreditoDto() {
+                CartaoCredito = new CartaoCreditoDto() {
                     Numero = "123",
                     CartaoAtivo = true,
                     LimiteDisponivel = 50M
@@ -69,10 +69,10 @@ namespace MusicApp.Test.Application.Conta
         public void NaoDeveCriarUsuarioCartaoInativo()
         {
 
-            CriarContaDto contaDto = new CriarContaDto() {
+            UsuarioDto contaDto = new UsuarioDto() {
                 Nome = "Dummy",
                 PlanoId = new Guid("8D044595-D4A6-4E1A-9F09-DAB92205C71C"),
-                CartaoCredito = new CriarContaDto.CartaoCreditoDto() {
+                CartaoCredito = new CartaoCreditoDto() {
                     Numero = "123",
                     CartaoAtivo = false,
                     LimiteDisponivel = 50M
@@ -90,10 +90,10 @@ namespace MusicApp.Test.Application.Conta
         public void NaoDeveCriarUsuarioLimiteInsuficiente()
         {
 
-            CriarContaDto contaDto = new CriarContaDto() {
+            UsuarioDto contaDto = new UsuarioDto() {
                 Nome = "Dummy",
                 PlanoId = new Guid("8D044595-D4A6-4E1A-9F09-DAB92205C71C"),
-                CartaoCredito = new CriarContaDto.CartaoCreditoDto() {
+                CartaoCredito = new CartaoCreditoDto() {
                     Numero = "123",
                     CartaoAtivo = true,
                     LimiteDisponivel = 10M

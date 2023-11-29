@@ -21,3 +21,15 @@ D:\Users\Renat\OneDrive\Área de Trabalho\FACULDADE INFNET\AULAS\2023.4 - Micros
 D:\Users\Renat\OneDrive\Área de Trabalho\FACULDADE INFNET\AULAS\2023.4 - Microsserviços\DR1 - MICROSSERVIÇOS\2023.4-microsservicos\MusicApp.Core\obj\Debug\net6.0\refint\MusicApp.Core.dll
 D:\Users\Renat\OneDrive\Área de Trabalho\FACULDADE INFNET\AULAS\2023.4 - Microsserviços\DR1 - MICROSSERVIÇOS\2023.4-microsservicos\MusicApp.Core\obj\Debug\net6.0\MusicApp.Core.pdb
 D:\Users\Renat\OneDrive\Área de Trabalho\FACULDADE INFNET\AULAS\2023.4 - Microsserviços\DR1 - MICROSSERVIÇOS\2023.4-microsservicos\MusicApp.Core\obj\Debug\net6.0\ref\MusicApp.Core.dll
+C:\Users\Renat\OneDrive\Área de Trabalho\FACULDADE INFNET\2023.4\DR1 - MICROSSERVIÇOS\2023.4-microsservicos\MusicApp.Core\bin\Debug\net6.0\MusicApp.Core.deps.json
+C:\Users\Renat\OneDrive\Área de Trabalho\FACULDADE INFNET\2023.4\DR1 - MICROSSERVIÇOS\2023.4-microsservicos\MusicApp.Core\bin\Debug\net6.0\MusicApp.Core.dll
+C:\Users\Renat\OneDrive\Área de Trabalho\FACULDADE INFNET\2023.4\DR1 - MICROSSERVIÇOS\2023.4-microsservicos\MusicApp.Core\bin\Debug\net6.0\MusicApp.Core.pdb
+C:\Users\Renat\OneDrive\Área de Trabalho\FACULDADE INFNET\2023.4\DR1 - MICROSSERVIÇOS\2023.4-microsservicos\MusicApp.Core\obj\Debug\net6.0\MusicApp.Core.csproj.AssemblyReference.cache
+C:\Users\Renat\OneDrive\Área de Trabalho\FACULDADE INFNET\2023.4\DR1 - MICROSSERVIÇOS\2023.4-microsservicos\MusicApp.Core\obj\Debug\net6.0\MusicApp.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Renat\OneDrive\Área de Trabalho\FACULDADE INFNET\2023.4\DR1 - MICROSSERVIÇOS\2023.4-microsservicos\MusicApp.Core\obj\Debug\net6.0\MusicApp.Core.AssemblyInfoInputs.cache
+C:\Users\Renat\OneDrive\Área de Trabalho\FACULDADE INFNET\2023.4\DR1 - MICROSSERVIÇOS\2023.4-microsservicos\MusicApp.Core\obj\Debug\net6.0\MusicApp.Core.AssemblyInfo.cs
+C:\Users\Renat\OneDrive\Área de Trabalho\FACULDADE INFNET\2023.4\DR1 - MICROSSERVIÇOS\2023.4-microsservicos\MusicApp.Core\obj\Debug\net6.0\MusicApp.Core.csproj.CoreCompileInputs.cache
+C:\Users\Renat\OneDrive\Área de Trabalho\FACULDADE INFNET\2023.4\DR1 - MICROSSERVIÇOS\2023.4-microsservicos\MusicApp.Core\obj\Debug\net6.0\MusicApp.Core.dll
+C:\Users\Renat\OneDrive\Área de Trabalho\FACULDADE INFNET\2023.4\DR1 - MICROSSERVIÇOS\2023.4-microsservicos\MusicApp.Core\obj\Debug\net6.0\refint\MusicApp.Core.dll
+C:\Users\Renat\OneDrive\Área de Trabalho\FACULDADE INFNET\2023.4\DR1 - MICROSSERVIÇOS\2023.4-microsservicos\MusicApp.Core\obj\Debug\net6.0\MusicApp.Core.pdb
+C:\Users\Renat\OneDrive\Área de Trabalho\FACULDADE INFNET\2023.4\DR1 - MICROSSERVIÇOS\2023.4-microsservicos\MusicApp.Core\obj\Debug\net6.0\ref\MusicApp.Core.dll
