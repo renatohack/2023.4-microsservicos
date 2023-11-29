@@ -141,7 +141,7 @@ namespace MusicApp.Domain.Conta.Aggregates
             ValidarTransacao(comerciante, valor);
             Transacao transacao = CriarTransacao(comerciante, valor);
             this.Transacoes.Add(transacao);
-            this.LimiteDisponivel = -valor;
+            this.LimiteDisponivel -= valor;
 
         }
 
