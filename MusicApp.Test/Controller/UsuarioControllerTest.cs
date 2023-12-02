@@ -72,5 +72,41 @@ namespace SpotifyLike.Tests.Controller
             Assert.True(responseContent is CriarPlaylistDto);
             Assert.True((responseContent as CriarPlaylistDto).IdPlaylist != Guid.Empty);
         }
+
+
+        [Fact]
+        public void DeveChamarPostAdicionarCartaoComSucesso()
+        {
+            UsuarioRepository usuarioRepository = new UsuarioRepository();
+            Usuario usuario = new Usuario();
+            usuarioRepository.SalvarUsuarioNaBase(usuario);
+
+            UsuarioDto dto = new UsuarioDto()
+            {
+                IdUsuario = usuario.Id,
+                CartaoCredito = new CartaoCreditoDto()
+                {
+                    CartaoAtivo = true,
+                    LimiteDisponivel = 100M,
+                    Numero = "1"
+                }
+            };
+
+            var logger = LoggerFactory.Create(logger => logger.AddConsole())
+                                      .CreateLogger<UsuarioController>();
+
+            var controller = new UsuarioController(logger);
+
+            var response = controller.AdicionarCartaoCredito(dto);
+
+            Assert.True(response is CreatedResult);
+
+            var responseContent = (response as CreatedResult).Value;
+            Assert.True(responseContent is UsuarioDto);
+            Assert.True((responseContent as UsuarioDto).CartaoCredito.IdCartaoCredito != Guid.Empty);
+        }
+
+
+
     }
 }

@@ -24,6 +24,7 @@ namespace MusicApp.Application.Conta.Dto
 
     public class CartaoCreditoDto
     {
+        public Guid IdCartaoCredito { get; set; }
         
         public string Numero { get; set; }
         

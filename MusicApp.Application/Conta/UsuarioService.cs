@@ -53,6 +53,7 @@ namespace MusicApp.Application.Conta
             usuario.AdicionarCartaoCredito(cartao);
 
             this.usuarioRepository.SalvarUsuarioNaBase(usuario);
+            contaDto.CartaoCredito.IdCartaoCredito = cartao.Id;
             
             return contaDto;
         }
