@@ -8,7 +8,9 @@ using System.Threading.Tasks;
 using MusicApp.Repository.Conta;
 using MusicApp.Core.Exception;
 using MusicApp.Domain.Aplicativo.Exception;
+using MusicApp.Domain.Aplicativo.Aggregates;
 using MusicApp.Domain.Conta.Aggregates;
+using MusicApp.Repository.Aplicativo;
 
 namespace MusicApp.Test.Application.Conta
 {
@@ -177,6 +179,37 @@ namespace MusicApp.Test.Application.Conta
             Assert.True(usuario.Cartoes.Count == 1);
 
 
+        }
+
+
+
+        // ASSINATURA
+        [Fact]
+        public void DeveAssinarPlanoComSucesso()
+        {
+            UsuarioRepository usuarioRepository = new UsuarioRepository();
+
+            Usuario usuario = new Usuario();
+            usuarioRepository.SalvarUsuarioNaBase(usuario);
+
+            UsuarioDto contaDto = new UsuarioDto()
+            {
+                IdUsuario = usuario.Id,
+                PlanoId = new Guid("8D044595-D4A6-4E1A-9F09-DAB92205C71C"),
+                CartaoCredito = new CartaoCreditoDto()
+                {
+                    CartaoAtivo = true,
+                    LimiteDisponivel = 1000M,
+                    Numero = "1"
+                },
+            };
+
+            UsuarioService usuarioService = new UsuarioService();
+            usuarioService.AssinarPlano(contaDto);
+
+
+            Assert.True(usuario.Assinaturas.Count == 1);
+            Assert.True(usuario.Assinaturas.Last().AssinaturaAtiva);
         }
 
 

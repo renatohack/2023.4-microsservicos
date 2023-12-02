@@ -107,6 +107,45 @@ namespace SpotifyLike.Tests.Controller
         }
 
 
+        [Fact]
+        public void DeveChamarPostAssinarPlanoComSucesso()
+        {
+            UsuarioRepository usuarioRepository = new UsuarioRepository();
+
+            Usuario usuario = new Usuario();
+            usuarioRepository.SalvarUsuarioNaBase(usuario);
+
+            UsuarioDto contaDto = new UsuarioDto()
+            {
+                IdUsuario = usuario.Id,
+                PlanoId = new Guid("8D044595-D4A6-4E1A-9F09-DAB92205C71C"),
+                CartaoCredito = new CartaoCreditoDto()
+                {
+                    CartaoAtivo = true,
+                    LimiteDisponivel = 1000M,
+                    Numero = "1"
+                },
+            };
+
+
+            var logger = LoggerFactory.Create(logger => logger.AddConsole())
+                                      .CreateLogger<UsuarioController>();
+
+            var controller = new UsuarioController(logger);
+
+            var response = controller.AssinarPlano(contaDto);
+
+            Assert.True(response is CreatedResult);
+
+            var responseContent = (response as CreatedResult).Value;
+            Assert.True(responseContent is UsuarioDto);
+            Assert.True((responseContent as UsuarioDto).Assinaturas.Count == 1);
+            Assert.True((responseContent as UsuarioDto).Assinaturas.Last().AssinaturaAtiva);
+            Assert.True((responseContent as UsuarioDto).Assinaturas.Last().Id != Guid.Empty);
+
+        }
+
+
 
     }
 }
