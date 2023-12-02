@@ -4,6 +4,7 @@ using MusicApp.Repository.Aplicativo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,21 +19,15 @@ namespace MusicApp.Repository.Conta
         public void SalvarUsuarioNaBase(Usuario usuario)
         {
 
-<<<<<<< HEAD
             Usuario usuarioBanco = this.ObterUsuarioPorId(usuario.Id);
 
             if (usuarioBanco == null)
-=======
-            usuario = this.ObterUsuarioPorId(usuario.Id);
-
-            if (usuario == null)
->>>>>>> becf74eacd17de26db36cdc59e9bd9f1fbf45304
             {
                 UsuarioRepository._usuarios.Add(usuario);
             }
             else
             {
-                int indexToUpdate = UsuarioRepository._usuarios.IndexOf(usuario);
+                int indexToUpdate = UsuarioRepository._usuarios.FindIndex(user => user.Id.Equals(usuario.Id));
                 UsuarioRepository._usuarios[indexToUpdate] = usuario;
             }
 
