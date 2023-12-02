@@ -17,7 +17,19 @@ namespace MusicApp.Repository.Conta
 
         public void SalvarUsuarioNaBase(Usuario usuario)
         {
-            UsuarioRepository._usuarios.Add(usuario);
+
+            Usuario usuarioBanco = this.ObterUsuarioPorId(usuario.Id);
+
+            if (usuarioBanco == null)
+            {
+                UsuarioRepository._usuarios.Add(usuario);
+            }
+            else
+            {
+                int indexToUpdate = UsuarioRepository._usuarios.IndexOf(usuario);
+                UsuarioRepository._usuarios[indexToUpdate] = usuario;
+            }
+
         }
 
 

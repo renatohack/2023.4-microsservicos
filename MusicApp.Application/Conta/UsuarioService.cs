@@ -46,11 +46,13 @@ namespace MusicApp.Application.Conta
 
         public UsuarioDto AdicionarCartaoCredito(UsuarioDto contaDto)
         {
-            Usuario usuario = ObterUsuarioPorId(contaDto.IdUsuario);
+            Usuario usuario = this.ObterUsuarioPorId(contaDto.IdUsuario);
 
-            CartaoCredito cartao = GerarObjetoCartaoCredito(contaDto);
+            CartaoCredito cartao = this.GerarObjetoCartaoCredito(contaDto);
 
             usuario.AdicionarCartaoCredito(cartao);
+
+            this.usuarioRepository.SalvarUsuarioNaBase(usuario);
             
             return contaDto;
         }
