@@ -21,7 +21,7 @@ namespace MusicApp.Application.Conta
         private PlanoService planoService = new PlanoService();
 
 
-        // FUNCIONALIDADES
+        // USUARIO
         public UsuarioDto CriarConta(UsuarioDto contaDto)
         {
 
@@ -43,35 +43,6 @@ namespace MusicApp.Application.Conta
             
         }
 
-
-        public UsuarioDto AdicionarCartaoCredito(UsuarioDto contaDto)
-        {
-            Usuario usuario = this.ObterUsuarioPorId(contaDto.IdUsuario);
-
-            CartaoCredito cartao = this.GerarObjetoCartaoCredito(contaDto);
-
-            usuario.AdicionarCartaoCredito(cartao);
-
-            this.usuarioRepository.SalvarUsuarioNaBase(usuario);
-            contaDto.CartaoCredito.IdCartaoCredito = cartao.Id;
-            
-            return contaDto;
-        }
-
-
-        public CriarPlaylistDto CriarPlaylist(CriarPlaylistDto playlistDto)
-        {
-            Usuario usuario = ObterUsuarioPorId(playlistDto.IdUsuario);
-
-            Playlist playlist = usuario.CriarPlaylist(playlistDto.Nome);
-            playlistDto.IdPlaylist = playlist.Id;
-
-            return playlistDto;
-        }
-
-
-
-        // RECUPERAR DO BANCO
         public Usuario ObterUsuarioPorId(Guid idUsuario)
         {
             Usuario usuario = usuarioRepository.ObterUsuarioPorId(idUsuario);
@@ -88,6 +59,73 @@ namespace MusicApp.Application.Conta
 
             return usuario;
         }
+
+
+
+
+
+
+        // CARTOES
+        public UsuarioDto AdicionarCartaoCredito(UsuarioDto contaDto)
+        {
+            Usuario usuario = this.ObterUsuarioPorId(contaDto.IdUsuario);
+
+            CartaoCredito cartao = this.GerarObjetoCartaoCredito(contaDto);
+
+            usuario.AdicionarCartaoCredito(cartao);
+
+            this.usuarioRepository.SalvarUsuarioNaBase(usuario);
+            contaDto.CartaoCredito.IdCartaoCredito = cartao.Id;
+            
+            return contaDto;
+        }
+
+
+
+
+
+        //PLAYLISTS
+        public CriarPlaylistDto CriarPlaylist(CriarPlaylistDto playlistDto)
+        {
+            Usuario usuario = ObterUsuarioPorId(playlistDto.IdUsuario);
+
+            Playlist playlist = usuario.CriarPlaylist(playlistDto.Nome);
+
+            this.usuarioRepository.SalvarUsuarioNaBase(usuario);
+            playlistDto.IdPlaylist = playlist.Id;
+
+            return playlistDto;
+        }
+
+
+
+
+
+        // BANDAS
+
+
+
+
+
+        // ASSINATURAS
+        public UsuarioDto AssinarPlano(UsuarioDto contaDto)
+        {
+            Plano plano = planoService.ObterPlanoPorId(contaDto.PlanoId);
+            CartaoCredito cartao = GerarObjetoCartaoCredito(contaDto);
+            Usuario usuario = this.ObterUsuarioPorId(contaDto.IdUsuario);
+            Empresa empresa = new Empresa();
+
+            usuario.AssinarPlano(empresa.Cnpj, plano, cartao);
+
+            this.usuarioRepository.SalvarUsuarioNaBase(usuario);
+            contaDto.Assinaturas = usuario.Assinaturas;
+
+            return contaDto;
+        }
+
+
+
+
 
 
         // AUX

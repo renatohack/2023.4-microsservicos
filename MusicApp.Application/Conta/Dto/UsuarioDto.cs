@@ -20,6 +20,8 @@ namespace MusicApp.Application.Conta.Dto
 
         public CartaoCreditoDto CartaoCredito { get; set; }
 
+        public List<Assinatura> Assinaturas { get; set; }
+
     }
 
     public class CartaoCreditoDto

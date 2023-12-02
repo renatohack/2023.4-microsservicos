@@ -19,7 +19,7 @@ namespace MusicApp.API.Controllers
 
 
 
-        // POST
+        // USUARIO
 
         [HttpPost("criar")]
         public IActionResult CriarConta(UsuarioDto contaDto)
@@ -60,6 +60,11 @@ namespace MusicApp.API.Controllers
         }
 
 
+
+
+
+
+        // CARTOES
         [HttpPost("cartoes/adicionar")]
         public IActionResult AdicionarCartaoCredito(UsuarioDto contaDto)
         {
@@ -70,11 +75,15 @@ namespace MusicApp.API.Controllers
 
             contaDto = this._service.AdicionarCartaoCredito(contaDto);
 
-            return Created($"/usuario/{contaDto.IdUsuario}", contaDto);
+            return Created($"/cartoes/{contaDto.CartaoCredito.IdCartaoCredito}", contaDto);
         }
 
 
 
+
+
+
+        // PLAYLISTS
         [HttpPost("playlist/criar")]
         public IActionResult CriarPlaylist(CriarPlaylistDto playlistDto)
         {
@@ -88,6 +97,30 @@ namespace MusicApp.API.Controllers
             return Created($"/playlist/{playlistDto.IdPlaylist}", playlistDto);
         }
 
+
+
+
+
+        // BANDAS
+
+
+
+
+
+        // ASSINATURAS
+        [HttpPost("plano/assinar")]
+        public IActionResult AssinarPlano(UsuarioDto contaDto)
+        {
+            if (ModelState.IsValid == false)
+            {
+                return BadRequest(ModelState);
+            }
+
+
+            contaDto = this._service.AssinarPlano(contaDto);
+
+            return Created($"/plano/{contaDto.Assinaturas.Last().Id}", contaDto);
+        }
 
 
     }
