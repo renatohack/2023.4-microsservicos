@@ -22,7 +22,7 @@ namespace MusicApp.API.Controllers
         // USUARIO
 
         [HttpPost("criar")]
-        public IActionResult CriarConta(UsuarioDto contaDto)
+        public IActionResult CriarConta(CriarContaDtoRequest contaDto)
         {
             if (ModelState.IsValid == false)
             {
