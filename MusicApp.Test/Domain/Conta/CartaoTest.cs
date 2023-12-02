@@ -62,7 +62,7 @@ namespace MusicApp.Test.Domain.Conta
         {
             CartaoCredito cartao = new CartaoCredito() {
                 CartaoAtivo = true,
-                LimiteDisponivel = 500M,
+                LimiteDisponivel = 1500M,
                 Numero = "123"
             };
 

@@ -12,8 +12,4 @@
     <ProjectReference Include="..\MusicApp.Repository\MusicApp.Repository.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Aplicativo\Dto\" />
-  </ItemGroup>
-
 </Project>

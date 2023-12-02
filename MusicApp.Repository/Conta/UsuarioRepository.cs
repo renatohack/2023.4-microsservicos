@@ -21,9 +21,6 @@ namespace MusicApp.Repository.Conta
         }
 
 
-        public int RetornarNumeroUsuarioNaBase() => _usuarios.Count;
-
-
         public Usuario ObterUsuarioPorId(Guid idUsuario) => UsuarioRepository._usuarios.FirstOrDefault(usuario => usuario.Id == idUsuario);
     }
 }

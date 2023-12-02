@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+r+HqNERJrPPqnkuyIPnSCd6mwVqdO5pJlbPMy7c5TjrATh8Sz1zU0twT7FgeEpcB5tYEiuQNv2m7W1CeqgTCw==",
+  "dgSpecHash": "dbUrYZSHyCDHPLSlV0Ci92n23dR3g2PWtFIuWWk4gUp37L8tSNXpWW2uDsKUhumHIdMiWyrcKvY44HvJTh5yZA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Renat\\OneDrive\\Área de Trabalho\\FACULDADE INFNET\\2023.4\\DR1 - MICROSSERVIÇOS\\2023.4-microsservicos\\MusicApp.Test\\MusicApp.Test.csproj",
+  "projectFilePath": "D:\\Users\\Renat\\OneDrive\\Área de Trabalho\\FACULDADE INFNET\\AULAS\\2023.4 - Microsserviços\\DR1 - MICROSSERVIÇOS\\2023.4-microsservicos\\MusicApp.Test\\MusicApp.Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Renat\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\Renat\\.nuget\\packages\\microsoft.codecoverage\\17.3.2\\microsoft.codecoverage.17.3.2.nupkg.sha512",

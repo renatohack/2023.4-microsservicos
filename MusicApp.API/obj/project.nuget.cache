@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2ZoPVv8FXCpqA0QWNfohO6V4vtQ2tXdOqP/qrm5Tjc1xpbVK1B9pG4k0UMH4+BVYDPmNPo37F/KTcuMrOF70Zg==",
+  "dgSpecHash": "52nUTc/kQOGRUYgFvLuj87puZIi0yoBf5+HrN1DaISwW6Q+3bC1rz1R9RW70ICu0zHpmFTHqO/ual5tdnHEXTw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Renat\\OneDrive\\Área de Trabalho\\FACULDADE INFNET\\2023.4\\DR1 - MICROSSERVIÇOS\\2023.4-microsservicos\\MusicApp.API\\MusicApp.API.csproj",
+  "projectFilePath": "D:\\Users\\Renat\\OneDrive\\Área de Trabalho\\FACULDADE INFNET\\AULAS\\2023.4 - Microsserviços\\DR1 - MICROSSERVIÇOS\\2023.4-microsservicos\\MusicApp.API\\MusicApp.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Renat\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\Renat\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",

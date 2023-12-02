@@ -10,16 +10,15 @@ using System.Threading.Tasks;
 using System.Xml.XPath;
 using MusicApp.Core.Exception;
 using MusicApp.Domain.Conta.Aggregates;
+using MusicApp.Application.Aplicativo;
 
 namespace MusicApp.Application.Conta
 {
     public class UsuarioService
     {
 
-        private PlanoRepository planoRepository = new PlanoRepository();
         private UsuarioRepository usuarioRepository = new UsuarioRepository();
-
-
+        private PlanoService planoService = new PlanoService();
 
 
         // FUNCIONALIDADES
@@ -27,7 +26,7 @@ namespace MusicApp.Application.Conta
         {
 
             // Pega plano no banco a partir do ID passado dentro da classe DTO
-            Plano plano = ObterPlanoPorId(contaDto.PlanoId);
+            Plano plano = planoService.ObterPlanoPorId(contaDto.PlanoId);
 
             // Gera um objeto cartão a partir da classe DTO, para ser usado na criação do usuário
             CartaoCredito cartao = GerarObjetoCartaoCredito(contaDto);
@@ -37,11 +36,23 @@ namespace MusicApp.Application.Conta
 
             // Gravar novo usuarioCriado na base
             this.usuarioRepository.SalvarUsuarioNaBase(usuarioCriado);
-            contaDto.Id = usuarioCriado.Id;
+            contaDto.IdUsuario = usuarioCriado.Id;
 
             // Retornar Conta DTO, com o ID atualizado
             return contaDto;
             
+        }
+
+
+        public UsuarioDto AdicionarCartaoCredito(UsuarioDto contaDto)
+        {
+            Usuario usuario = ObterUsuarioPorId(contaDto.IdUsuario);
+
+            CartaoCredito cartao = GerarObjetoCartaoCredito(contaDto);
+
+            usuario.AdicionarCartaoCredito(cartao);
+            
+            return contaDto;
         }
 
 
@@ -57,25 +68,7 @@ namespace MusicApp.Application.Conta
 
 
 
-
-
         // RECUPERAR DO BANCO
-        public Plano ObterPlanoPorId(Guid id)
-        {
-            Plano plano = this.planoRepository.ObterPlanoPorId(id);
-
-            if (plano == null)
-            {
-                ErroNegocio erroNegocio = new ErroNegocio() {
-                    MensagemErro = "Plano não encontrado.",
-                    NomeErro = nameof(CriarConta),
-                };
-                throw new BusinessException(erroNegocio);
-            }
-
-            return plano;
-        }
-
         public Usuario ObterUsuarioPorId(Guid idUsuario)
         {
             Usuario usuario = usuarioRepository.ObterUsuarioPorId(idUsuario);
@@ -92,9 +85,6 @@ namespace MusicApp.Application.Conta
 
             return usuario;
         }
-
-
-
 
 
         // AUX

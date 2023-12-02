@@ -42,7 +42,7 @@ namespace SpotifyLike.Tests.Controller
 
             var responseContent = (response as CreatedResult).Value;
             Assert.True(responseContent is UsuarioDto);
-            Assert.True((responseContent as UsuarioDto).Id != Guid.Empty);
+            Assert.True((responseContent as UsuarioDto).IdUsuario != Guid.Empty);
         }
 
 

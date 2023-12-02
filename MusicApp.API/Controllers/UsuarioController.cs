@@ -31,8 +31,48 @@ namespace MusicApp.API.Controllers
 
             contaDto = this._service.CriarConta(contaDto);
 
-            return Created($"/usuario/{contaDto.Id}", contaDto);
+            return Created($"/usuario/{contaDto.IdUsuario}", contaDto);
         }
+
+
+        [HttpGet("{idUsuario}")]
+        public IActionResult ObterUsuarioPorId(Guid idUsuario)
+        {
+            var usuario = this._service.ObterUsuarioPorId(idUsuario);
+
+            if (usuario == null)
+                return null;
+
+            UsuarioDto result = new UsuarioDto()
+            {
+                IdUsuario = usuario.Id,
+                CartaoCredito = new CartaoCreditoDto()
+                {
+                    CartaoAtivo = usuario.Cartoes.FirstOrDefault().CartaoAtivo,
+                    LimiteDisponivel = usuario.Cartoes.FirstOrDefault().LimiteDisponivel,
+                    Numero = "xxxx-xxxx-xxxx-xxxx"
+                },
+                Nome = usuario.Nome
+            };
+
+            return Ok(result);
+
+        }
+
+
+        [HttpPost("cartoes")]
+        public IActionResult AdicionarCartaoCredito(UsuarioDto contaDto)
+        {
+            if (ModelState.IsValid == false)
+            {
+                return BadRequest(ModelState);
+            }
+
+            contaDto = this._service.AdicionarCartaoCredito(contaDto);
+
+            return Created($"/usuario/{contaDto.IdUsuario}", contaDto);
+        }
+
 
 
         [HttpPost("playlist")]
@@ -49,29 +89,6 @@ namespace MusicApp.API.Controllers
         }
 
 
-        [HttpGet("{idUsuario}")]
-        public IActionResult ObterUsuario(Guid idUsuario)
-        {
-            var usuario = this._service.ObterUsuarioPorId(idUsuario);
-
-            if (usuario == null) 
-                return null;
-
-            UsuarioDto result = new UsuarioDto()
-            {
-                Id = usuario.Id,
-                CartaoCredito = new CartaoCreditoDto()
-                {
-                    CartaoAtivo = usuario.Cartoes.FirstOrDefault().CartaoAtivo,
-                    LimiteDisponivel = usuario.Cartoes.FirstOrDefault().LimiteDisponivel,
-                    Numero = "xxxx-xxxx-xxxx-xxxx"
-                },
-                Nome = usuario.Nome
-            };
-
-            return Ok(result);
-
-        }
 
     }
 }

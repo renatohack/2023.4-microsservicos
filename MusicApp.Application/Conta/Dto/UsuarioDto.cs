@@ -12,12 +12,10 @@ namespace MusicApp.Application.Conta.Dto
     public class UsuarioDto
     {
 
-        public Guid Id { get; set; }
-
-        [Required]
+        public Guid IdUsuario { get; set; }
+        
         public String Nome { get; set; }
-
-        [Required]
+        
         public Guid PlanoId { get; set; }
 
         public CartaoCreditoDto CartaoCredito { get; set; }
@@ -26,13 +24,11 @@ namespace MusicApp.Application.Conta.Dto
 
     public class CartaoCreditoDto
     {
-        [Required]
+        
         public string Numero { get; set; }
-
-        [Required]
+        
         public bool CartaoAtivo { get; set; }
-
-        [Required]
+        
         public decimal LimiteDisponivel { get; set; }
 
     }
