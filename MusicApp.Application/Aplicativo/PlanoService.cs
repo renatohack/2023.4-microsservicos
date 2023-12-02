@@ -24,7 +24,7 @@ namespace MusicApp.Application.Aplicativo
                 ErroNegocio erroNegocio = new ErroNegocio()
                 {
                     MensagemErro = "Plano não encontrado.",
-                    NomeErro = nameof(CriarConta),
+                    NomeErro = nameof(ObterPlanoPorId),
                 };
                 throw new BusinessException(erroNegocio);
             }

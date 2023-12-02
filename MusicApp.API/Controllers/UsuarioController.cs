@@ -21,7 +21,7 @@ namespace MusicApp.API.Controllers
 
         // POST
 
-        [HttpPost]
+        [HttpPost("criar")]
         public IActionResult CriarConta(UsuarioDto contaDto)
         {
             if (ModelState.IsValid == false)
@@ -60,7 +60,7 @@ namespace MusicApp.API.Controllers
         }
 
 
-        [HttpPost("cartoes")]
+        [HttpPost("cartoes/adicionar")]
         public IActionResult AdicionarCartaoCredito(UsuarioDto contaDto)
         {
             if (ModelState.IsValid == false)
@@ -75,7 +75,7 @@ namespace MusicApp.API.Controllers
 
 
 
-        [HttpPost("playlist")]
+        [HttpPost("playlist/criar")]
         public IActionResult CriarPlaylist(CriarPlaylistDto playlistDto)
         {
             if (ModelState.IsValid == false)
