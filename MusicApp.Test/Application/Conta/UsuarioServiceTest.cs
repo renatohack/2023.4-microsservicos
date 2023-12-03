@@ -24,7 +24,7 @@ namespace MusicApp.Test.Application.Conta
 
             UsuarioRepository usuarioRepository = new UsuarioRepository();
 
-            UsuarioDto contaDto = new UsuarioDto() {
+            CriarContaDtoRequest contaDto = new CriarContaDtoRequest() {
                 Nome = "Dummy",
                 PlanoId = new Guid("8D044595-D4A6-4E1A-9F09-DAB92205C71C"),
                 CartaoCredito = new CartaoCreditoDto() {
@@ -37,9 +37,9 @@ namespace MusicApp.Test.Application.Conta
             Assert.True(contaDto.IdUsuario.ToString() == Guid.Empty.ToString());
 
             UsuarioService usuarioService = new UsuarioService();
-            contaDto = usuarioService.CriarConta(contaDto);
+            CriarContaDtoResponse contaDtoResponse = usuarioService.CriarConta(contaDto);
 
-            Assert.True(contaDto.IdUsuario.ToString() != Guid.Empty.ToString());
+            Assert.True(contaDtoResponse.IdUsuario.ToString() != Guid.Empty.ToString());
         }
 
 
@@ -47,7 +47,7 @@ namespace MusicApp.Test.Application.Conta
         public void NaoDeveCriarUsuarioPlanoInexistente()
         {
 
-            UsuarioDto contaDto = new UsuarioDto() {
+            CriarContaDtoRequest contaDto = new CriarContaDtoRequest() {
                 Nome = "Dummy",
                 PlanoId = new Guid("8D044595-D4A6-4E1A-9F09-DAB92205C711"),
                 CartaoCredito = new CartaoCreditoDto() {
@@ -68,7 +68,7 @@ namespace MusicApp.Test.Application.Conta
         public void NaoDeveCriarUsuarioCartaoInativo()
         {
 
-            UsuarioDto contaDto = new UsuarioDto() {
+            CriarContaDtoRequest contaDto = new CriarContaDtoRequest() {
                 Nome = "Dummy",
                 PlanoId = new Guid("8D044595-D4A6-4E1A-9F09-DAB92205C71C"),
                 CartaoCredito = new CartaoCreditoDto() {
@@ -89,7 +89,7 @@ namespace MusicApp.Test.Application.Conta
         public void NaoDeveCriarUsuarioLimiteInsuficiente()
         {
 
-            UsuarioDto contaDto = new UsuarioDto() {
+            CriarContaDtoRequest contaDto = new CriarContaDtoRequest() {
                 Nome = "Dummy",
                 PlanoId = new Guid("8D044595-D4A6-4E1A-9F09-DAB92205C71C"),
                 CartaoCredito = new CartaoCreditoDto() {
@@ -113,16 +113,10 @@ namespace MusicApp.Test.Application.Conta
             Usuario usuario = new Usuario();
             usuarioRepository.SalvarUsuarioNaBase(usuario);
 
-
-            UsuarioDto contaDto = new UsuarioDto()
-            {
-                IdUsuario = usuario.Id
-            };
-
             UsuarioService usuarioService = new UsuarioService();
-            Usuario usuarioBanco = usuarioService.ObterUsuarioPorId(usuario.Id);
+            ObterUsuarioPorIdResponse usuarioResponse = usuarioService.ObterUsuarioPorId(usuario.Id);
 
-            Assert.True(usuarioBanco.Id == usuario.Id);
+            Assert.True(usuarioResponse.IdUsuario == usuario.Id);
         }
 
 
