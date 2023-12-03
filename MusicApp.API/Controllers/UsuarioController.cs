@@ -73,16 +73,16 @@ namespace MusicApp.API.Controllers
 
         // PLAYLISTS
         [HttpPost("playlist/criar")]
-        public IActionResult CriarPlaylist(CriarPlaylistDto playlistDto)
+        public IActionResult CriarPlaylist(CriarPlaylistDtoRequest playlistDto)
         {
             if (ModelState.IsValid == false)
             {
                 return BadRequest(ModelState);
             }
 
-            playlistDto = this._service.CriarPlaylist(playlistDto);
+            CriarPlaylistDtoResponse playlistDtoResponse = this._service.CriarPlaylist(playlistDto);
 
-            return Created($"/playlist/{playlistDto.IdPlaylist}", playlistDto);
+            return Created($"/playlist/{playlistDtoResponse.IdPlaylist}", playlistDtoResponse);
         }
 
 

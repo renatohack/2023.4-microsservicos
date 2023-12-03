@@ -53,7 +53,7 @@ namespace SpotifyLike.Tests.Controller
             Usuario usuario = new Usuario();
             usuarioRepository.SalvarUsuarioNaBase(usuario);
 
-            CriarPlaylistDto dto = new CriarPlaylistDto()
+            CriarPlaylistDtoRequest dto = new CriarPlaylistDtoRequest()
             {
                 IdUsuario = usuario.Id,
                 Nome = "TESTE"
@@ -69,8 +69,8 @@ namespace SpotifyLike.Tests.Controller
             Assert.True(response is CreatedResult);
 
             var responseContent = (response as CreatedResult).Value;
-            Assert.True(responseContent is CriarPlaylistDto);
-            Assert.True((responseContent as CriarPlaylistDto).IdPlaylist != Guid.Empty);
+            Assert.True(responseContent is CriarPlaylistDtoResponse);
+            Assert.True((responseContent as CriarPlaylistDtoResponse).IdPlaylist != Guid.Empty);
         }
 
 

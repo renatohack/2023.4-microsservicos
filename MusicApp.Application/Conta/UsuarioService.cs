@@ -101,16 +101,20 @@ namespace MusicApp.Application.Conta
 
 
         //PLAYLISTS
-        public CriarPlaylistDto CriarPlaylist(CriarPlaylistDto playlistDto)
+        public CriarPlaylistDtoResponse CriarPlaylist(CriarPlaylistDtoRequest playlistDto)
         {
-            Usuario usuario = ObterUsuarioPorId(playlistDto.IdUsuario);
+            Usuario usuario = usuarioRepository.ObterUsuarioPorId(playlistDto.IdUsuario);
 
             Playlist playlist = usuario.CriarPlaylist(playlistDto.Nome);
 
             this.usuarioRepository.SalvarUsuarioNaBase(usuario);
-            playlistDto.IdPlaylist = playlist.Id;
 
-            return playlistDto;
+            CriarPlaylistDtoResponse playlistDtoResponse = new CriarPlaylistDtoResponse()
+            {
+                IdPlaylist = playlist.Id,
+            };
+
+            return playlistDtoResponse;
         }
 
 

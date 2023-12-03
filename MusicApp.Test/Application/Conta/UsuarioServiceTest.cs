@@ -129,20 +129,18 @@ namespace MusicApp.Test.Application.Conta
             Usuario usuario = new Usuario();
             usuarioRepository.SalvarUsuarioNaBase(usuario);
 
-            CriarPlaylistDto playlistDto = new CriarPlaylistDto()
+            CriarPlaylistDtoRequest playlistDtoRequest = new CriarPlaylistDtoRequest()
             {
                 IdUsuario = usuario.Id,
                 Nome = "TESTE"
             };
 
 
-            Assert.True(playlistDto.IdPlaylist.ToString() == Guid.Empty.ToString());
-
             UsuarioService usuarioService = new UsuarioService();
-            playlistDto = usuarioService.CriarPlaylist(playlistDto);
+            CriarPlaylistDtoResponse playlistDtoResponse = usuarioService.CriarPlaylist(playlistDtoRequest);
 
 
-            Assert.True(playlistDto.IdPlaylist.ToString() != Guid.Empty.ToString());
+            Assert.True(playlistDtoResponse.IdPlaylist.ToString() != Guid.Empty.ToString());
             Assert.True(usuario.Playlists.Select(pl => pl.Nome).Where(nome => nome == "TESTE").Count() == 1);
         }
 

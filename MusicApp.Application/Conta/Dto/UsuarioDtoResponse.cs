@@ -35,4 +35,13 @@ namespace MusicApp.Application.Conta.Dto
 
 
 
+
+    // PLAYLIST
+    public class CriarPlaylistDtoResponse
+    {
+        public Guid IdPlaylist { get; set; }
+    }
+
+
+
 }
