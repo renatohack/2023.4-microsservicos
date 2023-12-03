@@ -105,9 +105,9 @@ namespace MusicApp.API.Controllers
             }
 
 
-            contaDto = this._service.AssinarPlano(contaDto);
+            AssinarPlanoDtoResponse contaDtoResponse = this._service.AssinarPlano(contaDto);
 
-            return Created($"/plano/{contaDto.Assinaturas.Last().Id}", contaDto);
+            return Created($"/plano/{contaDtoResponse.IdAssinatura}", contaDtoResponse);
         }
 
 

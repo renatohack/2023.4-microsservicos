@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static MusicApp.Application.Conta.Dto.UsuarioDto;
 using MusicApp.Domain.Conta.Aggregates;
 using MusicApp.Repository.Conta;
 
@@ -41,8 +40,8 @@ namespace SpotifyLike.Tests.Controller
             Assert.True(response is CreatedResult);
 
             var responseContent = (response as CreatedResult).Value;
-            Assert.True(responseContent is CriarContaDtoRequest);
-            Assert.True((responseContent as CriarContaDtoRequest).IdUsuario != Guid.Empty);
+            Assert.True(responseContent is CriarContaDtoResponse);
+            Assert.True((responseContent as CriarContaDtoResponse).IdUsuario != Guid.Empty);
         }
 
 
@@ -113,18 +112,20 @@ namespace SpotifyLike.Tests.Controller
             UsuarioRepository usuarioRepository = new UsuarioRepository();
 
             Usuario usuario = new Usuario();
+            CartaoCredito cartao = new CartaoCredito()
+            {
+                CartaoAtivo = true,
+                LimiteDisponivel = 1000M,
+                Numero = "1",
+            };
+            usuario.AdicionarCartaoCredito(cartao);
             usuarioRepository.SalvarUsuarioNaBase(usuario);
 
-            UsuarioDto contaDto = new UsuarioDto()
+            AssinarPlanoDtoRequest contaDto = new AssinarPlanoDtoRequest()
             {
                 IdUsuario = usuario.Id,
-                PlanoId = new Guid("8D044595-D4A6-4E1A-9F09-DAB92205C71C"),
-                CartaoCredito = new CartaoCreditoDto()
-                {
-                    CartaoAtivo = true,
-                    LimiteDisponivel = 1000M,
-                    Numero = "1"
-                },
+                IdPlano = new Guid("8D044595-D4A6-4E1A-9F09-DAB92205C71C"),
+                IdCartaoCredito = cartao.Id,
             };
 
 
@@ -138,10 +139,8 @@ namespace SpotifyLike.Tests.Controller
             Assert.True(response is CreatedResult);
 
             var responseContent = (response as CreatedResult).Value;
-            Assert.True(responseContent is UsuarioDto);
-            Assert.True((responseContent as UsuarioDto).Assinaturas.Count == 1);
-            Assert.True((responseContent as UsuarioDto).Assinaturas.Last().AssinaturaAtiva);
-            Assert.True((responseContent as UsuarioDto).Assinaturas.Last().Id != Guid.Empty);
+            Assert.True(responseContent is AssinarPlanoDtoResponse);
+            Assert.True((responseContent as AssinarPlanoDtoResponse).IdAssinatura != Guid.Empty);
 
         }
 

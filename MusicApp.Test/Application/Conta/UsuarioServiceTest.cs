@@ -34,7 +34,6 @@ namespace MusicApp.Test.Application.Conta
                 }
             };
 
-            Assert.True(contaDto.IdUsuario.ToString() == Guid.Empty.ToString());
 
             UsuarioService usuarioService = new UsuarioService();
             CriarContaDtoResponse contaDtoResponse = usuarioService.CriarConta(contaDto);
