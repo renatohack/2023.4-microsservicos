@@ -54,4 +54,18 @@ namespace MusicApp.Application.Conta.Dto
     }
 
 
+
+    // ASSINATURA
+    public class AssinarPlanoDtoRequest
+    {
+        [Required]
+        public Guid IdUsuario { get; set; }
+
+        [Required]
+        public Guid IdPlano { get; set; }
+
+        [Required]
+        public Guid IdCartaoCredito { get; set; }
+    }
+
 }

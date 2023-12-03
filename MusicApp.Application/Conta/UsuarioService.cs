@@ -128,19 +128,24 @@ namespace MusicApp.Application.Conta
 
 
         // ASSINATURAS
-        public UsuarioDto AssinarPlano(UsuarioDto contaDto)
+        public AssinarPlanoDtoResponse AssinarPlano(AssinarPlanoDtoRequest contaDto)
         {
-            Plano plano = planoService.ObterPlanoPorId(contaDto.PlanoId);
-            CartaoCredito cartao = GerarObjetoCartaoCredito(contaDto);
-            Usuario usuario = this.ObterUsuarioPorId(contaDto.IdUsuario);
+            Plano plano = planoService.ObterPlanoPorId(contaDto.IdPlano);
+            Usuario usuario = usuarioRepository.ObterUsuarioPorId(contaDto.IdUsuario);
+            CartaoCredito cartao = usuario.Cartoes.First(cartao => cartao.Id == contaDto.IdCartaoCredito);
             Empresa empresa = new Empresa();
 
-            usuario.AssinarPlano(empresa.Cnpj, plano, cartao);
+            Assinatura assinatura = usuario.AssinarPlano(empresa.Cnpj, plano, cartao);
 
             this.usuarioRepository.SalvarUsuarioNaBase(usuario);
-            contaDto.Assinaturas = usuario.Assinaturas;
 
-            return contaDto;
+            
+            AssinarPlanoDtoResponse planoDtoResponse = new AssinarPlanoDtoResponse
+            {
+                IdAssinatura = assinatura.Id,
+            };
+
+            return planoDtoResponse;
         }
 
 

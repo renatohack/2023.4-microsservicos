@@ -180,22 +180,24 @@ namespace MusicApp.Test.Application.Conta
             UsuarioRepository usuarioRepository = new UsuarioRepository();
 
             Usuario usuario = new Usuario();
+            CartaoCredito cartao = new CartaoCredito()
+            {
+                CartaoAtivo = true,
+                LimiteDisponivel = 1000M,
+                Numero = "1",
+            };
+            usuario.AdicionarCartaoCredito(cartao);
             usuarioRepository.SalvarUsuarioNaBase(usuario);
 
-            UsuarioDto contaDto = new UsuarioDto()
+            AssinarPlanoDtoRequest contaDto = new AssinarPlanoDtoRequest()
             {
                 IdUsuario = usuario.Id,
-                PlanoId = new Guid("8D044595-D4A6-4E1A-9F09-DAB92205C71C"),
-                CartaoCredito = new CartaoCreditoDto()
-                {
-                    CartaoAtivo = true,
-                    LimiteDisponivel = 1000M,
-                    Numero = "1"
-                },
+                IdPlano = new Guid("8D044595-D4A6-4E1A-9F09-DAB92205C71C"),
+                IdCartaoCredito = cartao.Id,
             };
 
             UsuarioService usuarioService = new UsuarioService();
-            usuarioService.AssinarPlano(contaDto);
+            AssinarPlanoDtoResponse contaDtoResponse = usuarioService.AssinarPlano(contaDto);
 
 
             Assert.True(usuario.Assinaturas.Count == 1);

@@ -97,7 +97,7 @@ namespace MusicApp.API.Controllers
 
         // ASSINATURAS
         [HttpPost("plano/assinar")]
-        public IActionResult AssinarPlano(UsuarioDto contaDto)
+        public IActionResult AssinarPlano(AssinarPlanoDtoRequest contaDto)
         {
             if (ModelState.IsValid == false)
             {

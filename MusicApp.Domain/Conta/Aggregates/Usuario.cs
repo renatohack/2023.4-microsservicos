@@ -54,7 +54,7 @@ namespace MusicApp.Domain.Conta.Aggregates
 
         public void AdicionarCartaoCredito(CartaoCredito cartao) => this.Cartoes.Add(cartao);
 
-        public void AssinarPlano(string cnpj, Plano plano, CartaoCredito cartao) 
+        public Assinatura AssinarPlano(string cnpj, Plano plano, CartaoCredito cartao) 
         {
 
             cartao.RealizarTransacao(cnpj, plano.Valor);
@@ -70,6 +70,8 @@ namespace MusicApp.Domain.Conta.Aggregates
 
             // Adiciona assinatura ao usuario
             this.Assinaturas.Add(assinatura);
+
+            return assinatura;
 
         }
 

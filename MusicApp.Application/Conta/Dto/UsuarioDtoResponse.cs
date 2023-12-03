@@ -44,4 +44,12 @@ namespace MusicApp.Application.Conta.Dto
 
 
 
+    // ASSINATURA
+    public class AssinarPlanoDtoResponse
+    {
+        public Guid IdAssinatura { get; set; }
+    }
+
+
+
 }
