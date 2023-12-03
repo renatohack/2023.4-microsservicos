@@ -22,7 +22,7 @@ namespace MusicApp.Application.Conta
 
 
         // USUARIO
-        public UsuarioDto CriarConta(UsuarioDto contaDto)
+        public CriarContaDtoResponse CriarConta(CriarContaDtoRequest contaDto)
         {
 
             // Pega plano no banco a partir do ID passado dentro da classe DTO
@@ -36,14 +36,17 @@ namespace MusicApp.Application.Conta
 
             // Gravar novo usuarioCriado na base
             this.usuarioRepository.SalvarUsuarioNaBase(usuarioCriado);
-            contaDto.IdUsuario = usuarioCriado.Id;
 
             // Retornar Conta DTO, com o ID atualizado
-            return contaDto;
+            CriarContaDtoResponse contaDtoResponse = new CriarContaDtoResponse()
+            {
+                IdUsuario = usuarioCriado.Id,
+            };
+            return contaDtoResponse;
             
         }
 
-        public Usuario ObterUsuarioPorId(Guid idUsuario)
+        public ObterUsuarioPorIdResponse ObterUsuarioPorId(Guid idUsuario)
         {
             Usuario usuario = usuarioRepository.ObterUsuarioPorId(idUsuario);
 
@@ -57,7 +60,16 @@ namespace MusicApp.Application.Conta
                 throw new BusinessException(erroNegocio);
             }
 
-            return usuario;
+            ObterUsuarioPorIdResponse usuarioResponse = new ObterUsuarioPorIdResponse()
+            {
+                IdUsuario = usuario.Id,
+                Nome = usuario.Nome,
+                Assinaturas = usuario.Assinaturas,
+                Playlists = usuario.Playlists,
+                BandasFavoritas = usuario.BandasFavoritas,
+            };
+
+            return usuarioResponse;
         }
 
 
@@ -129,7 +141,7 @@ namespace MusicApp.Application.Conta
 
 
         // AUX
-        public CartaoCredito GerarObjetoCartaoCredito(UsuarioDto contaDto)
+        public CartaoCredito GerarObjetoCartaoCredito(CriarContaDtoRequest contaDto)
         {
             CartaoCredito cartao =  new CartaoCredito() {
                 CartaoAtivo = contaDto.CartaoCredito.CartaoAtivo,

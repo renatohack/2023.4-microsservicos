@@ -22,40 +22,28 @@ namespace MusicApp.API.Controllers
         // USUARIO
 
         [HttpPost("criar")]
-        public IActionResult CriarConta(CriarContaDtoRequest contaDto)
+        public IActionResult CriarConta(CriarContaDtoRequest contaDtoRequest)
         {
             if (ModelState.IsValid == false)
             {
                 return BadRequest(ModelState);
             }
 
-            contaDto = this._service.CriarConta(contaDto);
+            CriarContaDtoResponse contaDtoResponse = this._service.CriarConta(contaDtoRequest);
 
-            return Created($"/usuario/{contaDto.IdUsuario}", contaDto);
+            return Created($"/usuario/{contaDtoResponse.IdUsuario}", contaDtoResponse);
         }
 
 
         [HttpGet("{idUsuario}")]
         public IActionResult ObterUsuarioPorId(Guid idUsuario)
         {
-            var usuario = this._service.ObterUsuarioPorId(idUsuario);
+            ObterUsuarioPorIdResponse usuarioResponseDto = this._service.ObterUsuarioPorId(idUsuario);
 
-            if (usuario == null)
-                return null;
+            //if (usuarioResponseDto == null)
+            //    return null;
 
-            UsuarioDto result = new UsuarioDto()
-            {
-                IdUsuario = usuario.Id,
-                CartaoCredito = new CartaoCreditoDto()
-                {
-                    CartaoAtivo = usuario.Cartoes.FirstOrDefault().CartaoAtivo,
-                    LimiteDisponivel = usuario.Cartoes.FirstOrDefault().LimiteDisponivel,
-                    Numero = "xxxx-xxxx-xxxx-xxxx"
-                },
-                Nome = usuario.Nome
-            };
-
-            return Ok(result);
+            return Ok(usuarioResponseDto);
 
         }
 
