@@ -38,7 +38,7 @@ namespace MusicApp.API.Controllers
         [HttpGet("{idUsuario}")]
         public IActionResult ObterUsuarioPorId(Guid idUsuario)
         {
-            ObterUsuarioPorIdResponse usuarioResponseDto = this._service.ObterUsuarioPorId(idUsuario);
+            ObterUsuarioPorIdDtoResponse usuarioResponseDto = this._service.ObterUsuarioPorId(idUsuario);
 
             //if (usuarioResponseDto == null)
             //    return null;
@@ -54,16 +54,16 @@ namespace MusicApp.API.Controllers
 
         // CARTOES
         [HttpPost("cartoes/adicionar")]
-        public IActionResult AdicionarCartaoCredito(UsuarioDto contaDto)
+        public IActionResult AdicionarCartaoCredito(AdicionarCartaoCreditoDtoRequest contaDto)
         {
             if (ModelState.IsValid == false)
             {
                 return BadRequest(ModelState);
             }
 
-            contaDto = this._service.AdicionarCartaoCredito(contaDto);
+            AdicionarCartaoCreditoDtoResponse contaDtoResponse = this._service.AdicionarCartaoCredito(contaDto);
 
-            return Created($"/cartoes/{contaDto.CartaoCredito.IdCartaoCredito}", contaDto);
+            return Created($"/cartoes/{contaDtoResponse.IdCartaoCredito}", contaDtoResponse);
         }
 
 

@@ -11,8 +11,6 @@ namespace MusicApp.Application.Conta.Dto
     // USUARIO
     public class CriarContaDtoRequest
     {
-        public Guid IdUsuario { get; set; }
-
         [Required]
         public String Nome { get; set; }
 
@@ -21,7 +19,6 @@ namespace MusicApp.Application.Conta.Dto
 
         [Required]
         public CartaoCreditoDto CartaoCredito { get; set; }
-
     }
 
 
@@ -41,16 +38,22 @@ namespace MusicApp.Application.Conta.Dto
 
 
     // CARTAO
+    public class AdicionarCartaoCreditoDtoRequest
+    {
+        [Required]
+        public Guid IdUsuario { get; set; }
+
+        [Required]
+        public CartaoCreditoDto CartaoCredito { get; set; }
+    }
+
     public class CartaoCreditoDto
     {
-        public Guid IdCartaoCredito { get; set; }
-
         public string Numero { get; set; }
 
         public bool CartaoAtivo { get; set; }
 
         public decimal LimiteDisponivel { get; set; }
-
     }
 
 

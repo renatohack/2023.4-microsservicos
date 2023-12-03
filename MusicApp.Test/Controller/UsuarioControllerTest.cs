@@ -81,7 +81,7 @@ namespace SpotifyLike.Tests.Controller
             Usuario usuario = new Usuario();
             usuarioRepository.SalvarUsuarioNaBase(usuario);
 
-            UsuarioDto dto = new UsuarioDto()
+            AdicionarCartaoCreditoDtoRequest dto = new AdicionarCartaoCreditoDtoRequest()
             {
                 IdUsuario = usuario.Id,
                 CartaoCredito = new CartaoCreditoDto()
@@ -102,8 +102,8 @@ namespace SpotifyLike.Tests.Controller
             Assert.True(response is CreatedResult);
 
             var responseContent = (response as CreatedResult).Value;
-            Assert.True(responseContent is UsuarioDto);
-            Assert.True((responseContent as UsuarioDto).CartaoCredito.IdCartaoCredito != Guid.Empty);
+            Assert.True(responseContent is AdicionarCartaoCreditoDtoResponse);
+            Assert.True((responseContent as AdicionarCartaoCreditoDtoResponse).IdCartaoCredito != Guid.Empty);
         }
 
 

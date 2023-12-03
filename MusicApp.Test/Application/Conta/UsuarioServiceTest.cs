@@ -114,7 +114,7 @@ namespace MusicApp.Test.Application.Conta
             usuarioRepository.SalvarUsuarioNaBase(usuario);
 
             UsuarioService usuarioService = new UsuarioService();
-            ObterUsuarioPorIdResponse usuarioResponse = usuarioService.ObterUsuarioPorId(usuario.Id);
+            ObterUsuarioPorIdDtoResponse usuarioResponse = usuarioService.ObterUsuarioPorId(usuario.Id);
 
             Assert.True(usuarioResponse.IdUsuario == usuario.Id);
         }
@@ -156,7 +156,7 @@ namespace MusicApp.Test.Application.Conta
             Usuario usuario = new Usuario();
             usuarioRepository.SalvarUsuarioNaBase(usuario);
 
-            UsuarioDto contaDto = new UsuarioDto()
+            AdicionarCartaoCreditoDtoRequest contaDto = new AdicionarCartaoCreditoDtoRequest()
             {
                 IdUsuario = usuario.Id,
                 CartaoCredito = new CartaoCreditoDto()
@@ -171,8 +171,6 @@ namespace MusicApp.Test.Application.Conta
             usuarioService.AdicionarCartaoCredito(contaDto);
 
             Assert.True(usuario.Cartoes.Count == 1);
-
-
         }
 
 

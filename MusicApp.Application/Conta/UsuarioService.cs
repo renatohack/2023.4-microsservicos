@@ -29,7 +29,7 @@ namespace MusicApp.Application.Conta
             Plano plano = planoService.ObterPlanoPorId(contaDto.PlanoId);
 
             // Gera um objeto cartão a partir da classe DTO, para ser usado na criação do usuário
-            CartaoCredito cartao = GerarObjetoCartaoCredito(contaDto);
+            CartaoCredito cartao = GerarObjetoCartaoCredito(contaDto.CartaoCredito);
 
             // Cria usuario, passando cartao criado e plano retornado
             Usuario usuarioCriado = Usuario.CriarUsuario(contaDto.Nome, cartao, plano);
@@ -46,7 +46,7 @@ namespace MusicApp.Application.Conta
             
         }
 
-        public ObterUsuarioPorIdResponse ObterUsuarioPorId(Guid idUsuario)
+        public ObterUsuarioPorIdDtoResponse ObterUsuarioPorId(Guid idUsuario)
         {
             Usuario usuario = usuarioRepository.ObterUsuarioPorId(idUsuario);
 
@@ -60,7 +60,7 @@ namespace MusicApp.Application.Conta
                 throw new BusinessException(erroNegocio);
             }
 
-            ObterUsuarioPorIdResponse usuarioResponse = new ObterUsuarioPorIdResponse()
+            ObterUsuarioPorIdDtoResponse usuarioResponse = new ObterUsuarioPorIdDtoResponse()
             {
                 IdUsuario = usuario.Id,
                 Nome = usuario.Nome,
@@ -78,18 +78,22 @@ namespace MusicApp.Application.Conta
 
 
         // CARTOES
-        public UsuarioDto AdicionarCartaoCredito(UsuarioDto contaDto)
+        public AdicionarCartaoCreditoDtoResponse AdicionarCartaoCredito(AdicionarCartaoCreditoDtoRequest contaDto)
         {
-            Usuario usuario = this.ObterUsuarioPorId(contaDto.IdUsuario);
+            Usuario usuario = usuarioRepository.ObterUsuarioPorId(contaDto.IdUsuario);
 
-            CartaoCredito cartao = this.GerarObjetoCartaoCredito(contaDto);
+            CartaoCredito cartao = this.GerarObjetoCartaoCredito(contaDto.CartaoCredito);
 
             usuario.AdicionarCartaoCredito(cartao);
 
             this.usuarioRepository.SalvarUsuarioNaBase(usuario);
-            contaDto.CartaoCredito.IdCartaoCredito = cartao.Id;
-            
-            return contaDto;
+
+            AdicionarCartaoCreditoDtoResponse contaDtoResponse = new AdicionarCartaoCreditoDtoResponse()
+            {
+                IdCartaoCredito = cartao.Id,
+            };
+
+            return contaDtoResponse;
         }
 
 
@@ -141,12 +145,12 @@ namespace MusicApp.Application.Conta
 
 
         // AUX
-        public CartaoCredito GerarObjetoCartaoCredito(CriarContaDtoRequest contaDto)
+        public CartaoCredito GerarObjetoCartaoCredito(CartaoCreditoDto cartaoDto)
         {
             CartaoCredito cartao =  new CartaoCredito() {
-                CartaoAtivo = contaDto.CartaoCredito.CartaoAtivo,
-                LimiteDisponivel = contaDto.CartaoCredito.LimiteDisponivel,
-                Numero = contaDto.CartaoCredito.Numero
+                CartaoAtivo = cartaoDto.CartaoAtivo,
+                LimiteDisponivel = cartaoDto.LimiteDisponivel,
+                Numero = cartaoDto.Numero
             };
 
             return cartao;
