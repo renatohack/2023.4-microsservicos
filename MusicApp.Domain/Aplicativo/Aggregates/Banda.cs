@@ -21,5 +21,16 @@ namespace MusicApp.Domain.Aplicativo.Aggregates {
 
         public List<Musica> BuscarMusicas(string nome) => this.Musicas.Where(musica => musica.Nome.ToUpper().Contains(nome.ToUpper())).ToList();
 
+
+        public void AdicionarMusicas(List<Musica> musicas)
+        {
+            this.Musicas.AddRange(musicas);
+        }
+
+        public void AdicionarMusicas(Musica musica)
+        {
+            this.Musicas.Add(musica);
+        }
+
     }
 }

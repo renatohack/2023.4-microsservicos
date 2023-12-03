@@ -19,7 +19,7 @@ namespace MusicApp.Application.Conta.Dto
     public class ObterUsuarioPorIdDtoResponse
     {
         public Guid IdUsuario { get; set; }
-        public String Nome { get; set; }
+        public string Nome { get; set; }
         public List<Assinatura> Assinaturas { get; set; }
         public List<Playlist> Playlists { get; set; }
         public List<Banda> BandasFavoritas { get; set; }
@@ -50,6 +50,18 @@ namespace MusicApp.Application.Conta.Dto
         public Guid IdAssinatura { get; set; }
     }
 
+
+
+
+    // BANDAS
+    public class FavoritarBandaDtoResponse
+    {
+        [Required]
+        public Guid IdUsuario { get; set; }
+
+        [Required]
+        public List<Banda> BandasFavoritas { get; set; }
+    }
 
 
 }

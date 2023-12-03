@@ -93,5 +93,7 @@ namespace MusicApp.Domain.Conta.Aggregates
 
         public List<Banda> BuscarBanda(string nome) => this.BandasFavoritas.Where(banda => banda.Nome.ToUpper().Contains(nome.ToUpper())).ToList();
 
+        public CartaoCredito BuscarCartaoCreditoPorId(Guid idCartao) => this.Cartoes.FirstOrDefault(cartao => cartao.Id == idCartao);
+
     }
 }

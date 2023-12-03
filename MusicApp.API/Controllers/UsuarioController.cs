@@ -40,9 +40,6 @@ namespace MusicApp.API.Controllers
         {
             ObterUsuarioPorIdDtoResponse usuarioResponseDto = this._service.ObterUsuarioPorId(idUsuario);
 
-            //if (usuarioResponseDto == null)
-            //    return null;
-
             return Ok(usuarioResponseDto);
 
         }
@@ -72,7 +69,7 @@ namespace MusicApp.API.Controllers
 
 
         // PLAYLISTS
-        [HttpPost("playlist/criar")]
+        [HttpPost("playlists/criar")]
         public IActionResult CriarPlaylist(CriarPlaylistDtoRequest playlistDto)
         {
             if (ModelState.IsValid == false)
@@ -82,7 +79,7 @@ namespace MusicApp.API.Controllers
 
             CriarPlaylistDtoResponse playlistDtoResponse = this._service.CriarPlaylist(playlistDto);
 
-            return Created($"/playlist/{playlistDtoResponse.IdPlaylist}", playlistDtoResponse);
+            return Created($"/playlists/{playlistDtoResponse.IdPlaylist}", playlistDtoResponse);
         }
 
 
@@ -90,7 +87,19 @@ namespace MusicApp.API.Controllers
 
 
         // BANDAS
+        [HttpPost("bandas/favoritar")]
+        public IActionResult FavoritarBanda(FavoritarBandaDtoRequest contaDto)
+        {
+            if (ModelState.IsValid == false)
+            {
+                return BadRequest(ModelState);
+            }
 
+
+            FavoritarBandaDtoResponse contaDtoResponse = this._service.FavoritarBanda(contaDto);
+
+            return Ok(contaDtoResponse);
+        }
 
 
 
@@ -107,7 +116,7 @@ namespace MusicApp.API.Controllers
 
             AssinarPlanoDtoResponse contaDtoResponse = this._service.AssinarPlano(contaDto);
 
-            return Created($"/plano/{contaDtoResponse.IdAssinatura}", contaDtoResponse);
+            return Ok(contaDtoResponse);
         }
 
 

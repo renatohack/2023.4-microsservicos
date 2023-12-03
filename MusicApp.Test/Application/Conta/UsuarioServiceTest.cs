@@ -204,7 +204,28 @@ namespace MusicApp.Test.Application.Conta
         }
 
 
+        // BANDAS
+        public void DeveFavoritarBandaComSucesso()
+        {
+            UsuarioRepository usuarioRepository = new UsuarioRepository();
+            Usuario usuario = new Usuario();
+            usuarioRepository.SalvarUsuarioNaBase(usuario);
 
+            int counterInicio = usuario.BandasFavoritas.Count;
+
+            FavoritarBandaDtoRequest contaDto = new FavoritarBandaDtoRequest
+            {
+                IdUsuario = usuario.Id,
+                IdBanda = new Guid("BE431A65-6715-492A-A22C-4CC54CA9B029"),
+            };
+
+
+            UsuarioService usuarioService = new UsuarioService();
+            usuarioService.FavoritarBanda(contaDto);
+
+            Assert.True(usuario.BandasFavoritas.Count - counterInicio == 1);
+
+        }
 
     }
 }

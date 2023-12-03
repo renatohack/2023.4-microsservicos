@@ -68,4 +68,17 @@ namespace MusicApp.Application.Conta.Dto
         public Guid IdCartaoCredito { get; set; }
     }
 
+
+
+
+    // BANDAS
+    public class FavoritarBandaDtoRequest
+    {
+        [Required]
+        public Guid IdUsuario { get; set; }
+
+        [Required]
+        public Guid IdBanda { get; set; }
+    }
+
 }

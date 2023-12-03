@@ -18,6 +18,8 @@ namespace MusicApp.Application.Conta
     {
 
         private UsuarioRepository usuarioRepository = new UsuarioRepository();
+        private BandaRepository bandaRepository = new BandaRepository();
+
         private PlanoService planoService = new PlanoService();
 
 
@@ -122,7 +124,22 @@ namespace MusicApp.Application.Conta
 
 
         // BANDAS
+        public FavoritarBandaDtoResponse FavoritarBanda(FavoritarBandaDtoRequest contaDto)
+        {
+            Usuario usuario = usuarioRepository.ObterUsuarioPorId(contaDto.IdUsuario);
+            Banda banda = bandaRepository.ObterBandaPorId(contaDto.IdBanda);
 
+            usuario.FavoritarBanda(banda);
+            usuarioRepository.SalvarUsuarioNaBase(usuario);
+
+            FavoritarBandaDtoResponse contaDtoResponse = new FavoritarBandaDtoResponse()
+            {
+                IdUsuario = contaDto.IdUsuario,
+                BandasFavoritas = usuario.BandasFavoritas,
+            };
+
+            return contaDtoResponse;
+        }
 
 
 
@@ -132,7 +149,7 @@ namespace MusicApp.Application.Conta
         {
             Plano plano = planoService.ObterPlanoPorId(contaDto.IdPlano);
             Usuario usuario = usuarioRepository.ObterUsuarioPorId(contaDto.IdUsuario);
-            CartaoCredito cartao = usuario.Cartoes.First(cartao => cartao.Id == contaDto.IdCartaoCredito);
+            CartaoCredito cartao = usuario.BuscarCartaoCreditoPorId(contaDto.IdCartaoCredito);
             Empresa empresa = new Empresa();
 
             Assinatura assinatura = usuario.AssinarPlano(empresa.Cnpj, plano, cartao);

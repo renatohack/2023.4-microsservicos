@@ -15,6 +15,8 @@ namespace SpotifyLike.Tests.Controller
 {
     public class UsuarioControllerTests
     {
+
+        // USUARIO
         [Fact]
         public void DeveChamarPostCriarUsuarioComSucesso()
         {
@@ -44,7 +46,29 @@ namespace SpotifyLike.Tests.Controller
             Assert.True((responseContent as CriarContaDtoResponse).IdUsuario != Guid.Empty);
         }
 
+        [Fact]
+        public void DeveChamarGetObterUsuarioPorIdComSucesso()
+        {
+            UsuarioRepository usuarioRepository = new UsuarioRepository();
+            Usuario usuario = new Usuario();
+            usuarioRepository.SalvarUsuarioNaBase(usuario);
 
+            var logger = LoggerFactory.Create(logger => logger.AddConsole())
+                                      .CreateLogger<UsuarioController>();
+
+            var controller = new UsuarioController(logger);
+
+            var response = controller.ObterUsuarioPorId(usuario.Id);
+
+            Assert.True(response is OkObjectResult);
+
+            var responseContent = (response as OkObjectResult).Value;
+            Assert.True(responseContent is ObterUsuarioPorIdDtoResponse);
+            Assert.True((responseContent as ObterUsuarioPorIdDtoResponse).IdUsuario == usuario.Id);
+        }
+
+
+        // PLAYLIST
         [Fact]
         public void DeveChamarPostCriarPlaylistComSucesso()
         {
@@ -73,6 +97,7 @@ namespace SpotifyLike.Tests.Controller
         }
 
 
+        // CARTAO
         [Fact]
         public void DeveChamarPostAdicionarCartaoComSucesso()
         {
@@ -106,6 +131,7 @@ namespace SpotifyLike.Tests.Controller
         }
 
 
+        // ASSINATURA
         [Fact]
         public void DeveChamarPostAssinarPlanoComSucesso()
         {
@@ -131,20 +157,43 @@ namespace SpotifyLike.Tests.Controller
 
             var logger = LoggerFactory.Create(logger => logger.AddConsole())
                                       .CreateLogger<UsuarioController>();
-
             var controller = new UsuarioController(logger);
-
             var response = controller.AssinarPlano(contaDto);
 
-            Assert.True(response is CreatedResult);
+            Assert.True(response is OkObjectResult);
 
-            var responseContent = (response as CreatedResult).Value;
+            var responseContent = (response as OkObjectResult).Value;
             Assert.True(responseContent is AssinarPlanoDtoResponse);
             Assert.True((responseContent as AssinarPlanoDtoResponse).IdAssinatura != Guid.Empty);
 
         }
 
 
+        // BANDA
+        [Fact]
+        public void DeveChamarPostFavoritarBandaComSucesso()
+        {
+            UsuarioRepository usuarioRepository = new UsuarioRepository();
+            Usuario usuario = new Usuario();
+            usuarioRepository.SalvarUsuarioNaBase(usuario);
 
+            FavoritarBandaDtoRequest contaDto = new FavoritarBandaDtoRequest
+            {
+                IdUsuario = usuario.Id,
+                IdBanda = new Guid("BE431A65-6715-492A-A22C-4CC54CA9B029"),
+            };
+
+            var logger = LoggerFactory.Create(logger => logger.AddConsole())
+                                      .CreateLogger<UsuarioController>();
+            var controller = new UsuarioController(logger);
+            var response = controller.FavoritarBanda(contaDto);
+
+            Assert.True(response is OkObjectResult);
+            var responseContent = (response as OkObjectResult).Value;
+
+            Assert.True(responseContent is FavoritarBandaDtoResponse);
+            Assert.True((responseContent as FavoritarBandaDtoResponse).BandasFavoritas.Count > 0);
+
+        }
     }
 }

@@ -10,7 +10,7 @@ namespace MusicApp.Domain.Aplicativo.Aggregates
     {
         public Guid Id { get; set; }
         public String Nome { get; set; }
-        public Banda banda { get; set; }
+        public Banda Banda { get; set; }
         public List<Playlist> Playlists { get; set; }
 
         public Musica() 
