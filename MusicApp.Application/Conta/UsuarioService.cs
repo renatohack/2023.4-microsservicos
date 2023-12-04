@@ -69,6 +69,7 @@ namespace MusicApp.Application.Conta
                 Assinaturas = usuario.Assinaturas,
                 Playlists = usuario.Playlists,
                 BandasFavoritas = usuario.BandasFavoritas,
+                CartoesCredito = usuario.Cartoes,
             };
 
             return usuarioResponse;
@@ -124,7 +125,7 @@ namespace MusicApp.Application.Conta
 
 
         // BANDAS
-        public FavoritarBandaDtoResponse FavoritarBanda(FavoritarBandaDtoRequest contaDto)
+        public FavoritarBandasDtoResponse FavoritarBanda(FavoritarBandaDtoRequest contaDto)
         {
             Usuario usuario = usuarioRepository.ObterUsuarioPorId(contaDto.IdUsuario);
             Banda banda = bandaRepository.ObterBandaPorId(contaDto.IdBanda);
@@ -132,13 +133,27 @@ namespace MusicApp.Application.Conta
             usuario.FavoritarBanda(banda);
             usuarioRepository.SalvarUsuarioNaBase(usuario);
 
-            FavoritarBandaDtoResponse contaDtoResponse = new FavoritarBandaDtoResponse()
+            FavoritarBandasDtoResponse contaDtoResponse = new FavoritarBandasDtoResponse()
             {
                 IdUsuario = contaDto.IdUsuario,
                 BandasFavoritas = usuario.BandasFavoritas,
             };
 
             return contaDtoResponse;
+        }
+
+
+        public ObterBandasPorSubstringDtoResponse ObterBandasPorSubstring(ObterBandasPorSubstringDtoRequest bandaDto)
+        {
+            Usuario usuario = usuarioRepository.ObterUsuarioPorId(bandaDto.IdUsuario);
+            List<Banda> bandas = usuario.BuscarBanda(bandaDto.Nome);
+
+            ObterBandasPorSubstringDtoResponse bandaDtoResponse = new ObterBandasPorSubstringDtoResponse
+            {
+                Bandas = bandas,
+            };
+
+            return bandaDtoResponse;
         }
 
 

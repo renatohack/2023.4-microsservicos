@@ -205,6 +205,7 @@ namespace MusicApp.Test.Application.Conta
 
 
         // BANDAS
+        [Fact]
         public void DeveFavoritarBandaComSucesso()
         {
             UsuarioRepository usuarioRepository = new UsuarioRepository();
@@ -227,5 +228,29 @@ namespace MusicApp.Test.Application.Conta
 
         }
 
+        [Fact]
+        public void DeveBuscarBandaComSucesso()
+        {
+            UsuarioRepository usuarioRepository = new UsuarioRepository();
+            BandaRepository bandaRepository = new BandaRepository();
+
+            Usuario usuario = new Usuario();
+            Banda banda = bandaRepository.ObterBandaPorId(new Guid("BE431A65-6715-492A-A22C-4CC54CA9B029"));
+
+            usuario.FavoritarBanda(banda);
+            usuarioRepository.SalvarUsuarioNaBase(usuario);
+
+            ObterBandasPorSubstringDtoRequest bandaDtoRequest = new ObterBandasPorSubstringDtoRequest
+            {
+                IdUsuario = usuario.Id,
+                Nome = "que"
+            };
+
+            UsuarioService usuarioService = new UsuarioService();
+            ObterBandasPorSubstringDtoResponse bandaDtoResponse = usuarioService.ObterBandasPorSubstring(bandaDtoRequest);
+
+            Assert.True(bandaDtoResponse.Bandas.FirstOrDefault(b => b.Nome.ToLower() == "queen") != null);
+
+        }
     }
 }

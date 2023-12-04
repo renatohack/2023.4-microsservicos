@@ -38,9 +38,9 @@ namespace MusicApp.API.Controllers
         [HttpGet("{idUsuario}")]
         public IActionResult ObterUsuarioPorId(Guid idUsuario)
         {
-            ObterUsuarioPorIdDtoResponse usuarioResponseDto = this._service.ObterUsuarioPorId(idUsuario);
+            ObterUsuarioPorIdDtoResponse usuarioDtoResponse = this._service.ObterUsuarioPorId(idUsuario);
 
-            return Ok(usuarioResponseDto);
+            return Ok(usuarioDtoResponse);
 
         }
 
@@ -96,10 +96,29 @@ namespace MusicApp.API.Controllers
             }
 
 
-            FavoritarBandaDtoResponse contaDtoResponse = this._service.FavoritarBanda(contaDto);
+            FavoritarBandasDtoResponse contaDtoResponse = this._service.FavoritarBanda(contaDto);
 
             return Ok(contaDtoResponse);
         }
+
+
+        [HttpGet("{idUsuario}/{banda}")]
+        public IActionResult ObterBandasPorSubstring(Guid idUsuario, string banda)
+        {
+
+            ObterBandasPorSubstringDtoRequest bandaDtoRequest = new ObterBandasPorSubstringDtoRequest
+            {
+                IdUsuario = idUsuario,
+                Nome = banda,
+            };
+
+            ObterBandasPorSubstringDtoResponse bandasDtoResponse = this._service.ObterBandasPorSubstring(bandaDtoRequest);
+
+
+            return Ok(bandasDtoResponse);
+
+        }
+
 
 
 

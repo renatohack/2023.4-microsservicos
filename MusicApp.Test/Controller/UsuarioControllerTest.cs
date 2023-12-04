@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using MusicApp.Domain.Conta.Aggregates;
 using MusicApp.Repository.Conta;
+using MusicApp.Domain.Aplicativo.Aggregates;
+using MusicApp.Repository.Aplicativo;
 
 namespace SpotifyLike.Tests.Controller
 {
@@ -191,8 +193,33 @@ namespace SpotifyLike.Tests.Controller
             Assert.True(response is OkObjectResult);
             var responseContent = (response as OkObjectResult).Value;
 
-            Assert.True(responseContent is FavoritarBandaDtoResponse);
-            Assert.True((responseContent as FavoritarBandaDtoResponse).BandasFavoritas.Count > 0);
+            Assert.True(responseContent is FavoritarBandasDtoResponse);
+            Assert.True((responseContent as FavoritarBandasDtoResponse).BandasFavoritas.Count > 0);
+
+        }
+
+        [Fact]
+        public void DeveChamarGetObterBandasPorSubstringComSucesso()
+        {
+            UsuarioRepository usuarioRepository = new UsuarioRepository();
+            BandaRepository bandaRepository = new BandaRepository();
+
+            Usuario usuario = new Usuario();
+            Banda banda = bandaRepository.ObterBandaPorId(new Guid("BE431A65-6715-492A-A22C-4CC54CA9B029"));
+
+            usuario.FavoritarBanda(banda);
+            usuarioRepository.SalvarUsuarioNaBase(usuario);
+
+            var logger = LoggerFactory.Create(logger => logger.AddConsole())
+                                      .CreateLogger<UsuarioController>();
+            var controller = new UsuarioController(logger);
+            var response = controller.ObterBandasPorSubstring(usuario.Id, "que");
+
+            Assert.True(response is OkObjectResult);
+            var responseContent = (response as OkObjectResult).Value;
+
+            Assert.True(responseContent is ObterBandasPorSubstringDtoResponse);
+            Assert.True((responseContent as ObterBandasPorSubstringDtoResponse).Bandas.Count > 0);
 
         }
     }

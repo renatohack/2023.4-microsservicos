@@ -81,4 +81,13 @@ namespace MusicApp.Application.Conta.Dto
         public Guid IdBanda { get; set; }
     }
 
+    public class ObterBandasPorSubstringDtoRequest
+    {
+        [Required]
+        public Guid IdUsuario { get; set; }
+
+        [Required]
+        public string Nome { get; set; }
+    }
+
 }

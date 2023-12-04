@@ -23,6 +23,7 @@ namespace MusicApp.Application.Conta.Dto
         public List<Assinatura> Assinaturas { get; set; }
         public List<Playlist> Playlists { get; set; }
         public List<Banda> BandasFavoritas { get; set; }
+        public List<CartaoCredito> CartoesCredito { get; set; }
     }
 
 
@@ -54,13 +55,16 @@ namespace MusicApp.Application.Conta.Dto
 
 
     // BANDAS
-    public class FavoritarBandaDtoResponse
+    public class FavoritarBandasDtoResponse
     {
-        [Required]
         public Guid IdUsuario { get; set; }
 
-        [Required]
         public List<Banda> BandasFavoritas { get; set; }
+    }
+
+    public class ObterBandasPorSubstringDtoResponse
+    {
+        public List<Banda> Bandas { get; set; }
     }
 
 
