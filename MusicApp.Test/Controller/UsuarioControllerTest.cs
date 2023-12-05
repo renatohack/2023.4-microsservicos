@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using MusicApp.Application.Conta.Dto;
 using MusicApp.API.Controllers;
-using MusicApp.Application.Conta.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +10,7 @@ using MusicApp.Domain.Conta.Aggregates;
 using MusicApp.Repository.Conta;
 using MusicApp.Domain.Aplicativo.Aggregates;
 using MusicApp.Repository.Aplicativo;
+using MusicApp.Application.Conta.Dto;
 
 namespace SpotifyLike.Tests.Controller
 {
@@ -199,7 +198,7 @@ namespace SpotifyLike.Tests.Controller
         }
 
         [Fact]
-        public void DeveChamarGetObterBandasPorSubstringComSucesso()
+        public void DeveChamarGetObterBandasComSucesso()
         {
             UsuarioRepository usuarioRepository = new UsuarioRepository();
             BandaRepository bandaRepository = new BandaRepository();
@@ -213,13 +212,13 @@ namespace SpotifyLike.Tests.Controller
             var logger = LoggerFactory.Create(logger => logger.AddConsole())
                                       .CreateLogger<UsuarioController>();
             var controller = new UsuarioController(logger);
-            var response = controller.ObterBandasPorSubstring(usuario.Id, "que");
+            var response = controller.ObterBandas(usuario.Id, "que");
 
             Assert.True(response is OkObjectResult);
             var responseContent = (response as OkObjectResult).Value;
 
-            Assert.True(responseContent is ObterBandasPorSubstringDtoResponse);
-            Assert.True((responseContent as ObterBandasPorSubstringDtoResponse).Bandas.Count > 0);
+            Assert.True(responseContent is ObterBandasDtoResponse);
+            Assert.True((responseContent as ObterBandasDtoResponse).Bandas.Count > 0);
 
         }
     }

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using MusicApp.Application.Conta;
 using MusicApp.Application.Conta.Dto;
 
+
 namespace MusicApp.API.Controllers
 {
     [Route("api/[controller]")]
@@ -103,16 +104,16 @@ namespace MusicApp.API.Controllers
 
 
         [HttpGet("{idUsuario}/{banda}")]
-        public IActionResult ObterBandasPorSubstring(Guid idUsuario, string banda)
+        public IActionResult ObterBandas(Guid idUsuario, string banda)
         {
 
-            ObterBandasPorSubstringDtoRequest bandaDtoRequest = new ObterBandasPorSubstringDtoRequest
+            ObterBandasDtoRequest bandaDtoRequest = new ObterBandasDtoRequest
             {
                 IdUsuario = idUsuario,
                 Nome = banda,
             };
 
-            ObterBandasPorSubstringDtoResponse bandasDtoResponse = this._service.ObterBandasPorSubstring(bandaDtoRequest);
+            ObterBandasDtoResponse bandasDtoResponse = this._service.ObterBandas(bandaDtoRequest);
 
 
             return Ok(bandasDtoResponse);

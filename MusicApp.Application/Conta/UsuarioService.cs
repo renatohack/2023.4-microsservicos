@@ -1,5 +1,4 @@
-﻿using MusicApp.Application.Conta.Dto;
-using MusicApp.Repository.Aplicativo;
+﻿using MusicApp.Repository.Aplicativo;
 using MusicApp.Repository.Conta;
 using MusicApp.Domain.Aplicativo.Aggregates;
 using System;
@@ -11,6 +10,7 @@ using System.Xml.XPath;
 using MusicApp.Core.Exception;
 using MusicApp.Domain.Conta.Aggregates;
 using MusicApp.Application.Aplicativo;
+using MusicApp.Application.Conta.Dto;
 
 namespace MusicApp.Application.Conta
 {
@@ -143,12 +143,12 @@ namespace MusicApp.Application.Conta
         }
 
 
-        public ObterBandasPorSubstringDtoResponse ObterBandasPorSubstring(ObterBandasPorSubstringDtoRequest bandaDto)
+        public ObterBandasDtoResponse ObterBandas(ObterBandasDtoRequest bandaDto)
         {
             Usuario usuario = usuarioRepository.ObterUsuarioPorId(bandaDto.IdUsuario);
             List<Banda> bandas = usuario.BuscarBanda(bandaDto.Nome);
 
-            ObterBandasPorSubstringDtoResponse bandaDtoResponse = new ObterBandasPorSubstringDtoResponse
+            ObterBandasDtoResponse bandaDtoResponse = new ObterBandasDtoResponse
             {
                 Bandas = bandas,
             };

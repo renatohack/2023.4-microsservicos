@@ -1,5 +1,4 @@
-﻿using MusicApp.Application.Conta.Dto;
-using MusicApp.Application.Conta;
+﻿using MusicApp.Application.Conta;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +10,8 @@ using MusicApp.Domain.Aplicativo.Exception;
 using MusicApp.Domain.Aplicativo.Aggregates;
 using MusicApp.Domain.Conta.Aggregates;
 using MusicApp.Repository.Aplicativo;
+using MusicApp.Application.Conta.Dto;
+
 
 namespace MusicApp.Test.Application.Conta
 {
@@ -240,14 +241,14 @@ namespace MusicApp.Test.Application.Conta
             usuario.FavoritarBanda(banda);
             usuarioRepository.SalvarUsuarioNaBase(usuario);
 
-            ObterBandasPorSubstringDtoRequest bandaDtoRequest = new ObterBandasPorSubstringDtoRequest
+            ObterBandasDtoRequest bandaDtoRequest = new ObterBandasDtoRequest
             {
                 IdUsuario = usuario.Id,
                 Nome = "que"
             };
 
             UsuarioService usuarioService = new UsuarioService();
-            ObterBandasPorSubstringDtoResponse bandaDtoResponse = usuarioService.ObterBandasPorSubstring(bandaDtoRequest);
+            ObterBandasDtoResponse bandaDtoResponse = usuarioService.ObterBandas(bandaDtoRequest);
 
             Assert.True(bandaDtoResponse.Bandas.FirstOrDefault(b => b.Nome.ToLower() == "queen") != null);
 
