@@ -23,25 +23,25 @@ namespace MusicApp.API.Controllers
         // USUARIO
 
         [HttpPost("criar")]
-        public IActionResult CriarConta(CriarContaDtoRequest contaDtoRequest)
+        public IActionResult CriarConta(CriarContaDtoRequest dto)
         {
             if (ModelState.IsValid == false)
             {
                 return BadRequest(ModelState);
             }
 
-            CriarContaDtoResponse contaDtoResponse = this._service.CriarConta(contaDtoRequest);
+            CriarContaDtoResponse dtoResponse = this._service.CriarConta(dto);
 
-            return Created($"/usuario/{contaDtoResponse.IdUsuario}", contaDtoResponse);
+            return Created($"/usuario/{dtoResponse.IdUsuario}", dtoResponse);
         }
 
 
         [HttpGet("{idUsuario}")]
         public IActionResult ObterUsuarioPorId(Guid idUsuario)
         {
-            ObterUsuarioPorIdDtoResponse usuarioDtoResponse = this._service.ObterUsuarioPorId(idUsuario);
+            ObterUsuarioPorIdDtoResponse dtoResponse = this._service.ObterUsuarioPorId(idUsuario);
 
-            return Ok(usuarioDtoResponse);
+            return Ok(dtoResponse);
 
         }
 
@@ -52,16 +52,16 @@ namespace MusicApp.API.Controllers
 
         // CARTOES
         [HttpPost("cartoes/adicionar")]
-        public IActionResult AdicionarCartaoCredito(AdicionarCartaoCreditoDtoRequest contaDto)
+        public IActionResult AdicionarCartaoCredito(AdicionarCartaoCreditoDtoRequest dto)
         {
             if (ModelState.IsValid == false)
             {
                 return BadRequest(ModelState);
             }
 
-            AdicionarCartaoCreditoDtoResponse contaDtoResponse = this._service.AdicionarCartaoCredito(contaDto);
+            AdicionarCartaoCreditoDtoResponse dtoResponse = this._service.AdicionarCartaoCredito(dto);
 
-            return Created($"/cartoes/{contaDtoResponse.IdCartaoCredito}", contaDtoResponse);
+            return Created($"/cartoes/{dtoResponse.IdCartaoCredito}", dtoResponse);
         }
 
 
@@ -71,16 +71,16 @@ namespace MusicApp.API.Controllers
 
         // PLAYLISTS
         [HttpPost("playlists/criar")]
-        public IActionResult CriarPlaylist(CriarPlaylistDtoRequest playlistDto)
+        public IActionResult CriarPlaylist(CriarPlaylistDtoRequest dto)
         {
             if (ModelState.IsValid == false)
             {
                 return BadRequest(ModelState);
             }
 
-            CriarPlaylistDtoResponse playlistDtoResponse = this._service.CriarPlaylist(playlistDto);
+            CriarPlaylistDtoResponse dtoResponse = this._service.CriarPlaylist(dto);
 
-            return Created($"/playlists/{playlistDtoResponse.IdPlaylist}", playlistDtoResponse);
+            return Created($"/playlists/{dtoResponse.IdPlaylist}", dtoResponse);
         }
 
 
@@ -89,7 +89,7 @@ namespace MusicApp.API.Controllers
 
         // BANDAS
         [HttpPost("bandas/favoritar")]
-        public IActionResult FavoritarBanda(FavoritarBandaDtoRequest contaDto)
+        public IActionResult FavoritarBanda(FavoritarBandaDtoRequest dto)
         {
             if (ModelState.IsValid == false)
             {
@@ -97,9 +97,9 @@ namespace MusicApp.API.Controllers
             }
 
 
-            FavoritarBandasDtoResponse contaDtoResponse = this._service.FavoritarBanda(contaDto);
+            FavoritarBandasDtoResponse dtoResponse = this._service.FavoritarBanda(dto);
 
-            return Ok(contaDtoResponse);
+            return Ok(dtoResponse);
         }
 
 
@@ -113,10 +113,10 @@ namespace MusicApp.API.Controllers
                 Nome = banda,
             };
 
-            ObterBandasDtoResponse bandasDtoResponse = this._service.ObterBandas(bandaDtoRequest);
+            ObterBandasDtoResponse dtoResponse = this._service.ObterBandas(bandaDtoRequest);
 
 
-            return Ok(bandasDtoResponse);
+            return Ok(dtoResponse);
 
         }
 
@@ -126,7 +126,7 @@ namespace MusicApp.API.Controllers
 
         // ASSINATURAS
         [HttpPost("plano/assinar")]
-        public IActionResult AssinarPlano(AssinarPlanoDtoRequest contaDto)
+        public IActionResult AssinarPlano(AssinarPlanoDtoRequest dto)
         {
             if (ModelState.IsValid == false)
             {
@@ -134,9 +134,9 @@ namespace MusicApp.API.Controllers
             }
 
 
-            AssinarPlanoDtoResponse contaDtoResponse = this._service.AssinarPlano(contaDto);
+            AssinarPlanoDtoResponse dtoResponse = this._service.AssinarPlano(dto);
 
-            return Ok(contaDtoResponse);
+            return Ok(dtoResponse);
         }
 
 
