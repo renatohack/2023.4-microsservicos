@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34221.43
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicApp.Banda.Domain", "MusicApp.Banda.Domain\MusicApp.Banda.Domain.csproj", "{256D49F7-B39F-49A2-97C2-EAF831685E57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicApp.Banda.Repository", "MusicApp.Banda.Repository\MusicApp.Banda.Repository.csproj", "{C539E44A-865A-4A09-881E-0D23E861C40E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicApp.Banda.Application", "MusicApp.Banda.Application\MusicApp.Banda.Application.csproj", "{FB115A23-1776-404E-839B-E3A1E5C4CA9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicApp.Banda.API", "MusicApp.Banda.API\MusicApp.Banda.API.csproj", "{035789A1-BEDE-4F0D-B78C-8478ED2FA50B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicApp.Core", "MusicApp.Core\MusicApp.Core.csproj", "{7FB884D7-FF92-4C8C-8952-8C3E3DBEFAF2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{256D49F7-B39F-49A2-97C2-EAF831685E57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{256D49F7-B39F-49A2-97C2-EAF831685E57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{256D49F7-B39F-49A2-97C2-EAF831685E57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{256D49F7-B39F-49A2-97C2-EAF831685E57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C539E44A-865A-4A09-881E-0D23E861C40E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C539E44A-865A-4A09-881E-0D23E861C40E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C539E44A-865A-4A09-881E-0D23E861C40E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C539E44A-865A-4A09-881E-0D23E861C40E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB115A23-1776-404E-839B-E3A1E5C4CA9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB115A23-1776-404E-839B-E3A1E5C4CA9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB115A23-1776-404E-839B-E3A1E5C4CA9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB115A23-1776-404E-839B-E3A1E5C4CA9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{035789A1-BEDE-4F0D-B78C-8478ED2FA50B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{035789A1-BEDE-4F0D-B78C-8478ED2FA50B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{035789A1-BEDE-4F0D-B78C-8478ED2FA50B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{035789A1-BEDE-4F0D-B78C-8478ED2FA50B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FB884D7-FF92-4C8C-8952-8C3E3DBEFAF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FB884D7-FF92-4C8C-8952-8C3E3DBEFAF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FB884D7-FF92-4C8C-8952-8C3E3DBEFAF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FB884D7-FF92-4C8C-8952-8C3E3DBEFAF2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4B4AD7F8-C390-4BFC-A95A-F1D8F347CB33}
+	EndGlobalSection
+EndGlobal

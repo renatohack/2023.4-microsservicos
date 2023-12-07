@@ -1,0 +1,138 @@
+{
+  "version": 3,
+  "targets": {
+    "net6.0": {
+      "MusicApp.Banda.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "MusicApp.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MusicApp.Banda.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MusicApp.Banda.Domain.dll": {}
+        }
+      },
+      "MusicApp.Banda.Repository/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "MusicApp.Banda.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MusicApp.Banda.Repository.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MusicApp.Banda.Repository.dll": {}
+        }
+      },
+      "MusicApp.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/MusicApp.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MusicApp.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MusicApp.Banda.Domain/1.0.0": {
+      "type": "project",
+      "path": "../MusicApp.Banda.Domain/MusicApp.Banda.Domain.csproj",
+      "msbuildProject": "../MusicApp.Banda.Domain/MusicApp.Banda.Domain.csproj"
+    },
+    "MusicApp.Banda.Repository/1.0.0": {
+      "type": "project",
+      "path": "../MusicApp.Banda.Repository/MusicApp.Banda.Repository.csproj",
+      "msbuildProject": "../MusicApp.Banda.Repository/MusicApp.Banda.Repository.csproj"
+    },
+    "MusicApp.Core/1.0.0": {
+      "type": "project",
+      "path": "../MusicApp.Core/MusicApp.Core.csproj",
+      "msbuildProject": "../MusicApp.Core/MusicApp.Core.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net6.0": [
+      "MusicApp.Banda.Domain >= 1.0.0",
+      "MusicApp.Banda.Repository >= 1.0.0",
+      "MusicApp.Core >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Renat\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Repos\\2023.4-microsservicos\\microsservicos\\Banda\\MusicApp.Banda\\MusicApp.Banda.Application\\MusicApp.Banda.Application.csproj",
+      "projectName": "MusicApp.Banda.Application",
+      "projectPath": "C:\\Repos\\2023.4-microsservicos\\microsservicos\\Banda\\MusicApp.Banda\\MusicApp.Banda.Application\\MusicApp.Banda.Application.csproj",
+      "packagesPath": "C:\\Users\\Renat\\.nuget\\packages\\",
+      "outputPath": "C:\\Repos\\2023.4-microsservicos\\microsservicos\\Banda\\MusicApp.Banda\\MusicApp.Banda.Application\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\Renat\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Users\\Renat\\AppData\\Local\\Programs\\UiPath\\Studio\\Packages": {},
+        "https://api.nuget.org/v3/index.json": {},
+        "https://gallery.uipath.com/api/v3/index.json": {},
+        "https://pkgs.dev.azure.com/uipath/Public.Feeds/_packaging/UiPath-Official/nuget/v3/index.json": {}
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "projectReferences": {
+            "C:\\Repos\\2023.4-microsservicos\\microsservicos\\Banda\\MusicApp.Banda\\MusicApp.Banda.Domain\\MusicApp.Banda.Domain.csproj": {
+              "projectPath": "C:\\Repos\\2023.4-microsservicos\\microsservicos\\Banda\\MusicApp.Banda\\MusicApp.Banda.Domain\\MusicApp.Banda.Domain.csproj"
+            },
+            "C:\\Repos\\2023.4-microsservicos\\microsservicos\\Banda\\MusicApp.Banda\\MusicApp.Banda.Repository\\MusicApp.Banda.Repository.csproj": {
+              "projectPath": "C:\\Repos\\2023.4-microsservicos\\microsservicos\\Banda\\MusicApp.Banda\\MusicApp.Banda.Repository\\MusicApp.Banda.Repository.csproj"
+            },
+            "C:\\Repos\\2023.4-microsservicos\\microsservicos\\Banda\\MusicApp.Banda\\MusicApp.Core\\MusicApp.Core.csproj": {
+              "projectPath": "C:\\Repos\\2023.4-microsservicos\\microsservicos\\Banda\\MusicApp.Banda\\MusicApp.Core\\MusicApp.Core.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net6.0": {
+        "targetAlias": "net6.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

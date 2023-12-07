@@ -1,0 +1,64 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "MusicApp.Banda.Application/1.0.0": {
+        "dependencies": {
+          "MusicApp.Banda.Domain": "1.0.0",
+          "MusicApp.Banda.Repository": "1.0.0",
+          "MusicApp.Core": "1.0.0"
+        },
+        "runtime": {
+          "MusicApp.Banda.Application.dll": {}
+        }
+      },
+      "MusicApp.Banda.Domain/1.0.0": {
+        "dependencies": {
+          "MusicApp.Core": "1.0.0"
+        },
+        "runtime": {
+          "MusicApp.Banda.Domain.dll": {}
+        }
+      },
+      "MusicApp.Banda.Repository/1.0.0": {
+        "dependencies": {
+          "MusicApp.Banda.Domain": "1.0.0"
+        },
+        "runtime": {
+          "MusicApp.Banda.Repository.dll": {}
+        }
+      },
+      "MusicApp.Core/1.0.0": {
+        "runtime": {
+          "MusicApp.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MusicApp.Banda.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MusicApp.Banda.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MusicApp.Banda.Repository/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MusicApp.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
