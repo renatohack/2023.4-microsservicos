@@ -1,0 +1,49 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "MusicApp.Plano.Repository/1.0.0": {
+        "dependencies": {
+          "MusicApp.Plano.Domain": "1.0.0"
+        },
+        "runtime": {
+          "MusicApp.Plano.Repository.dll": {}
+        }
+      },
+      "MusicApp.Core/1.0.0": {
+        "runtime": {
+          "MusicApp.Core.dll": {}
+        }
+      },
+      "MusicApp.Plano.Domain/1.0.0": {
+        "dependencies": {
+          "MusicApp.Core": "1.0.0"
+        },
+        "runtime": {
+          "MusicApp.Plano.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MusicApp.Plano.Repository/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MusicApp.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MusicApp.Plano.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

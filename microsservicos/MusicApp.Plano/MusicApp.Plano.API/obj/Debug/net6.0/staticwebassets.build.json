@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "1SGHl64SKRkjKCzkNwzfL+0XwtV8Ex2xZuRg7kwNwCQ=",
+  "Source": "MusicApp.Plano.API",
+  "BasePath": "_content/MusicApp.Plano.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

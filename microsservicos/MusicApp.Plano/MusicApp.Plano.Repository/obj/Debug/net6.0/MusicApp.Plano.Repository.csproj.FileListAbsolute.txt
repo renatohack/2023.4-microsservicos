@@ -1,0 +1,17 @@
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Plano\MusicApp.Plano.Repository\obj\Debug\net6.0\MusicApp.Plano.Repository.csproj.AssemblyReference.cache
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Plano\MusicApp.Plano.Repository\obj\Debug\net6.0\MusicApp.Plano.Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Plano\MusicApp.Plano.Repository\obj\Debug\net6.0\MusicApp.Plano.Repository.AssemblyInfoInputs.cache
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Plano\MusicApp.Plano.Repository\obj\Debug\net6.0\MusicApp.Plano.Repository.AssemblyInfo.cs
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Plano\MusicApp.Plano.Repository\obj\Debug\net6.0\MusicApp.Plano.Repository.csproj.CoreCompileInputs.cache
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Plano\MusicApp.Plano.Repository\bin\Debug\net6.0\MusicApp.Plano.Repository.deps.json
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Plano\MusicApp.Plano.Repository\bin\Debug\net6.0\MusicApp.Plano.Repository.dll
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Plano\MusicApp.Plano.Repository\bin\Debug\net6.0\MusicApp.Plano.Repository.pdb
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Plano\MusicApp.Plano.Repository\bin\Debug\net6.0\MusicApp.Core.dll
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Plano\MusicApp.Plano.Repository\bin\Debug\net6.0\MusicApp.Plano.Domain.dll
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Plano\MusicApp.Plano.Repository\bin\Debug\net6.0\MusicApp.Plano.Domain.pdb
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Plano\MusicApp.Plano.Repository\bin\Debug\net6.0\MusicApp.Core.pdb
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Plano\MusicApp.Plano.Repository\obj\Debug\net6.0\MusicApp.Plano.Repository.csproj.CopyComplete
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Plano\MusicApp.Plano.Repository\obj\Debug\net6.0\MusicApp.Plano.Repository.dll
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Plano\MusicApp.Plano.Repository\obj\Debug\net6.0\refint\MusicApp.Plano.Repository.dll
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Plano\MusicApp.Plano.Repository\obj\Debug\net6.0\MusicApp.Plano.Repository.pdb
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Plano\MusicApp.Plano.Repository\obj\Debug\net6.0\ref\MusicApp.Plano.Repository.dll
