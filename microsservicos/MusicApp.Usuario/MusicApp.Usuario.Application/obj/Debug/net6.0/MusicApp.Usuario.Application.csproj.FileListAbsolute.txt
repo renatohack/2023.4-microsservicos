@@ -1,0 +1,5 @@
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.Application\obj\Debug\net6.0\MusicApp.Usuario.Application.csproj.AssemblyReference.cache
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.Application\obj\Debug\net6.0\MusicApp.Usuario.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.Application\obj\Debug\net6.0\MusicApp.Usuario.Application.AssemblyInfoInputs.cache
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.Application\obj\Debug\net6.0\MusicApp.Usuario.Application.AssemblyInfo.cs
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.Application\obj\Debug\net6.0\MusicApp.Usuario.Application.csproj.CoreCompileInputs.cache

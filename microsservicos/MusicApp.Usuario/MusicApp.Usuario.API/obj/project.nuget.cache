@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "Op8rHwQLWITusyETaZR+8rvupxjO8lGl4ZaEdsEmdJXKVfEg1at8WeiTXTSJoXj6dSEDjTkd3Z31xpIU5JGKJA==",
+  "success": true,
+  "projectFilePath": "C:\\Repos\\2023.4-microsservicos\\microsservicos\\MusicApp.Usuario\\MusicApp.Usuario.API\\MusicApp.Usuario.API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Renat\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\Renat\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Renat\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
+    "C:\\Users\\Renat\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
+    "C:\\Users\\Renat\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
+    "C:\\Users\\Renat\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.5.0\\swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

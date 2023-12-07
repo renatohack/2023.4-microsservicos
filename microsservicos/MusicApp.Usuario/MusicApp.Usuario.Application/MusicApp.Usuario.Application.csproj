@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MusicApp.Core\MusicApp.Core.csproj" />
+    <ProjectReference Include="..\MusicApp.Usuario.Domain\MusicApp.Usuario.Domain.csproj" />
+    <ProjectReference Include="..\MusicApp.Usuario.Repository\MusicApp.Usuario.Repository.csproj" />
+  </ItemGroup>
+
+</Project>
