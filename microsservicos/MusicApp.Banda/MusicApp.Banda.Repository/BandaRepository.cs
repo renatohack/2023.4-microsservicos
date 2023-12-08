@@ -52,5 +52,20 @@ namespace MusicApp.Banda.Repository
 
         public domain.Banda ObterBandaPorId(Guid idBanda) => BandaRepository._bandas.FirstOrDefault(banda => banda.Id == idBanda);
 
+        public void SalvarBanda(domain.Banda banda)
+        {
+            domain.Banda bandaBanco = this.ObterBandaPorId(banda.Id);
+
+            if (bandaBanco == null)
+            {
+                BandaRepository._bandas.Add(banda);
+            }
+            else
+            {
+                int indexToUpdate = BandaRepository._bandas.FindIndex(banda => banda.Id.Equals(banda.Id));
+                BandaRepository._bandas[indexToUpdate] = banda;
+            }
+        }
+
     }
 }

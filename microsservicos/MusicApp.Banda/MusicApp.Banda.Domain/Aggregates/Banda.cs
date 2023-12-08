@@ -19,7 +19,7 @@ namespace MusicApp.Banda.Domain.Aggregates {
         }
 
 
-        public List<Musica> BuscarMusicas(string nome) => this.Musicas.Where(musica => musica.Nome.ToUpper().Contains(nome.ToUpper())).ToList();
+        public List<Musica> ObterMusicasPorNome(string nome) => this.Musicas.Where(musica => musica.Nome.ToUpper().Contains(nome.ToUpper())).ToList();
 
 
         public void AdicionarMusicas(List<Musica> musicas)
