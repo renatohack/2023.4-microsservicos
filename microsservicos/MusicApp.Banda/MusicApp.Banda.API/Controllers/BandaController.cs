@@ -1,0 +1,71 @@
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using MusicApp.Banda.Application;
+using MusicApp.Banda.Application.DTO;
+
+namespace MusicApp.Banda.API.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class BandaController : ControllerBase
+    {
+
+        private readonly ILogger<BandaController> _logger;
+        private readonly BandaService _service = new BandaService();
+
+        public BandaController(ILogger<BandaController> logger)
+        {
+            _logger = logger;
+        }
+
+
+
+        // BANDA 
+        [HttpPost("criar")]
+        public IActionResult CriarBanda(CriarBandaDtoReq dtoReq)
+        {
+            if (ModelState.IsValid == false)
+            {
+                return BadRequest(ModelState);
+            }
+
+            CriarBandaDtoResp dtoResp = _service.CriarBanda(dtoReq);
+
+            return Created($"{dtoResp.IdBanda}", dtoResp);
+        }
+
+
+        [HttpGet("{idBanda}")]
+        public IActionResult ObterBandaPorId(Guid idBanda)
+        {
+            ObterBandaPorIdDtoResp dtoResp = _service.ObterBandaPorId(idBanda);
+
+            return Ok(dtoResp);
+        }
+
+
+
+        // MUSICAS
+        [HttpPost("{idBanda}/adicionar-musicas")]
+        public IActionResult AdicionarMusicas(Guid idBanda, AdicionarMusicasDtoReq dtoReq)
+        {
+            if (ModelState.IsValid == false)
+            {
+                return BadRequest(ModelState);
+            }
+
+            AdicionarMusicasDtoResp dtoResp = _service.AdicionarMusicas(idBanda, dtoReq);
+
+            return Ok(dtoResp);
+        }
+
+        [HttpGet("{idBanda}/buscar-musicas/{nome}")]
+        public IActionResult BuscarMusicasPorNome(Guid idBanda, string nome)
+        {
+            ObterMusicasPorNomeDtoResp dtoResp = _service.ObterMusicasPorNome(idBanda, nome);
+
+            return Ok(dtoResp);
+        }
+
+    }
+}
