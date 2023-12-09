@@ -22,27 +22,27 @@ namespace MusicApp.Usuario.Application
 
 
         // USUARIO
-        public CriarContaDtoResponse CriarConta(CriarContaDtoRequest contaDto)
+        public CriarContaDtoResp CriarConta(CriarContaDtoReq dtoReq)
         {
 
             // Pega plano no banco a partir do ID passado dentro da classe DTO
-            domain.Plano plano = planoService.ObterPlanoPorId(contaDto.PlanoId);
+            domain.Plano plano = planoService.ObterPlanoPorId(dtoReq.PlanoId);
 
             // Gera um objeto cartão a partir da classe DTO, para ser usado na criação do usuário
-            domain.Cartao cartao = GerarObjetoCartao(contaDto.Cartao);
+            domain.Cartao cartao = GerarObjetoCartao(dtoReq.Cartao);
 
             // Cria usuario, passando cartao criado e plano retornado
-            domain.Usuario usuarioCriado = domain.Usuario.CriarUsuario(contaDto.Nome, cartao, plano);
+            domain.Usuario usuarioCriado = domain.Usuario.CriarUsuario(dtoReq.Nome, cartao, plano);
 
             // Gravar novo usuarioCriado na base
             this.usuarioRepository.SalvarUsuarioNaBase(usuarioCriado);
 
             // Retornar Conta DTO, com o ID atualizado
-            CriarContaDtoResponse contaDtoResponse = new CriarContaDtoResponse()
+            CriarContaDtoResp dtoResp = new CriarContaDtoResp()
             {
                 IdUsuario = usuarioCriado.Id,
             };
-            return contaDtoResponse;
+            return dtoResp;
             
         }
 

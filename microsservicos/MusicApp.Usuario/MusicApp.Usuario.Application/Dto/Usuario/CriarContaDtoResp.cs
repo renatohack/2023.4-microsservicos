@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MusicApp.Usuario.Application.Dto
 {
-    public class CriarContaDtoResponse
+    public class CriarContaDtoResp
     {
         public Guid IdUsuario { get; set; }
 

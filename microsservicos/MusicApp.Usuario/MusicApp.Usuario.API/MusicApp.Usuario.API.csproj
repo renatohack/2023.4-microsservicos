@@ -11,10 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\MusicApp.Core\MusicApp.Core.csproj" />
     <ProjectReference Include="..\MusicApp.Usuario.Application\MusicApp.Usuario.Application.csproj" />
   </ItemGroup>

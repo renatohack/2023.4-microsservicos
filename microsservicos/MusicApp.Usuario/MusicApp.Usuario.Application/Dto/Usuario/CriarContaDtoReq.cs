@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MusicApp.Usuario.Application.Dto
 {
-    public class CriarContaDtoRequest
+    public class CriarContaDtoReq
     {
         [Required]
         public String Nome { get; set; }
