@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace MusicApp.Plano.Application.DTO
 {
-    public class PlanoDto
+    public class ObterPlanoPorIdDtoResp
     {
-        public Guid IdPlano { get; set; }
-        public string Nome { get; set; }
-        public decimal Valor { get; set; }
+        public PlanoDto Plano { get; set; }
     }
 }

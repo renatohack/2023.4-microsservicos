@@ -1,4 +1,4 @@
-﻿namespace MusicApp.API.ErrorHandling
+﻿namespace MusicApp.Plano.API.ErrorHandling
 {
     public class ErrorHandling
     {

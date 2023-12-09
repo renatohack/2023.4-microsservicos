@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Diagnostics;
-using MusicApp.API.ErrorHandling;
+using MusicApp.Plano.API.ErrorHandling;
 using MusicApp.Core.Exception;
 using System.Net;
 using System.Text.Json.Serialization;
 
-namespace MusicApp.API
+namespace MusicApp.Plano.API
 {
     public class Program
     {
@@ -41,7 +41,7 @@ namespace MusicApp.API
 
                 if (exception is MusicApp.Core.Exception.BusinessException businessException)
                 {
-                    var errorResponse = new MusicApp.API.ErrorHandling.ErrorHandling();
+                    var errorResponse = new MusicApp.Plano.API.ErrorHandling.ErrorHandling();
 
                     foreach (var item in businessException.ListErros)
                     {

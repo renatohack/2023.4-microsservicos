@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using domain = MusicApp.Plano.Domain.Aggregates;
 
-namespace MusicApp.Repository
+namespace MusicApp.Plano.Repository
 {
     public class PlanoRepository
     {
@@ -30,7 +30,25 @@ namespace MusicApp.Repository
         }
 
 
+        public void SalvarPlano(domain.Plano plano)
+        {
+            domain.Plano PlanoBanco = this.ObterPlanoPorId(plano.Id);
+
+            if (PlanoBanco == null)
+            {
+                PlanoRepository._planos.Add(plano);
+            }
+            else
+            {
+                int indexToUpdate = PlanoRepository._planos.FindIndex(Plano => Plano.Id.Equals(Plano.Id));
+                PlanoRepository._planos[indexToUpdate] = plano;
+            }
+        }
+
+
         public domain.Plano ObterPlanoPorId(Guid idPlano) => PlanoRepository._planos.FirstOrDefault(plano => plano.Id == idPlano);
+
+        public List<domain.Plano> ListarPlanos() => PlanoRepository._planos.Select(plano => plano).ToList();
 
     }
 }

@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MusicApp.Plano.Application.DTO
 {
-    public class PlanoDto
+    public class CriarPlanoDtoReq
     {
-        public Guid IdPlano { get; set; }
+        [Required]
         public string Nome { get; set; }
-        public decimal Valor { get; set; }
+        
+        [Required]
+        public Decimal Valor { get; set; }
     }
 }

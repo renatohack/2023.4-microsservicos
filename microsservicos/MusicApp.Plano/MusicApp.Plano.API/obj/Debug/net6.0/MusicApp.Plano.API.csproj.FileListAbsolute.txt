@@ -37,3 +37,4 @@ C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Plano\MusicApp.Plano.API\
 C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Plano\MusicApp.Plano.API\obj\Debug\net6.0\MusicApp.Plano.API.pdb
 C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Plano\MusicApp.Plano.API\obj\Debug\net6.0\MusicApp.Plano.API.genruntimeconfig.cache
 C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Plano\MusicApp.Plano.API\obj\Debug\net6.0\ref\MusicApp.Plano.API.dll
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Plano\MusicApp.Plano.API\obj\Debug\net6.0\MusicApp.Plano.API.MvcApplicationPartsAssemblyInfo.cs
