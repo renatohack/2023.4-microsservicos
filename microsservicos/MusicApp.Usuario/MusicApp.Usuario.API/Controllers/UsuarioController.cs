@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MusicApp.Usuario.Application;
 using MusicApp.Usuario.Application.Dto;
+using MusicApp.Usuario.Domain.Aggregates;
 
 
 namespace MusicApp.Usuario.API.Controllers
@@ -22,25 +23,25 @@ namespace MusicApp.Usuario.API.Controllers
 
         // USUARIO
         [HttpPost("criar")]
-        public IActionResult CriarConta(CriarContaDtoReq dtoReq)
+        public async Task<IActionResult> CriarConta(CriarContaDtoReq dtoReq)
         {
             if (ModelState.IsValid == false)
             {
                 return BadRequest(ModelState);
             }
 
-            CriarContaDtoResp dtoResp = this._service.CriarConta(dtoReq);
+            CriarContaDtoResp dtoResp = await this._service.CriarConta(dtoReq);
 
-            return Created($"/usuario/{dtoResp.IdUsuario}", dtoResp);
+            return Created($"/{dtoResp.IdUsuario}", dtoResp);
         }
 
 
         [HttpGet("{idUsuario}")]
         public IActionResult ObterUsuarioPorId(Guid idUsuario)
         {
-            ObterUsuarioPorIdDtoResponse dtoResponse = this._service.ObterUsuarioPorId(idUsuario);
+            ObterUsuarioPorIdDtoResp dtoResp = this._service.ObterUsuarioPorId(idUsuario);
 
-            return Ok(dtoResponse);
+            return Ok(dtoResp);
 
         }
 
@@ -50,17 +51,19 @@ namespace MusicApp.Usuario.API.Controllers
 
 
         // CARTOES
-        [HttpPost("cartoes/adicionar")]
-        public IActionResult AdicionarCartaoCredito(AdicionarCartaoDtoRequest dto)
+        [HttpPost("{idUsuario}/cartoes/adicionar")]
+        public IActionResult AdicionarCartaoCredito(Guid idUsuario, AdicionarCartaoDtoReq dtoReq)
         {
             if (ModelState.IsValid == false)
             {
                 return BadRequest(ModelState);
             }
 
-            AdicionarCartaoDtoResponse dtoResponse = this._service.AdicionarCartao(dto);
+            dtoReq.IdUsuario = idUsuario;
 
-            return Created($"/cartoes/{dtoResponse.IdCartao}", dtoResponse);
+            AdicionarCartaoDtoResp dtoResp = this._service.AdicionarCartao(dtoReq);
+
+            return Created($"/{idUsuario}/cartoes/{dtoResp.IdCartao}", dtoResp);
         }
 
 
@@ -69,17 +72,19 @@ namespace MusicApp.Usuario.API.Controllers
 
 
         // PLAYLISTS
-        [HttpPost("playlists/criar")]
-        public IActionResult CriarPlaylist(CriarPlaylistDtoRequest dto)
+        [HttpPost("{idUsuario}/playlists/criar")]
+        public IActionResult CriarPlaylist(Guid idUsuario, CriarPlaylistDtoReq dtoReq)
         {
             if (ModelState.IsValid == false)
             {
                 return BadRequest(ModelState);
             }
 
-            CriarPlaylistDtoResponse dtoResponse = this._service.CriarPlaylist(dto);
+            dtoReq.IdUsuario = idUsuario;
 
-            return Created($"/playlists/{dtoResponse.IdPlaylist}", dtoResponse);
+            CriarPlaylistDtoResp dtoResp = this._service.CriarPlaylist(dtoReq);
+
+            return Created($"/{idUsuario}/playlists/{dtoResp.IdPlaylist}", dtoResp);
         }
 
 
@@ -87,35 +92,36 @@ namespace MusicApp.Usuario.API.Controllers
 
 
         // BANDAS
-        [HttpPost("bandas/favoritar")]
-        public IActionResult FavoritarBanda(FavoritarBandaDtoRequest dto)
+        [HttpPost("{idUsuario}/bandas/favoritar")]
+        public async Task<IActionResult> FavoritarBanda(Guid idUsuario, FavoritarBandaDtoReq dtoReq)
         {
             if (ModelState.IsValid == false)
             {
                 return BadRequest(ModelState);
             }
 
+            dtoReq.IdUsuario = idUsuario;
 
-            FavoritarBandasDtoResponse dtoResponse = this._service.FavoritarBanda(dto);
+            FavoritarBandasDtoResp dtoResp = await this._service.FavoritarBanda(dtoReq);
 
-            return Ok(dtoResponse);
+            return Ok(dtoResp);
         }
 
 
-        [HttpGet("{idUsuario}/{banda}")]
-        public IActionResult ObterBandas(Guid idUsuario, string banda)
+        [HttpGet("{idUsuario}/bandas/buscar")]
+        public IActionResult BuscarBandas(Guid idUsuario, string banda)
         {
 
-            ObterBandasDtoRequest bandaDtoRequest = new ObterBandasDtoRequest
+            BuscarBandasDtoReq dtoReq = new BuscarBandasDtoReq
             {
                 IdUsuario = idUsuario,
                 Nome = banda,
             };
 
-            ObterBandasDtoResponse dtoResponse = this._service.ObterBandas(bandaDtoRequest);
+            BuscarBandasDtoResp dtoResp = this._service.BuscarBandas(dtoReq);
 
 
-            return Ok(dtoResponse);
+            return Ok(dtoResp);
 
         }
 
@@ -124,8 +130,8 @@ namespace MusicApp.Usuario.API.Controllers
 
 
         // ASSINATURAS
-        [HttpPost("plano/assinar")]
-        public IActionResult AssinarPlano(AssinarPlanoDtoRequest dto)
+        [HttpPost("{idUsuario}/planos/assinar")]
+        public async Task<IActionResult> AssinarPlano(AssinarPlanoDtoReq dtoReq)
         {
             if (ModelState.IsValid == false)
             {
@@ -133,9 +139,9 @@ namespace MusicApp.Usuario.API.Controllers
             }
 
 
-            AssinarPlanoDtoResponse dtoResponse = this._service.AssinarPlano(dto);
+            AssinarPlanoDtoResp dtoResp = await this._service.AssinarPlano(dtoReq);
 
-            return Ok(dtoResponse);
+            return Ok(dtoResp);
         }
 
 

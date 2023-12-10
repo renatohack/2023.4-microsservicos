@@ -15,18 +15,17 @@ namespace MusicApp.Usuario.Application
     public class UsuarioService
     {
 
-        private UsuarioRepository usuarioRepository = new UsuarioRepository();
-        private BandaRepository bandaRepository = new BandaRepository();
-
-        private PlanoService planoService = new PlanoService();
+        private UsuarioRepository usuarioRepo = new UsuarioRepository();
+        private PlanoRepository planoRepo = new PlanoRepository();
+        private BandaRepository bandaRepo = new BandaRepository();
 
 
         // USUARIO
-        public CriarContaDtoResp CriarConta(CriarContaDtoReq dtoReq)
+        public async Task<CriarContaDtoResp> CriarConta(CriarContaDtoReq dtoReq)
         {
 
             // Pega plano no banco a partir do ID passado dentro da classe DTO
-            domain.Plano plano = planoService.ObterPlanoPorId(dtoReq.PlanoId);
+            domain.Plano plano = await planoRepo.ObterPlanoPorId(dtoReq.PlanoId);
 
             // Gera um objeto cartão a partir da classe DTO, para ser usado na criação do usuário
             domain.Cartao cartao = GerarObjetoCartao(dtoReq.Cartao);
@@ -35,20 +34,21 @@ namespace MusicApp.Usuario.Application
             domain.Usuario usuarioCriado = domain.Usuario.CriarUsuario(dtoReq.Nome, cartao, plano);
 
             // Gravar novo usuarioCriado na base
-            this.usuarioRepository.SalvarUsuarioNaBase(usuarioCriado);
+            this.usuarioRepo.SalvarUsuarioNaBase(usuarioCriado);
 
             // Retornar Conta DTO, com o ID atualizado
             CriarContaDtoResp dtoResp = new CriarContaDtoResp()
             {
                 IdUsuario = usuarioCriado.Id,
             };
+
             return dtoResp;
             
         }
 
-        public ObterUsuarioPorIdDtoResponse ObterUsuarioPorId(Guid idUsuario)
+        public ObterUsuarioPorIdDtoResp ObterUsuarioPorId(Guid idUsuario)
         {
-            domain.Usuario usuario = usuarioRepository.ObterUsuarioPorId(idUsuario);
+            domain.Usuario usuario = usuarioRepo.ObterUsuarioPorId(idUsuario);
 
             if (usuario == null)
             {
@@ -60,7 +60,7 @@ namespace MusicApp.Usuario.Application
                 throw new BusinessException(erroNegocio);
             }
 
-            ObterUsuarioPorIdDtoResponse usuarioResponse = new ObterUsuarioPorIdDtoResponse()
+            ObterUsuarioPorIdDtoResp usuarioResponse = new ObterUsuarioPorIdDtoResp()
             {
                 IdUsuario = usuario.Id,
                 Nome = usuario.Nome,
@@ -79,17 +79,17 @@ namespace MusicApp.Usuario.Application
 
 
         // CARTOES
-        public AdicionarCartaoDtoResponse AdicionarCartao(AdicionarCartaoDtoRequest contaDto)
+        public AdicionarCartaoDtoResp AdicionarCartao(AdicionarCartaoDtoReq contaDto)
         {
-            domain.Usuario usuario = usuarioRepository.ObterUsuarioPorId(contaDto.IdUsuario);
+            domain.Usuario usuario = usuarioRepo.ObterUsuarioPorId(contaDto.IdUsuario);
 
             domain.Cartao cartao = this.GerarObjetoCartao(contaDto.Cartao);
 
             usuario.AdicionarCartao(cartao);
 
-            this.usuarioRepository.SalvarUsuarioNaBase(usuario);
+            this.usuarioRepo.SalvarUsuarioNaBase(usuario);
 
-            AdicionarCartaoDtoResponse contaDtoResponse = new AdicionarCartaoDtoResponse()
+            AdicionarCartaoDtoResp contaDtoResponse = new AdicionarCartaoDtoResp()
             {
                 IdCartao = cartao.Id,
             };
@@ -102,15 +102,15 @@ namespace MusicApp.Usuario.Application
 
 
         //PLAYLISTS
-        public CriarPlaylistDtoResponse CriarPlaylist(CriarPlaylistDtoRequest playlistDto)
+        public CriarPlaylistDtoResp CriarPlaylist(CriarPlaylistDtoReq playlistDto)
         {
-            domain.Usuario usuario = usuarioRepository.ObterUsuarioPorId(playlistDto.IdUsuario);
+            domain.Usuario usuario = usuarioRepo.ObterUsuarioPorId(playlistDto.IdUsuario);
 
             domain.Playlist playlist = usuario.CriarPlaylist(playlistDto.Nome);
 
-            this.usuarioRepository.SalvarUsuarioNaBase(usuario);
+            this.usuarioRepo.SalvarUsuarioNaBase(usuario);
 
-            CriarPlaylistDtoResponse playlistDtoResponse = new CriarPlaylistDtoResponse()
+            CriarPlaylistDtoResp playlistDtoResponse = new CriarPlaylistDtoResp()
             {
                 IdPlaylist = playlist.Id,
             };
@@ -123,15 +123,15 @@ namespace MusicApp.Usuario.Application
 
 
         // BANDAS
-        public FavoritarBandasDtoResponse FavoritarBanda(FavoritarBandaDtoRequest contaDto)
+        public async Task<FavoritarBandasDtoResp> FavoritarBanda(FavoritarBandaDtoReq contaDto)
         {
-            domain.Usuario usuario = usuarioRepository.ObterUsuarioPorId(contaDto.IdUsuario);
-            domain.Banda banda = bandaRepository.ObterBandaPorId(contaDto.IdBanda);
+            domain.Usuario usuario = usuarioRepo.ObterUsuarioPorId(contaDto.IdUsuario);
+            domain.Banda banda = await bandaRepo.ObterBandaPorId(contaDto.IdBanda);
 
             usuario.FavoritarBanda(banda);
-            usuarioRepository.SalvarUsuarioNaBase(usuario);
+            usuarioRepo.SalvarUsuarioNaBase(usuario);
 
-            FavoritarBandasDtoResponse contaDtoResponse = new FavoritarBandasDtoResponse()
+            FavoritarBandasDtoResp contaDtoResponse = new FavoritarBandasDtoResp()
             {
                 IdUsuario = contaDto.IdUsuario,
                 BandasFavoritas = usuario.BandasFavoritas,
@@ -141,12 +141,12 @@ namespace MusicApp.Usuario.Application
         }
 
 
-        public BuscarBandasDtoResponse BuscarBandas(BuscarBandasDtoRequest bandaDto)
+        public BuscarBandasDtoResp BuscarBandas(BuscarBandasDtoReq bandaDto)
         {
-            domain.Usuario usuario = usuarioRepository.ObterUsuarioPorId(bandaDto.IdUsuario);
+            domain.Usuario usuario = usuarioRepo.ObterUsuarioPorId(bandaDto.IdUsuario);
             List<domain.Banda> bandas = usuario.BuscarBanda(bandaDto.Nome);
 
-            BuscarBandasDtoResponse bandaDtoResponse = new BuscarBandasDtoResponse
+            BuscarBandasDtoResp bandaDtoResponse = new BuscarBandasDtoResp
             {
                 Bandas = bandas,
             };
@@ -158,19 +158,19 @@ namespace MusicApp.Usuario.Application
 
 
         // ASSINATURAS
-        public AssinarPlanoDtoResponse AssinarPlano(AssinarPlanoDtoRequest contaDto)
+        public async Task<AssinarPlanoDtoResp> AssinarPlano(AssinarPlanoDtoReq contaDto)
         {
-            domain.Plano plano = planoService.ObterPlanoPorId(contaDto.IdPlano);
-            domain.Usuario usuario = usuarioRepository.ObterUsuarioPorId(contaDto.IdUsuario);
+            domain.Plano plano = await planoRepo.ObterPlanoPorId(contaDto.IdPlano);
+            domain.Usuario usuario = usuarioRepo.ObterUsuarioPorId(contaDto.IdUsuario);
             domain.Cartao cartao = usuario.BuscarCartaoPorId(contaDto.IdCartao);
             domain.Empresa empresa = new domain.Empresa();
 
             domain.Assinatura assinatura = usuario.AssinarPlano(empresa.Cnpj, plano, cartao);
 
-            this.usuarioRepository.SalvarUsuarioNaBase(usuario);
+            this.usuarioRepo.SalvarUsuarioNaBase(usuario);
 
             
-            AssinarPlanoDtoResponse planoDtoResponse = new AssinarPlanoDtoResponse
+            AssinarPlanoDtoResp planoDtoResponse = new AssinarPlanoDtoResp
             {
                 IdAssinatura = assinatura.Id,
             };

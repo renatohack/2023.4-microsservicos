@@ -9,7 +9,7 @@ namespace MusicApp.Banda.Application.DTO
 {
     public class MusicaDto
     {
-        public Guid IdMusica { get; set; }
+        public Guid Id { get; set; }
 
         [Required]
         public string Nome { get; set; }

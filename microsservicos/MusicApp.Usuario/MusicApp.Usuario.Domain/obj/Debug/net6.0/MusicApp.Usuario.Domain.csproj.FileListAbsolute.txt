@@ -3,3 +3,13 @@ C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.
 C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.Domain\obj\Debug\net6.0\MusicApp.Usuario.Domain.AssemblyInfoInputs.cache
 C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.Domain\obj\Debug\net6.0\MusicApp.Usuario.Domain.AssemblyInfo.cs
 C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.Domain\obj\Debug\net6.0\MusicApp.Usuario.Domain.csproj.CoreCompileInputs.cache
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.Domain\bin\Debug\net6.0\MusicApp.Usuario.Domain.deps.json
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.Domain\bin\Debug\net6.0\MusicApp.Usuario.Domain.dll
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.Domain\bin\Debug\net6.0\MusicApp.Usuario.Domain.pdb
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.Domain\bin\Debug\net6.0\MusicApp.Core.dll
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.Domain\bin\Debug\net6.0\MusicApp.Core.pdb
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.Domain\obj\Debug\net6.0\MusicApp.Usuario.Domain.csproj.CopyComplete
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.Domain\obj\Debug\net6.0\MusicApp.Usuario.Domain.dll
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.Domain\obj\Debug\net6.0\refint\MusicApp.Usuario.Domain.dll
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.Domain\obj\Debug\net6.0\MusicApp.Usuario.Domain.pdb
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.Domain\obj\Debug\net6.0\ref\MusicApp.Usuario.Domain.dll

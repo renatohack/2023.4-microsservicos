@@ -8,6 +8,6 @@ namespace MusicApp.Banda.Application.DTO
 {
     public class CriarBandaDtoResp
     {
-        public Guid IdBanda { get; set; }
+        public Guid Id { get; set; }
     }
 }

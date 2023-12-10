@@ -1,0 +1,49 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "MusicApp.Usuario.Repository/1.0.0": {
+        "dependencies": {
+          "MusicApp.Usuario.Domain": "1.0.0"
+        },
+        "runtime": {
+          "MusicApp.Usuario.Repository.dll": {}
+        }
+      },
+      "MusicApp.Core/1.0.0": {
+        "runtime": {
+          "MusicApp.Core.dll": {}
+        }
+      },
+      "MusicApp.Usuario.Domain/1.0.0": {
+        "dependencies": {
+          "MusicApp.Core": "1.0.0"
+        },
+        "runtime": {
+          "MusicApp.Usuario.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MusicApp.Usuario.Repository/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MusicApp.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MusicApp.Usuario.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -3,3 +3,17 @@ C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.
 C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.Application\obj\Debug\net6.0\MusicApp.Usuario.Application.AssemblyInfoInputs.cache
 C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.Application\obj\Debug\net6.0\MusicApp.Usuario.Application.AssemblyInfo.cs
 C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.Application\obj\Debug\net6.0\MusicApp.Usuario.Application.csproj.CoreCompileInputs.cache
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.Application\bin\Debug\net6.0\MusicApp.Usuario.Application.deps.json
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.Application\bin\Debug\net6.0\MusicApp.Usuario.Application.dll
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.Application\bin\Debug\net6.0\MusicApp.Usuario.Application.pdb
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.Application\bin\Debug\net6.0\MusicApp.Core.dll
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.Application\bin\Debug\net6.0\MusicApp.Usuario.Domain.dll
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.Application\bin\Debug\net6.0\MusicApp.Usuario.Repository.dll
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.Application\bin\Debug\net6.0\MusicApp.Core.pdb
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.Application\bin\Debug\net6.0\MusicApp.Usuario.Domain.pdb
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.Application\bin\Debug\net6.0\MusicApp.Usuario.Repository.pdb
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.Application\obj\Debug\net6.0\MusicApp.Usuario.Application.csproj.CopyComplete
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.Application\obj\Debug\net6.0\MusicApp.Usuario.Application.dll
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.Application\obj\Debug\net6.0\refint\MusicApp.Usuario.Application.dll
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.Application\obj\Debug\net6.0\MusicApp.Usuario.Application.pdb
+C:\Repos\2023.4-microsservicos\microsservicos\MusicApp.Usuario\MusicApp.Usuario.Application\obj\Debug\net6.0\ref\MusicApp.Usuario.Application.dll

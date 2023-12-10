@@ -31,7 +31,7 @@ namespace MusicApp.Banda.API.Controllers
 
             CriarBandaDtoResp dtoResp = _service.CriarBanda(dtoReq);
 
-            return Created($"{dtoResp.IdBanda}", dtoResp);
+            return Created($"{dtoResp.Id}", dtoResp);
         }
 
 
@@ -54,15 +54,15 @@ namespace MusicApp.Banda.API.Controllers
                 return BadRequest(ModelState);
             }
 
-            AdicionarMusicasDtoResp dtoResp = _service.AdicionarMusicas(idBanda, dtoReq);
+            _service.AdicionarMusicas(idBanda, dtoReq);
 
-            return Ok(dtoResp);
+            return Ok();
         }
 
-        [HttpGet("{idBanda}/buscar-musicas/{nome}")]
+        [HttpGet("{idBanda}/buscar-musicas")]
         public IActionResult BuscarMusicasPorNome(Guid idBanda, string nome)
         {
-            ObterMusicasPorNomeDtoResp dtoResp = _service.ObterMusicasPorNome(idBanda, nome);
+            BuscarMusicasPorNomeDtoResp dtoResp = _service.ObterMusicasPorNome(idBanda, nome);
 
             return Ok(dtoResp);
         }

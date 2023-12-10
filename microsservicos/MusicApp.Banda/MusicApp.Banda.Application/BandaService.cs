@@ -28,7 +28,7 @@ namespace MusicApp.Banda.Application
 
             CriarBandaDtoResp dtoResp = new CriarBandaDtoResp()
             {
-                IdBanda = banda.Id,
+                Id = banda.Id,
             };
 
             return dtoResp;
@@ -62,7 +62,7 @@ namespace MusicApp.Banda.Application
 
 
         // MUSICA 
-        public AdicionarMusicasDtoResp AdicionarMusicas(Guid idBanda, AdicionarMusicasDtoReq dtoReq)
+        public void AdicionarMusicas(Guid idBanda, AdicionarMusicasDtoReq dtoReq)
         {
             domain.Banda banda = bandaRepo.ObterBandaPorId(idBanda);
 
@@ -87,7 +87,7 @@ namespace MusicApp.Banda.Application
                     Banda = banda,
                 };
 
-                musicaDto.IdMusica = musica.Id;
+                musicaDto.Id = musica.Id;
 
                 musicasParaIncluir.Add(musica);
             }
@@ -95,16 +95,10 @@ namespace MusicApp.Banda.Application
             banda.AdicionarMusicas(musicasParaIncluir);
             bandaRepo.SalvarBanda(banda);
 
-            AdicionarMusicasDtoResp dtoResp = new AdicionarMusicasDtoResp()
-            {
-                Musicas = dtoReq.Musicas,
-            };
-
-            return dtoResp;
         }
 
 
-        public ObterMusicasPorNomeDtoResp ObterMusicasPorNome(Guid idBanda, string nome)
+        public BuscarMusicasPorNomeDtoResp ObterMusicasPorNome(Guid idBanda, string nome)
         {
             domain.Banda banda = bandaRepo.ObterBandaPorId(idBanda);
 
@@ -119,7 +113,7 @@ namespace MusicApp.Banda.Application
                 throw new BusinessException(erroNegocio);
             }
 
-            ObterMusicasPorNomeDtoResp dtoResp = new ObterMusicasPorNomeDtoResp()
+            BuscarMusicasPorNomeDtoResp dtoResp = new BuscarMusicasPorNomeDtoResp()
             {
                 Musicas = new List<MusicaDto>(),
             };
@@ -130,7 +124,7 @@ namespace MusicApp.Banda.Application
             {
                 MusicaDto musicaDto = new MusicaDto()
                 {
-                    IdMusica = musica.Id,
+                    Id = musica.Id,
                     Nome = musica.Nome,
                 };
 
