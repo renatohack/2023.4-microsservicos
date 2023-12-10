@@ -13,6 +13,12 @@ namespace MusicApp.Usuario.Repository
     {
         private HttpClient HttpClient { get; set; }
 
+        JsonSerializerOptions options = new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        };
+
+
         public PlanoRepository()
         {
             this.HttpClient = new HttpClient();
@@ -28,6 +34,7 @@ namespace MusicApp.Usuario.Repository
 
             var content = await response.Content.ReadAsStringAsync();
 
+            /*
             Dictionary<String, Dictionary<String, Object>>  dictPlano = 
                 JsonSerializer.Deserialize<Dictionary<string, Dictionary<String, Object>>>(content);
 
@@ -37,6 +44,9 @@ namespace MusicApp.Usuario.Repository
                 Nome = dictPlano["plano"]["nome"].ToString(),
                 Valor = decimal.Parse(dictPlano["plano"]["valor"].ToString())
             };
+            */
+
+            Plano plano = JsonSerializer.Deserialize<Plano>(content, options);
 
             return plano;
         }

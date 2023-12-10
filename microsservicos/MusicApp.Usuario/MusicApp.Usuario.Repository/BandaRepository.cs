@@ -12,6 +12,11 @@ namespace MusicApp.Usuario.Repository
     {
         private HttpClient HttpClient { get; set; }
 
+        JsonSerializerOptions options = new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        };
+
         public BandaRepository()
         {
             this.HttpClient = new HttpClient();
@@ -26,12 +31,7 @@ namespace MusicApp.Usuario.Repository
 
             var content = await response.Content.ReadAsStringAsync();
 
-            Dictionary<String, Dictionary<String, Object>> dictPlano =
-                JsonSerializer.Deserialize<Dictionary<string, Dictionary<String, Object>>>(content);
-
-
-
-            Banda banda = JsonSerializer.Deserialize<Banda>(content);
+            Banda banda = JsonSerializer.Deserialize<Banda>(content, options);
 
             return banda;
         }

@@ -131,13 +131,14 @@ namespace MusicApp.Usuario.API.Controllers
 
         // ASSINATURAS
         [HttpPost("{idUsuario}/planos/assinar")]
-        public async Task<IActionResult> AssinarPlano(AssinarPlanoDtoReq dtoReq)
+        public async Task<IActionResult> AssinarPlano(Guid idUsuario, AssinarPlanoDtoReq dtoReq)
         {
             if (ModelState.IsValid == false)
             {
                 return BadRequest(ModelState);
             }
 
+            dtoReq.IdUsuario = idUsuario;
 
             AssinarPlanoDtoResp dtoResp = await this._service.AssinarPlano(dtoReq);
 

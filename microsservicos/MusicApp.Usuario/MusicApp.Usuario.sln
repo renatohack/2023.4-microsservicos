@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicApp.Usuario.API", "MusicApp.Usuario.API\MusicApp.Usuario.API.csproj", "{3C24A2FC-4D78-4F34-8B43-614623CD7C76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusicApp.Usuario.API", "MusicApp.Usuario.API\MusicApp.Usuario.API.csproj", "{3C24A2FC-4D78-4F34-8B43-614623CD7C76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicApp.Usuario.Application", "MusicApp.Usuario.Application\MusicApp.Usuario.Application.csproj", "{577BBBC5-A932-48A2-A55E-4EFA84392BEE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusicApp.Usuario.Application", "MusicApp.Usuario.Application\MusicApp.Usuario.Application.csproj", "{577BBBC5-A932-48A2-A55E-4EFA84392BEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicApp.Core", "MusicApp.Core\MusicApp.Core.csproj", "{5DC99B71-1FB7-4C7A-9C97-27D6B87C2FF4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusicApp.Core", "MusicApp.Core\MusicApp.Core.csproj", "{5DC99B71-1FB7-4C7A-9C97-27D6B87C2FF4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicApp.Usuario.Domain", "MusicApp.Usuario.Domain\MusicApp.Usuario.Domain.csproj", "{15A9153E-35CF-4BF8-AA01-50A877D2DB42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusicApp.Usuario.Domain", "MusicApp.Usuario.Domain\MusicApp.Usuario.Domain.csproj", "{15A9153E-35CF-4BF8-AA01-50A877D2DB42}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicApp.Usuario.Repository", "MusicApp.Usuario.Repository\MusicApp.Usuario.Repository.csproj", "{452E5C16-AB21-4C3C-9A6C-985F41025DD2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusicApp.Usuario.Repository", "MusicApp.Usuario.Repository\MusicApp.Usuario.Repository.csproj", "{452E5C16-AB21-4C3C-9A6C-985F41025DD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicApp.Usuario.Tests", "MusicApp.Usuario.Tests\MusicApp.Usuario.Tests.csproj", "{24EDA906-DE7B-481F-8FDA-5D7D2183F7D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{452E5C16-AB21-4C3C-9A6C-985F41025DD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{452E5C16-AB21-4C3C-9A6C-985F41025DD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{452E5C16-AB21-4C3C-9A6C-985F41025DD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24EDA906-DE7B-481F-8FDA-5D7D2183F7D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24EDA906-DE7B-481F-8FDA-5D7D2183F7D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24EDA906-DE7B-481F-8FDA-5D7D2183F7D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24EDA906-DE7B-481F-8FDA-5D7D2183F7D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
