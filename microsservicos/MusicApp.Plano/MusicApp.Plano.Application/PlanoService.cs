@@ -50,16 +50,11 @@ namespace MusicApp.Plano.Application
                 throw new BusinessException(erroNegocio);
             }
 
-            PlanoDto planoDto = new PlanoDto()
-            {
-                IdPlano = plano.Id,
-                Nome = plano.Nome,
-                Valor = plano.Valor,
-            };
-
             ObterPlanoPorIdDtoResp dtoResp = new ObterPlanoPorIdDtoResp()
             {
-                Plano = planoDto
+                Id = plano.Id,
+                Nome = plano.Nome,
+                Valor = plano.Valor,
             };
 
             return dtoResp;
@@ -73,21 +68,8 @@ namespace MusicApp.Plano.Application
 
             ListarPlanosDtoResp dtoResp = new ListarPlanosDtoResp()
             {
-                Planos = new List<PlanoDto>(),
+                Planos = planosRepo,
             };
-            
-
-            foreach (domain.Plano plano in planosRepo)
-            {
-                PlanoDto planoDto = new PlanoDto
-                {
-                    IdPlano = plano.Id,
-                    Nome = plano.Nome,
-                    Valor = plano.Valor,
-                };
-
-                dtoResp.Planos.Add(planoDto);
-            }
 
             return dtoResp;
         }

@@ -8,6 +8,8 @@ namespace MusicApp.Plano.Application.DTO
 {
     public class ObterPlanoPorIdDtoResp
     {
-        public PlanoDto Plano { get; set; }
+        public Guid Id { get; set; }
+        public string Nome { get; set; }
+        public decimal Valor { get; set; }
     }
 }
