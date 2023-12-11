@@ -16,6 +16,7 @@ namespace MusicApp.Usuario.Domain.Aggregates
         [JsonIgnore]
         public Banda Banda { get; set; }
 
+        [JsonIgnore]
         public List<Playlist> Playlists { get; set; }
 
         public Musica() 

@@ -1,4 +1,5 @@
 ﻿using MusicApp.Banda.Application.DTO;
+using MusicApp.Banda.Domain.Aggregates;
 using MusicApp.Banda.Repository;
 using MusicApp.Core.Exception;
 using System;
@@ -42,7 +43,7 @@ namespace MusicApp.Banda.Application
             {
                 ErroNegocio erroNegocio = new ErroNegocio()
                 {
-                    MensagemErro = "Plano não encontrado.",
+                    MensagemErro = "Banda não encontrada.",
                     NomeErro = nameof(ObterBandaPorId),
                 };
 
@@ -60,6 +61,16 @@ namespace MusicApp.Banda.Application
         }
 
 
+        public ListarBandasDtoResp ListarBandas()
+        {
+            ListarBandasDtoResp dtoResp = new ListarBandasDtoResp()
+            {
+                Bandas = bandaRepo.ListarBandas(),
+            };
+
+            return dtoResp;
+        }
+
 
         // MUSICA 
         public void AdicionarMusicas(Guid idBanda, AdicionarMusicasDtoReq dtoReq)
@@ -70,7 +81,7 @@ namespace MusicApp.Banda.Application
             {
                 ErroNegocio erroNegocio = new ErroNegocio()
                 {
-                    MensagemErro = "Plano não encontrado.",
+                    MensagemErro = "Banda não encontrada.",
                     NomeErro = nameof(ObterBandaPorId),
                 };
 
@@ -106,7 +117,7 @@ namespace MusicApp.Banda.Application
             {
                 ErroNegocio erroNegocio = new ErroNegocio()
                 {
-                    MensagemErro = "Plano não encontrado.",
+                    MensagemErro = "Banda não encontrada.",
                     NomeErro = nameof(ObterBandaPorId),
                 };
 
@@ -133,6 +144,46 @@ namespace MusicApp.Banda.Application
 
             return dtoResp;
         }
+
+        public ObterMusicaPorIdDtoResp ObterMusicaPorId(Guid idMusica)
+        {
+            List<domain.Banda> bandas = bandaRepo.ListarBandas();
+
+            domain.Musica musicaResult = null;
+
+            foreach (domain.Banda banda in bandas) 
+            { 
+                foreach (domain.Musica musica in banda.Musicas)
+                {
+                    if (musica.Id == idMusica)
+                    {
+                        musicaResult = musica; 
+                        break;
+                    }
+                }
+            }
+
+            if (musicaResult == null)
+            {
+                ErroNegocio erroNegocio = new ErroNegocio()
+                {
+                    MensagemErro = "Musica não encontrada.",
+                    NomeErro = nameof(ObterMusicaPorId),
+                };
+
+                throw new BusinessException(erroNegocio);
+            }
+
+            ObterMusicaPorIdDtoResp dtoResp = new ObterMusicaPorIdDtoResp()
+            {
+                Id = idMusica,
+                Banda = musicaResult.Banda,
+                Nome = musicaResult.Nome,
+            };
+
+            return dtoResp;
+        }
+
 
     }
 }

@@ -1,5 +1,4 @@
-﻿using MusicApp.Usuario.Domain.Aggregates;
-using MusicApp.Usuario.Domain.Aggregates;
+﻿using domain = MusicApp.Usuario.Domain.Aggregates;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +11,9 @@ namespace MusicApp.Usuario.Application.Dto
     {
         public Guid IdUsuario { get; set; }
         public string Nome { get; set; }
-        public List<Assinatura> Assinaturas { get; set; }
-        public List<Playlist> Playlists { get; set; }
-        public List<Banda> BandasFavoritas { get; set; }
-        public List<Cartao> CartoesCredito { get; set; }
+        public List<domain.Assinatura> Assinaturas { get; set; }
+        public List<domain.Playlist> Playlists { get; set; }
+        public List<domain.Banda> BandasFavoritas { get; set; }
+        public List<domain.Cartao> CartoesCredito { get; set; }
     }
 }

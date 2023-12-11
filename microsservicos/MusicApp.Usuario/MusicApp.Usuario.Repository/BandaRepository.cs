@@ -24,7 +24,7 @@ namespace MusicApp.Usuario.Repository
 
         public async Task<Banda> ObterBandaPorId(Guid id)
         {
-            var response = await this.HttpClient.GetAsync($"https://localhost:7262/api/Banda/{id}");
+            var response = await this.HttpClient.GetAsync($"https://localhost:7262/api/Banda/bandas/{id}");
 
             if (response.IsSuccessStatusCode == false)
                 return null;
@@ -34,6 +34,21 @@ namespace MusicApp.Usuario.Repository
             Banda banda = JsonSerializer.Deserialize<Banda>(content, options);
 
             return banda;
+        }
+
+
+        public async Task<Musica> ObterMusicaPorId(Guid id)
+        {
+            var response = await this.HttpClient.GetAsync($"https://localhost:7262/api/Banda/musicas/{id}");
+
+            if (response.IsSuccessStatusCode == false)
+                return null;
+
+            var content = await response.Content.ReadAsStringAsync();
+
+            Musica musica = JsonSerializer.Deserialize<Musica>(content, options);
+
+            return musica;
         }
     }
 }

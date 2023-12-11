@@ -35,13 +35,25 @@ namespace MusicApp.Banda.API.Controllers
         }
 
 
-        [HttpGet("{idBanda}")]
+        [HttpGet("bandas/{idBanda}")]
         public IActionResult ObterBandaPorId(Guid idBanda)
         {
             ObterBandaPorIdDtoResp dtoResp = _service.ObterBandaPorId(idBanda);
 
             return Ok(dtoResp);
         }
+
+
+        [HttpGet("bandas")]
+        public IActionResult ListarBandas()
+        {
+            ListarBandasDtoResp dtoResp = _service.ListarBandas();
+
+            return Ok(dtoResp);
+        }
+
+
+
 
 
 
@@ -59,10 +71,20 @@ namespace MusicApp.Banda.API.Controllers
             return Ok();
         }
 
+
         [HttpGet("{idBanda}/buscar-musicas")]
         public IActionResult BuscarMusicasPorNome(Guid idBanda, string nome)
         {
             BuscarMusicasPorNomeDtoResp dtoResp = _service.ObterMusicasPorNome(idBanda, nome);
+
+            return Ok(dtoResp);
+        }
+
+
+        [HttpGet("musicas/{idMusica}")]
+        public IActionResult ObterMusicaPorId(Guid idMusica)
+        {
+            ObterMusicaPorIdDtoResp dtoResp = _service.ObterMusicaPorId(idMusica);
 
             return Ok(dtoResp);
         }

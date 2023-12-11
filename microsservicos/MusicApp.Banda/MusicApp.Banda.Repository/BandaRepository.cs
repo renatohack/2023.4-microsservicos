@@ -67,5 +67,6 @@ namespace MusicApp.Banda.Repository
             }
         }
 
+        public List<domain.Banda> ListarBandas() => BandaRepository._bandas;
     }
 }

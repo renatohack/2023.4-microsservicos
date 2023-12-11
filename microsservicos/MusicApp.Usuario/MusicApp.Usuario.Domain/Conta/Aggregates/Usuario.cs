@@ -87,6 +87,8 @@ namespace MusicApp.Usuario.Domain.Aggregates
             return playlist;
         }
 
+        public Playlist ObterPlaylistPorId(Guid id) => this.Playlists.FirstOrDefault(pl => pl.Id == id);
+
         public void FavoritarBanda(Banda banda) => this.BandasFavoritas.Add(banda);
 
         public List<Playlist> BuscarPlaylist(string nome) => this.Playlists.Where(playlist => playlist.Nome.ToUpper().Contains(nome.ToUpper())).ToList();
@@ -94,6 +96,10 @@ namespace MusicApp.Usuario.Domain.Aggregates
         public List<Banda> BuscarBanda(string nome) => this.BandasFavoritas.Where(banda => banda.Nome.ToUpper().Contains(nome.ToUpper())).ToList();
 
         public Cartao BuscarCartaoPorId(Guid idCartao) => this.Cartoes.FirstOrDefault(cartao => cartao.Id == idCartao);
+
+        public void FavoritarMusica(Musica musica) => this.Playlists.Where(pl => pl.Nome == "Favoritas").ToList()[0].Musicas.Add(musica);
+
+        public List<Musica> BuscarMusicas(string nome) => this.Playlists.Where(pl => pl.Nome == "Favoritas").ToList()[0].Musicas.Where(m => m.Nome.ToUpper().Contains(nome.ToUpper())).ToList();
 
     }
 }

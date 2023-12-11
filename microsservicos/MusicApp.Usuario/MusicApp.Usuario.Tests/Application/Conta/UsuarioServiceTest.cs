@@ -245,5 +245,33 @@ namespace MusicApp.Test.Application.Conta
             Assert.True(bandaDtoResponse.Bandas.FirstOrDefault(b => b.Nome.ToLower() == "queen") != null);
 
         }
+
+
+        /*
+        [Fact]
+        public async void DeveFavoritarMusicaComSucesso()
+        {
+            UsuarioRepository usuarioRepository = new UsuarioRepository();
+            BandaRepository bandaRepository = new BandaRepository();
+
+            domain.Usuario usuario = new domain.Usuario();
+            domain.Musica banda = await bandaRepository.ObterMusicaPorId(new Guid("BE431A65-6715-492A-A22C-4CC54CA9B029"));
+
+            usuario.FavoritarBanda(banda);
+            usuarioRepository.SalvarUsuarioNaBase(usuario);
+
+            BuscarBandasDtoReq bandaDtoRequest = new BuscarBandasDtoReq
+            {
+                IdUsuario = usuario.Id,
+                Nome = "que"
+            };
+
+            UsuarioService usuarioService = new UsuarioService();
+            BuscarBandasDtoResp bandaDtoResponse = usuarioService.BuscarBandas(bandaDtoRequest);
+
+            Assert.True(bandaDtoResponse.Bandas.FirstOrDefault(b => b.Nome.ToLower() == "queen") != null);
+        }
+        */
+
     }
 }

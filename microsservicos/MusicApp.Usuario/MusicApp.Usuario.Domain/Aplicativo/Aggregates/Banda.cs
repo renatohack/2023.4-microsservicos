@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace MusicApp.Usuario.Domain.Aggregates {
@@ -9,6 +10,8 @@ namespace MusicApp.Usuario.Domain.Aggregates {
     {
         public Guid Id { get; set; }
         public string Nome { get; set; }
+
+        [JsonIgnore]
         public List<Musica> Musicas { get; set; }
 
         public Banda() 

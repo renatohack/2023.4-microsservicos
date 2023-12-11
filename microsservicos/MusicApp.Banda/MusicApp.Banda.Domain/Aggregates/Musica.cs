@@ -13,7 +13,7 @@ namespace MusicApp.Banda.Domain.Aggregates
 
         public String Nome { get; set; }
 
-        [JsonIgnore]
+        //[JsonIgnore]
         public Banda Banda { get; set; }
 
 

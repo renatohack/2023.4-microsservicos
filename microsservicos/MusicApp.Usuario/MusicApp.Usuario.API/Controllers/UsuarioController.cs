@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using MusicApp.Usuario.Application;
 using MusicApp.Usuario.Application.Dto;
+using MusicApp.Usuario.Application.Dto.Musica;
+using MusicApp.Usuario.Application.Dto.Playlist;
 using MusicApp.Usuario.Domain.Aggregates;
 
 
@@ -88,12 +90,27 @@ namespace MusicApp.Usuario.API.Controllers
         }
 
 
+        [HttpPost("{idUsuario}/favoritar-musica/{idMusica}")]
+        public async Task<IActionResult> FavoritarMusica(Guid idUsuario, Guid idMusica)
+        {
+            if (ModelState.IsValid == false)
+            {
+                return BadRequest(ModelState);
+            }
 
+            FavoritarMusicaDtoReq dtoReq = new FavoritarMusicaDtoReq()
+            {
+                IdUsuario = idUsuario,
+                IdMusica = idMusica,
+            };
 
+            FavoritarMusicaDtoResp dtoResp = await this._service.FavoritarMusica(dtoReq);
 
-        // BANDAS
-        [HttpPost("{idUsuario}/bandas/favoritar")]
-        public async Task<IActionResult> FavoritarBanda(Guid idUsuario, FavoritarBandaDtoReq dtoReq)
+            return Ok(dtoResp);
+        }
+
+        [HttpPost("{idUsuario}/playlists/{idPlaylist}/inserir-musica")]
+        public async Task<IActionResult> InserirMusicaPlaylist(Guid idUsuario, Guid idPlaylist, InserirMusicaPlaylistDtoReq dtoReq)
         {
             if (ModelState.IsValid == false)
             {
@@ -101,6 +118,28 @@ namespace MusicApp.Usuario.API.Controllers
             }
 
             dtoReq.IdUsuario = idUsuario;
+            dtoReq.IdPlaylist = idPlaylist;
+
+            this._service.InserirMusicaPlaylist(dtoReq);
+
+            return Ok();
+        }
+
+
+        // BANDAS
+        [HttpPost("{idUsuario}/favoritar-banda/{idBanda}")]
+        public async Task<IActionResult> FavoritarBanda(Guid idUsuario, Guid idBanda)
+        {
+            if (ModelState.IsValid == false)
+            {
+                return BadRequest(ModelState);
+            }
+
+            FavoritarBandaDtoReq dtoReq = new FavoritarBandaDtoReq()
+            {
+                IdUsuario = idUsuario,
+                IdBanda = idBanda,
+            };
 
             FavoritarBandasDtoResp dtoResp = await this._service.FavoritarBanda(dtoReq);
 
@@ -119,6 +158,24 @@ namespace MusicApp.Usuario.API.Controllers
             };
 
             BuscarBandasDtoResp dtoResp = this._service.BuscarBandas(dtoReq);
+
+
+            return Ok(dtoResp);
+
+        }
+
+
+        [HttpGet("{idUsuario}/musicas/buscar")]
+        public IActionResult BuscarMusicas(Guid idUsuario, string musica)
+        {
+
+            BuscarMusicasDtoReq dtoReq = new BuscarMusicasDtoReq
+            {
+                IdUsuario = idUsuario,
+                Nome = musica,
+            };
+
+            BuscarMusicasDtoResp dtoResp = this._service.BuscarMusicas(dtoReq);
 
 
             return Ok(dtoResp);
