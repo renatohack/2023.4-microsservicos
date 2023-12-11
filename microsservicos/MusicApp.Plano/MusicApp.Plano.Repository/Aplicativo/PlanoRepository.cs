@@ -32,15 +32,15 @@ namespace MusicApp.Plano.Repository
 
         public void SalvarPlano(domain.Plano plano)
         {
-            domain.Plano PlanoBanco = this.ObterPlanoPorId(plano.Id);
+            domain.Plano planoBanco = this.ObterPlanoPorId(plano.Id);
 
-            if (PlanoBanco == null)
+            if (planoBanco == null)
             {
                 PlanoRepository._planos.Add(plano);
             }
             else
             {
-                int indexToUpdate = PlanoRepository._planos.FindIndex(Plano => Plano.Id.Equals(Plano.Id));
+                int indexToUpdate = PlanoRepository._planos.FindIndex(p => p.Id.Equals(plano.Id));
                 PlanoRepository._planos[indexToUpdate] = plano;
             }
         }

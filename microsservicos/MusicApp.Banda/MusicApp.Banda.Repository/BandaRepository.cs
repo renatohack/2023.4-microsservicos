@@ -62,7 +62,7 @@ namespace MusicApp.Banda.Repository
             }
             else
             {
-                int indexToUpdate = BandaRepository._bandas.FindIndex(banda => banda.Id.Equals(banda.Id));
+                int indexToUpdate = BandaRepository._bandas.FindIndex(b => b.Id.Equals(banda.Id));
                 BandaRepository._bandas[indexToUpdate] = banda;
             }
         }

@@ -26,7 +26,7 @@ namespace MusicApp.Usuario.Repository
             }
             else
             {
-                int indexToUpdate = UsuarioRepository._usuarios.FindIndex(user => user.Id.Equals(usuario.Id));
+                int indexToUpdate = UsuarioRepository._usuarios.FindIndex(u => u.Id.Equals(usuario.Id));
                 UsuarioRepository._usuarios[indexToUpdate] = usuario;
             }
 
